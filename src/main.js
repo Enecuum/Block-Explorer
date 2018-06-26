@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueNativeSock from 'vue-native-websocket'
-import StoreWS from './Store/WS'
+import StoreWS from './store/WS'
 
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -13,7 +13,6 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/global.css'
 
 Vue.use(BootstrapVue);
-
 
 Vue.use(VueNativeSock,
   //'ws://88.99.87.200:1555',
