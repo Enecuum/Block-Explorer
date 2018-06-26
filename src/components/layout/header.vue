@@ -1,42 +1,146 @@
 <template>
-  <b-navbar toggleable="md" type="dark" variant="info">
+  <b-navbar toggleable="lg" type="dark" class="header-nav">
 
-    <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-
-    <b-navbar-brand href="#">
-      <img src="../../../static/logo.svg" />
+    <b-navbar-brand :to="{name: 'Index'}" class="header-logo">
+      <svg width="132px" height="55px" viewBox="14 14 132 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <polygon id="path-1" points="0.0080728619 0.0337885802 21.9988653 0.0337885802 21.9988653 21.9773815 0.0080728619 21.9773815"></polygon>
+          <polygon id="path-3" points="0 0.0297765186 21.9905621 0.0297765186 21.9905621 21.9737565 0 21.9737565"></polygon>
+        </defs>
+        <g id="Artboard-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="Group-20" transform="translate(14.000000, 15.000000)">
+            <text id="Enecuum-Block-Explor-Copy" font-family="Neuropol-Regular, Neuropol" font-size="10" font-weight="normal" line-spacing="15" letter-spacing="2.6" fill="#FFFFFF">
+              <tspan x="60" y="14">Enecuum</tspan>
+              <tspan x="60" y="29">Block</tspan>
+              <tspan x="60" y="44">Explorer</tspan>
+            </text>
+            <g id="Group-32-Copy" transform="translate(11.000000, 10.000000)">
+              <g id="Group">
+                <g id="Group-3" transform="translate(6.589015, 0.010965)">
+                  <g id="Fill-1-Clipped">
+                    <mask id="mask-2" fill="white">
+                      <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="path-1"></g>
+                    <path d="M19.1199638,21.9773815 C18.9325131,21.9773815 18.7425522,21.9298537 18.568414,21.8294278 C18.0394998,21.524525 17.8586829,20.8496037 18.1636153,20.3218753 C19.7769379,17.5324154 20.2052688,14.2834309 19.3701223,11.172062 C18.5353344,8.06109599 16.5367113,5.46076265 13.7433723,3.8505466 C10.0181134,1.70342778 5.39069741,1.7037858 1.66646951,3.8505466 C1.13777948,4.15509136 0.461934785,3.97433364 0.156419634,3.44656049 C-0.148961048,2.91856358 0.0323041035,2.24355278 0.560904482,1.93873951 C2.76414564,0.668825926 5.23453327,0.0337796296 7.70487607,0.0337796296 C10.1752189,0.0337796296 12.6454272,0.668825926 14.8486235,1.93873951 C18.1537542,3.84405741 20.5179108,6.92025031 21.5058148,10.6008336 C22.4936292,14.281596 21.9868129,18.1257519 20.0783742,21.4253522 C19.8735768,21.7797071 19.5018578,21.9773815 19.1199638,21.9773815" id="Fill-1" fill="#00A7D2" fill-rule="nonzero" mask="url(#mask-2)"></path>
+                  </g>
+                </g>
+                <path d="M19.0276011,15.4077179 L9.56030688,15.4077179 C8.94972481,15.4077179 8.45492115,14.9134648 8.45492115,14.3038383 C8.45492115,13.6942565 8.94972481,13.2002272 9.56030688,13.2002272 L19.0276011,13.2002272 C19.6381383,13.2002272 20.1331661,13.6942565 20.1331661,14.3038383 C20.1331661,14.9134648 19.6380487,15.4077179 19.0276011,15.4077179" id="Fill-4" fill="#00A7D2" fill-rule="nonzero"></path>
+                <path d="M20.8849458,11.6766039 L12.1365715,11.6766039 C11.5261687,11.6766039 11.0312306,11.1824403 11.0312306,10.5730823 C11.0312306,9.96350046 11.5261687,9.46947114 12.1365715,9.46947114 L20.8849458,9.46938164 C21.4953934,9.46938164 21.9905557,9.96350046 21.9905557,10.5730823 C21.9905557,11.1824403 21.4953934,11.6766039 20.8849458,11.6766039" id="Fill-6" fill="#00A7D2" fill-rule="nonzero"></path>
+                <path d="M12.1376069,11.6770648 C11.7557129,11.6770648 11.384218,11.4791667 11.1794206,11.125125 L6.74416181,3.45565432 C6.43900524,2.92770216 6.62027039,2.25278086 7.1487363,1.94774383 C7.67733668,1.64409414 8.35353996,1.82431481 8.65896547,2.35181944 L13.0941795,10.0212901 C13.399336,10.5491528 13.2180709,11.2242083 12.6895153,11.5291111 C12.5154667,11.6293133 12.3252818,11.6770648 12.1376069,11.6770648" id="Fill-8" fill="#00A7D2" fill-rule="nonzero"></path>
+                <path d="M16.4513186,19.1385724 L7.70280972,19.1385724 C7.09227247,19.1385724 6.59737917,18.6442298 6.59737917,18.0347375 C6.59737917,17.4252452 7.09227247,16.9309026 7.70280972,16.9309026 L16.4513186,16.9309026 C17.0618558,16.9309026 17.5568836,17.4252452 17.5568836,18.0347375 C17.5568836,18.6442298 17.0618558,19.1385724 16.4513186,19.1385724" id="Fill-10" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path d="M20.8871556,26.8077835 C20.5049031,26.8077835 20.1335874,26.6101539 19.9287453,26.2557542 L15.4939347,18.5864177 C15.1889126,18.0586446 15.3698191,17.3837681 15.8987333,17.0786863 C16.4284991,16.7738282 17.1036714,16.9548097 17.4086935,17.4830752 L21.8435041,25.1522773 C22.148571,25.6800505 21.9676196,26.3550613 21.4386607,26.659964 C21.2646569,26.76039 21.0745616,26.8077835 20.8871556,26.8077835" id="Fill-12" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="Group-16" transform="translate(0.000000, 6.589668)">
+                  <g id="Fill-14-Clipped">
+                    <mask id="mask-4" fill="white">
+                      <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="path-3"></g>
+                    <path d="M14.2941109,21.9737565 C11.8235439,21.9737565 9.35342525,21.3387549 7.14991515,20.0684386 C3.84500859,18.1630312 1.4808072,15.0867935 0.493082449,11.4062102 C-0.494866414,7.72562685 0.0122188131,3.88138148 1.92034381,0.581646914 C2.2261279,0.0540080247 2.90219672,-0.12701821 3.43057298,0.177884568 C3.95917336,0.48256358 4.14043851,1.15748488 3.83528194,1.68534753 C2.22218346,4.47467315 1.79358371,7.72415 2.62850606,10.835116 C3.46342841,13.9462164 5.4618274,16.5463259 8.25548018,18.156542 C11.9802908,20.3041083 16.6071689,20.3041083 20.332383,18.1569 C20.8617902,17.8519525 21.5372763,18.0329787 21.8423432,18.5611099 C22.1474101,19.0888383 21.9665484,19.7637596 21.4376342,20.0687071 C19.2344379,21.3383074 16.7640054,21.9737565 14.2941109,21.9737565" id="Fill-14" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <circle id="Oval-3-Copy" stroke="#979797" stroke-width="2" opacity="0.300000012" cx="25" cy="25" r="25"></circle>
+          </g>
+        </g>
+      </svg>
     </b-navbar-brand>
 
-    <b-collapse is-nav id="nav_collapse">
+    <b-navbar-toggle target="header-nav"></b-navbar-toggle>
 
-      <b-navbar-nav>
-        <b-nav-item href="#">Link</b-nav-item>
-        <b-nav-item href="#" disabled>Disabled</b-nav-item>
+    <b-collapse is-nav id="header-nav">
+
+      <b-navbar-nav class="mr-auto ml-auto pr-3 pl-3">
+
+        <b-nav-text class="pr-3 pl-3">
+          <div class="d-flex flex-column">
+            <span class="header-description">Hashrate</span>
+            <span class="header-indication">738392 GH/s</span>
+          </div>
+        </b-nav-text>
+
+        <b-nav-text class="pr-3 pl-3">
+          <div class="d-flex flex-column">
+            <span class="header-description">Difficulty</span>
+            <span class="header-indication">5,85.4 TH</span>
+          </div>
+        </b-nav-text>
+
+        <b-nav-text class="pr-3 pl-3">
+          <div class="d-flex flex-column">
+            <span class="header-description">Market Cup</span>
+            <span class="header-indication">1000 ENQ</span>
+          </div>
+        </b-nav-text>
+
+        <b-nav-text class="pr-3 pl-3">
+          <div class="d-flex flex-column">
+            <span class="header-description">Emission</span>
+            <span class="header-indication">1000 ENQ</span>
+          </div>
+        </b-nav-text>
+
       </b-navbar-nav>
 
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
+      <b-navbar-nav class="mr-auto ml-auto pr-3 pl-3 orange">
 
-        <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
-          <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-        </b-nav-form>
+        <b-nav-text class="pr-3 pl-3">
+          <div class="d-flex flex-column">
+            <span class="header-description pr-2">Blocks</span>
+            <span class="header-indication">10000</span>
+          </div>
+        </b-nav-text>
 
-        <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item href="#">EN</b-dropdown-item>
-          <b-dropdown-item href="#">ES</b-dropdown-item>
-          <b-dropdown-item href="#">RU</b-dropdown-item>
-          <b-dropdown-item href="#">FA</b-dropdown-item>
-        </b-nav-item-dropdown>
+        <b-nav-text class="pr-3 pl-3">
+          <div class="d-flex flex-column">
+            <span class="header-description pr-2">Transactions</span>
+            <span class="header-indication">10000000</span>
+          </div>
+        </b-nav-text>
 
-        <b-nav-item-dropdown right>
-          <!-- Using button-content slot -->
-          <template slot="button-content">
-            <em>User</em>
-          </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Signout</b-dropdown-item>
-        </b-nav-item-dropdown>
+        <b-nav-text class="pr-3 pl-3">
+          <div class="d-flex flex-column">
+            <span class="header-description pr-2">Active nodes</span>
+            <span class="header-indication">10000000000</span>
+          </div>
+        </b-nav-text>
+      </b-navbar-nav>
+
+      <b-navbar-nav class="mr-auto ml-auto pr-2 pl-2">
+        <b-nav-item href="#">
+          <div class="d-flex flex-column">
+            <span>enecuum.com <img src="/static/icons/arrow.svg"></span>
+            <div class="header-button">White Paper</div>
+          </div>
+        </b-nav-item>
+      </b-navbar-nav>
+
+      <b-navbar-nav class="ml-auto social">
+        <b-nav-item class="pl-1 pr-1">
+          <img class="header-icon" src="/static/icons/telegram.svg" />
+        </b-nav-item>
+
+        <b-nav-item class="pl-1 pr-1">
+          <img class="header-icon" src="/static/icons/facebook.svg" />
+        </b-nav-item>
+
+        <b-nav-item class="pl-1 pr-1">
+          <img class="header-icon" src="/static/icons/twitter.svg" />
+        </b-nav-item>
+
+        <b-nav-item class="pl-1 pr-1">
+          <img class="header-icon" src="/static/icons/medium.svg" />
+        </b-nav-item>
+
+        <b-nav-item class="pl-1 pr-1">
+          <img class="header-icon" src="/static/icons/github.svg" />
+        </b-nav-item>
+
+        <b-nav-item class="pl-1 pr-1">
+          <img class="header-icon" src="/static/icons/linkedin.svg" />
+        </b-nav-item>
+
       </b-navbar-nav>
 
     </b-collapse>
@@ -44,9 +148,9 @@
 </template>
 
 <script>
-    export default {
-        name: "header"
-    }
+  export default {
+    name: "header"
+  }
 </script>
 
 <style scoped>

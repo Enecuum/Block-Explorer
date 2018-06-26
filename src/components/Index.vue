@@ -5,7 +5,6 @@
     <router-link :to="{ name: 'Mining' }">Mining</router-link>
     <router-link :to="{ name: 'Partnership' }">Partnership</router-link>
     <router-link :to="{ name: 'All Info' }">All info</router-link>
-    <router-link :to="{ name: 'Index' }">Index</router-link>
   </div>
 </template>
 
