@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Neuropol-Regular";
+  src: url('../fonts/neuropol.ttf') format("ttf");
+}
+
+html, body {
+  font-size: 13px;
+}
+
+:root {
+  --black: #171717;
+  --gray: #a5a5a5;
+  --gray-search-border: #e1e1e1;
+  --gray-search-text: #c9c9c9;
+  --gray-social: #6b6b6b;
+  --blue: #3eaeff;
+  --active-orange: #f5a623;
+  --unactive-orange: #a8741f;
+ /* #848687
+    #6b6b6b*/
+}
+
+/*header*/
+
+.header {
+  height: 66px;
+  width: 100%;
+  background: var(--black);
+}
