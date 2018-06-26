@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueNativeSock from 'vue-native-websocket'
-import StoreWS from './Store/WS'
+import StoreWS from './store/WS'
 Vue.use(VueNativeSock,
   //'ws://88.99.87.200:1555',
   'ws://demos.kaazing.com/echo',
