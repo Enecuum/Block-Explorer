@@ -17,10 +17,15 @@ export default new Router({
     { path: '/allinfo', name: 'All Info', component: AllInfo },
 
     /* TODO: детальное отображение
-    { path: '/token/:id', name: 'TokenInfo', component: Index },
-    { path: '/transaction/:id', name: 'TransactionInfo', component: Index },
-    { path: '/block/:id', name: 'BlockInfo', component: Index },
-    { path: '/wallet/:id', name: 'WalletInfo', component: Index },
+    { path: '/transactions', name: 'Transactions', component: Transactions },
+    { path: '/transaction/:id', name: 'Transaction Info', component: Index },
+    { path: '/blocks', name: 'Blocks', component: Blocks },
+    { path: '/block/:id', name: 'Block Info', component: BlockInfo },
+    { path: '/nodes', name: 'Nodes', component: Nodes },
+    { path: '/node/:id', name: 'Node Info', component: NodeInfo },
+
+    { path: '/token/:id', name: 'Token Info', component: Index },
+    { path: '/wallet/:id', name: 'Wallet Info', component: WalletInfo },
     */
   ]
 })
