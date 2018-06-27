@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <topHeader></topHeader>
-    <secondNav></secondNav>
+    <secondNav v-if="!($route.name === 'Index')"></secondNav>
     <search></search>
 
     <router-view></router-view>

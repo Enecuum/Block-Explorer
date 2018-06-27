@@ -58,11 +58,12 @@ html, body {
   font-weight: 600;
 }
 
-.orange .header-description {
+.navbar-nav.orange a.header-description  {
   color: var(--unactive-orange);
 }
 
-.orange .header-description:hover {
+.navbar-nav.orange .header-description:hover {
+  color: var(--unactive-orange);
   text-decoration: underline;
   text-decoration-color: var(--unactive-orange);
 }

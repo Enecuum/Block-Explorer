@@ -87,21 +87,21 @@
 
         <b-nav-text class="pr-3 pl-3">
           <div class="d-flex flex-column">
-            <span class="header-description pr-2">Blocks</span>
+            <router-link :to="{name: 'Index'}" class="header-description pr-2">Blocks</router-link>
             <span class="header-indication">10000</span>
           </div>
         </b-nav-text>
 
         <b-nav-text class="pr-3 pl-3">
           <div class="d-flex flex-column">
-            <span class="header-description pr-2">Transactions</span>
+            <router-link :to="{name: 'Index'}" class="header-description pr-2">Transactions</router-link>
             <span class="header-indication">10000000</span>
           </div>
         </b-nav-text>
 
         <b-nav-text class="pr-3 pl-3">
           <div class="d-flex flex-column">
-            <span class="header-description pr-2">Active nodes</span>
+            <router-link :to="{name: 'Index'}" class="header-description pr-2">Active nodes</router-link>
             <span class="header-indication">10000000000</span>
           </div>
         </b-nav-text>
