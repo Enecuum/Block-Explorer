@@ -30,6 +30,12 @@ html, body {
   --unactive-orange: #a8741f;
 }
 
+.sticky {
+  position: sticky;
+  top:0;
+  z-index:1;
+}
+
 /*header*/
 .header-nav {
   width: 100%;
@@ -160,6 +166,7 @@ ul.header-links .navbar-text div a {
 /*search line*/
 .search {
   height: 65px;
+  background-color: var(--white);
 }
 
 .search-input {
@@ -236,7 +243,7 @@ ul.header-links .navbar-text div a {
   position:absolute;
   display: none;
   width: 310px;
-  height: 100px;
+  min-height: 100px;
   right: 0;
   background: var(--black);
   border-radius: 5px;
@@ -245,5 +252,6 @@ ul.header-links .navbar-text div a {
 }
 
 .ul-nav li a:hover + .index-popup {
-  display: block;
+  display: flex;
+  align-items:center;
 }
