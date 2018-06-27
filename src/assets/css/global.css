@@ -20,6 +20,7 @@ html, body {
   --gray-social: #6b6b6b;
   --gray-social-hover: #cfd0d6;
   --gray-search-border: #e1e1e1;
+  --gray-search-filling: #f1f1f1;
   --gray-search-placeholder: #c9c9c9;
   --gray-search-text: #2a2a2a;
   --gray-hover: #515151;
@@ -186,6 +187,10 @@ ul.header-links .navbar-text div a {
   border: 2px solid var(--gray-search-border);
   border-radius: 12px;
   outline:none;
+}
+
+.search-button:hover {
+  background: var(--gray-search-filling);
 }
 
 .search-button:active, .search-button:focus, .search-button:hover {
