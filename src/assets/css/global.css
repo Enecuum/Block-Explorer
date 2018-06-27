@@ -20,6 +20,7 @@ html, body {
   --gray-social: #6b6b6b;
   --gray-social-hover: #cfd0d6;
   --gray-search-border: #e1e1e1;
+  --gray-search-filling: #f1f1f1;
   --gray-search-placeholder: #c9c9c9;
   --gray-search-text: #2a2a2a;
   --gray-hover: #515151;
@@ -27,6 +28,12 @@ html, body {
   --blue: #00a7d2;
   --active-orange: #f5a623;
   --unactive-orange: #a8741f;
+}
+
+.sticky {
+  position: sticky;
+  top:0;
+  z-index:1;
 }
 
 /*header*/
@@ -159,6 +166,7 @@ ul.header-links .navbar-text div a {
 /*search line*/
 .search {
   height: 65px;
+  background-color: var(--white);
 }
 
 .search-input {
@@ -186,6 +194,10 @@ ul.header-links .navbar-text div a {
   border: 2px solid var(--gray-search-border);
   border-radius: 12px;
   outline:none;
+}
+
+.search-button:hover {
+  background: var(--gray-search-filling);
 }
 
 .search-button:active, .search-button:focus, .search-button:hover {
@@ -231,7 +243,7 @@ ul.header-links .navbar-text div a {
   position:absolute;
   display: none;
   width: 310px;
-  height: 100px;
+  min-height: 100px;
   right: 0;
   background: var(--black);
   border-radius: 5px;
@@ -240,5 +252,6 @@ ul.header-links .navbar-text div a {
 }
 
 .ul-nav li a:hover + .index-popup {
-  display: block;
+  display: flex;
+  align-items:center;
 }

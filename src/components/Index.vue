@@ -8,7 +8,10 @@
             <span class="font-weight-bold font-18">You are interested in:</span>
           </b-col>
           <b-col>
-            <span class="gray-text">You will be able to change this preference later</span>
+            <span class="gray-text">
+              You will be able to change
+              <br/> this preference later
+            </span>
           </b-col>
         </b-row>
       </b-container>
@@ -30,15 +33,21 @@
               </li>
               <li>
                 <router-link :to="{ name: 'Mining' }">Mining</router-link>
-                <div class="index-popup"></div>
+                <div class="index-popup">
+                  More technical information: current network hashrate, emission, current difficulty, number of active miners, ratio of PoW-PoA-PoS miners, current reward allocation scheme, etc.
+                </div>
               </li>
               <li>
                 <router-link :to="{ name: 'Partnership' }">Partnership</router-link>
-                <div class="index-popup"></div>
+                <div class="index-popup">
+                  More technical and business details: global network stats, transaction per day, transaction fee, private chains, marks, growth rate of nodes in the network, location map for the nodes, business contacts, etc.
+                </div>
               </li>
               <li>
                 <router-link :to="{ name: 'All Info' }">All info</router-link>
-                <div class="index-popup"></div>
+                <div class="index-popup">
+                  All details combined, including technical, business and information for ordinary users.
+                </div>
               </li>
             </ul>
           </b-col>
