@@ -14,16 +14,19 @@ html, body {
 
 :root {
   --black: #171717;
+
   --gray: #a5a5a5;
+  --gray-link: #848687;
   --gray-social: #6b6b6b;
+  --gray-social-hover: #cfd0d6;
   --gray-search-border: #e1e1e1;
   --gray-search-placeholder: #c9c9c9;
   --gray-search-text: #2a2a2a;
+  --gray-hover: #515151;
+
   --blue: #00a7d2;
   --active-orange: #f5a623;
   --unactive-orange: #a8741f;
- /* #848687
-    #6b6b6b*/
 }
 
 /*header*/
@@ -52,11 +55,16 @@ html, body {
 
 .header-description {
   color: var(--gray);
+  font-weight: 600;
 }
 
 .orange .header-description {
   color: var(--unactive-orange);
-  border-bottom: 1px solid var(--unactive-orange);
+}
+
+.orange .header-description:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--unactive-orange);
 }
 
 .header-indication {
@@ -69,13 +77,35 @@ html, body {
   color: var(--active-orange);
 }
 
+ul.header-links .navbar-text div a {
+  color: var(--gray-link);
+  font-weight: bold;
+}
+
+.header-links a:hover #arrow-back {
+  fill: white;
+}
+
+.header-links a:hover {
+  text-decoration: none;
+}
+
 .header-button {
   cursor:pointer;
-  border: 1px solid var(--gray-social);
+  border: 2px solid var(--gray-social);
   border-radius: 13px;
   padding: 0 15px;
   background: none;
   color: var(--white);
+  font-weight: 600;
+}
+
+.header-button:hover {
+  background-color: var(--gray-hover);
+}
+
+.header-button:active, .header-button:focus {
+  outline: none;
 }
 
 .navbar-nav.social .nav-item .nav-link {
@@ -88,6 +118,14 @@ html, body {
   width: 26px;
 }
 
+.social-icon:hover .svg-circle {
+  stroke: var(--gray-social-hover);
+}
+
+.social-icon:hover .svg-icon {
+  fill: var(--gray-social-hover);
+}
+
 /*second header*/
 
 .second-nav{
@@ -95,7 +133,7 @@ html, body {
   justify-content:space-between;
   align-items:center;
   height:34px;
-  background-image: linear-gradient(#262626, #404040);
+  background-image: linear-gradient(to right, #262626, #404040);
   color: var(--white);
 }
 
@@ -118,7 +156,6 @@ html, body {
 }
 
 /*search line*/
-
 .search {
   height: 65px;
 }
