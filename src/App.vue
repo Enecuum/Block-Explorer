@@ -2,14 +2,9 @@
   <div id="app">
     <topHeader></topHeader>
     <secondNav></secondNav>
+    <search></search>
 
-    <b-container fluid>
-      <b-row>
-        <b-col>
-          <router-view></router-view>
-        </b-col>
-      </b-row>
-    </b-container>
+    <router-view></router-view>
 
   </div>
 </template>
@@ -17,6 +12,7 @@
 <script>
   import topHeader from "@/components/layout/header"
   import secondNav from "@/components/layout/secondNav"
+  import search from "@/components/layout/search"
 
 export default {
   name: 'App',
@@ -25,7 +21,8 @@ export default {
   },
   components: {
     topHeader,
-    secondNav
+    secondNav,
+    search
   }
 }
 </script>

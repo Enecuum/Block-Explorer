@@ -8,12 +8,17 @@ html, body {
   font-family: "Open Sans";
 }
 
+.font-18 {
+  font-size: 18px;
+}
+
 :root {
   --black: #171717;
   --gray: #a5a5a5;
-  --gray-search-border: #e1e1e1;
-  --gray-search-text: #c9c9c9;
   --gray-social: #6b6b6b;
+  --gray-search-border: #e1e1e1;
+  --gray-search-placeholder: #c9c9c9;
+  --gray-search-text: #2a2a2a;
   --blue: #00a7d2;
   --active-orange: #f5a623;
   --unactive-orange: #a8741f;
@@ -25,6 +30,8 @@ html, body {
 .header-nav {
   width: 100%;
   background-color: var(--black);
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .header-logo {
@@ -108,4 +115,92 @@ html, body {
 
 .second-nav .router-link-active {
   background: var(--blue);
+}
+
+/*search line*/
+
+.search {
+  height: 65px;
+}
+
+.search-input {
+  padding-left: 20px;
+  padding-right: 60px;
+  height: 35px;
+  border: 1px solid var(--gray-search-border);
+  font-size: 13px;
+  color: var(--gray-search-text);
+  border-radius: 20px;
+}
+
+.search-input::placeholder {
+  color: var(--gray-search-placeholder);
+}
+
+.search-button {
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  width:90px;
+  height:25px;
+  background: none;
+  border: 2px solid var(--gray-search-border);
+  border-radius: 12px;
+  outline:none;
+}
+
+.search-button:active, .search-button:focus, .search-button:hover {
+  outline:none;
+}
+
+/*slide 1*/
+.first-slide-wrapper {
+  max-width: 475px;
+  width:100%;
+}
+
+.gray-row {
+  height:80px;
+  background: #f7f7f7;
+}
+
+.gray-text {
+  color: #aaaaaa;
+  font-weight: 600;
+}
+
+.ul-nav {
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+
+.ul-nav li {
+  margin-top: 55px;
+  display:flex;
+  align-items: center;
+}
+
+.ul-nav li a {
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--black);
+}
+
+.index-popup {
+  position:absolute;
+  display: none;
+  width: 310px;
+  height: 100px;
+  right: 0;
+  background: var(--black);
+  border-radius: 5px;
+  color: var(--white);
+  padding: 10px 30px;
+}
+
+.ul-nav li a:hover + .index-popup {
+  display: block;
 }
