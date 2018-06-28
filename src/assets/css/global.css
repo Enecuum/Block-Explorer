@@ -1,3 +1,20 @@
+:root {
+  --black: #171717;
+  --gray: #a5a5a5;
+  --gray-link: #848687;
+  --gray-social: #6b6b6b;
+  --gray-social-hover: #cfd0d6;
+  --gray-search-border: #e1e1e1;
+  --gray-search-filling: #f1f1f1;
+  --gray-search-placeholder: #c9c9c9;
+  --gray-search-text: #2a2a2a;
+  --gray-hover: #515151;
+  --blue: #00a7d2;
+  --href: #4a90e2;
+  --active-orange: #f5a623;
+  --unactive-orange: #a8741f;
+}
+
 @font-face {
   font-family: "Neuropol-Regular";
   src: url('../fonts/neuropol.ttf') format("truetype");
@@ -8,26 +25,57 @@ html, body {
   font-family: "Open Sans";
 }
 
+.weight-600 {
+  font-weight: 600;
+}
+
+.weight-700 {
+  font-weight: 700;
+}
+
 .font-18 {
   font-size: 18px;
 }
 
-:root {
-  --black: #171717;
+/*gutters*/
+.mt-10{
+  margin-top: 10px;
+}
 
-  --gray: #a5a5a5;
-  --gray-link: #848687;
-  --gray-social: #6b6b6b;
-  --gray-social-hover: #cfd0d6;
-  --gray-search-border: #e1e1e1;
-  --gray-search-filling: #f1f1f1;
-  --gray-search-placeholder: #c9c9c9;
-  --gray-search-text: #2a2a2a;
-  --gray-hover: #515151;
+.mt-15{
+  margin-top: 15px;
+}
 
-  --blue: #00a7d2;
-  --active-orange: #f5a623;
-  --unactive-orange: #a8741f;
+.mt-20{
+  margin-top: 20px;
+}
+
+.mb-10{
+  margin-bottom: 10px;
+}
+
+.mb-15{
+  margin-bottom: 15px;
+}
+
+.mb-20{
+  margin-bottom: 20px;
+}
+
+.pt-15 {
+  padding-top: 15px;
+}
+
+.pt-20{
+  padding-top: 20px;
+}
+
+.pb-15 {
+  padding-bottom: 15px;
+}
+
+.pb-20 {
+  padding-bottom: 20px;
 }
 
 .sticky {
@@ -211,7 +259,7 @@ ul.header-links .navbar-text div a {
 }
 
 .gray-row {
-  height:80px;
+  min-height:80px;
   background: #f7f7f7;
 }
 
@@ -255,3 +303,26 @@ ul.header-links .navbar-text div a {
   display: flex;
   align-items:center;
 }
+
+/*token holding*/
+/*block*/
+
+.block {
+  max-width:1200px;
+  width:100%;
+}
+
+.block-row {
+  border-bottom: 1px solid #f3f3f3;
+  padding-left: 260px;
+  padding-right: 260px;
+}
+
+.block-description-text{
+  color: var(--gray);
+}
+
+.block-a {
+  color: var(--href);
+}
+
