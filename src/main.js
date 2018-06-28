@@ -12,29 +12,37 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import './assets/css/global.css'
 
-Vue.use(BootstrapVue);
-
-                    // 'ws://88.99.87.200:1555'
-Vue.use(VueNativeSock, 'ws://demos.kaazing.com/echo', {
+Vue.use(BootstrapVue)
+                    // 'ws://demos.kaazing.com/echo'
+                    // 'ws://195.201.226.24:1555'
+Vue.use(VueNativeSock, 'ws://88.99.87.200:1555', {
   store: StoreWS,
   format: 'json',
   ids: 1,
   sendRpc (method, params) {
-    return this.WebSocket.sendObj({
+    let obj = {
       jsonrpc: "2.0",
       method: method,
-      params: params,
       id: ++this.opts.ids
-    })
+    }
+    if(params) obj.params = params
+    return this.WebSocket.sendObj(obj)
   },
   passToStoreHandler (eventName, event) {
     console.log('[WS]:', eventName, event)
     if(eventName === 'SOCKET_onopen') {
-      setInterval(() => {
+      setTimeout(() => {
         this.opts.sendRpc.call(this, "enq_getAllTransactions", {
-          address:"5YXZXhM9MMafhS5fdzanWbimKEpAnmrqabD5BcMm8TxS"
+          address: "QYy3AT4a3Z88MpEoGDixRgxtWW8v3RfSbJLFQEyFZwMe"
         })
+        this.opts.sendRpc.call(this, "enq_getBalance", {
+          address: "QYy3AT4a3Z88MpEoGDixRgxtWW8v3RfSbJLFQEyFZwMe"
+        })
+        // this.opts.sendRpc.call(this, "enq_getTransactionByHash", {
+        //   hash: "QYy3AT4a3Z88MpEoGDixRgxtWW8v3RfSbJLFQEyFZwMe"
+        // })
       }, 5000)
+
     }
     // rpc
     //this.emit(eventName, event)
