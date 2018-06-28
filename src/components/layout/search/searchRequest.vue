@@ -1,6 +1,8 @@
 <template>
     <b-row>
-      <block></block>
+      <block v-if="false"></block>
+      <transaction v-if="true"></transaction>
+      <invalidRequest v-if="false"></invalidRequest>
     </b-row>
 </template>
 

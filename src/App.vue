@@ -3,7 +3,9 @@
     <div class="sticky">
       <topHeader></topHeader>
       <secondNav v-if="!($route.name === 'Index')"></secondNav>
+
       <search></search>
+
     </div>
 
     <router-view></router-view>

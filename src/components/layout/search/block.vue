@@ -3,12 +3,12 @@
     <b-row class="gray-row pb-15 pt-15">
       <b-col class="d-flex flex-column justify-content-between align-items-center">
         <p class="font-18 weight-700 m-0">Block #4720582</p>
-        <p class="m-0">Hash: <router-link class="pl-2 block-a" :to="{name: 'Index'}">vhg4ie8yg745y8g9ruvb40i1</router-link></p>
+        <p class="m-0">Hash: <router-link class="pl-2 block-a weight-600" :to="{name: 'Index'}">vhg4ie8yg745y8g9ruvb40i1</router-link></p>
       </b-col>
     </b-row>
 
     <b-row class="text-center">
-      <b-container class="block">
+      <b-container class="block-container">
         <b-row class="block-row pt-20 pb-20 mb-20">
 
           <b-col class="text-left">
@@ -64,12 +64,15 @@
           </b-col>
         </b-row>
         <b-row>
+
           <b-col class="text-right">
-            <router-link class="block-a weight-600" :to="{name: 'Index'}">Prev block №4720581</router-link>
+           <router-link class="block-a weight-600" :to="{name: 'Index'}">Prev block №4720581</router-link>
           </b-col>
+
           <b-col class="text-left">
-            <router-link class="block-a weight-600" :to="{name: 'Index'}">Next block №4720583</router-link>
+           <router-link class="block-a weight-600" :to="{name: 'Index'}">Next block №4720583</router-link>
           </b-col>
+
         </b-row>
       </b-container>
     </b-row>

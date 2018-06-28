@@ -11,6 +11,12 @@
   --gray-hover: #515151;
   --blue: #00a7d2;
   --href: #4a90e2;
+  --pending: #E1892C;
+  --pending-border: #FFDBB6;
+  --mined: #4F886C;
+  --mined-border: #C4DED1;
+  --rejected: #AD2B2B;
+  --rejected-border: #F4D1D1;
   --active-orange: #f5a623;
   --unactive-orange: #a8741f;
 }
@@ -307,7 +313,7 @@ ul.header-links .navbar-text div a {
 /*token holding*/
 /*block*/
 
-.block {
+.block-container {
   max-width:1200px;
   width:100%;
 }
@@ -326,3 +332,33 @@ ul.header-links .navbar-text div a {
   color: var(--href);
 }
 
+/*transaction*/
+
+.transaction-container {
+  max-width: 500px;
+}
+
+.width-60 {
+  max-width: 60px;
+}
+
+.rejected-plate {
+  display: inline-block;
+  border: 3px solid var(--rejected-border);
+  color: var(--rejected);
+  padding: 2px 10px;
+}
+
+.mined-plate {
+  display: inline-block;
+  border: 3px solid var(--mined-border);
+  color: var(--mined);
+  padding: 2px 10px;
+}
+
+.pending-plate {
+  display: inline-block;
+  border: 3px solid var(--pending-border);
+  color: var(--pending);
+  padding: 2px 10px;
+}
