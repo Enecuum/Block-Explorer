@@ -262,6 +262,24 @@ ul.header-links .navbar-text div a {
   outline:none;
 }
 
+.dropdown-language > button {
+  color: var(--black);
+  background: none;
+  border: none;
+}
+
+.dropdown-language > button:hover, .dropdown-language > button:active, .dropdown-language > button:focus {
+  color: var(--black) !important;
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.dropdown-language .dropdown-menu {
+  margin-top:20px;
+}
+
 /*slide 1*/
 .first-slide-wrapper {
   max-width: 475px;
