@@ -3,7 +3,7 @@
       <block v-if="false"></block>
       <invalidRequest v-if="false"></invalidRequest>
       <transaction v-if="false"></transaction>
-      <wallet v-if="true"></wallet>
+      <wallet v-if="false"></wallet>
     </b-row>
 </template>
 

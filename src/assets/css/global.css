@@ -6,6 +6,7 @@
   --gray-social-hover: #cfd0d6;
   --gray-search-border: #e1e1e1;
   --gray-search-filling: #f1f1f1;
+  --gray-block-filling: #f7f7f7;
   --gray-search-placeholder: #c9c9c9;
   --gray-search-text: #2a2a2a;
   --gray-hover: #515151;
@@ -413,15 +414,31 @@ ul.header-links .navbar-text div a {
 
 /*wallet*/
 
-.wallet-table {
+.table-wrapper {
   min-height: 415px;
   border: 1px solid #dee2e6;
 }
 
-.wallet-table table {
+.table-wrapper table {
   margin-bottom: 0;
 }
 
 .width-150 {
   width: 150px;
+}
+
+/*mining*/
+
+.gray-block {
+  background: var(--gray-block-filling);
+  min-height: 70px;
+  padding: 10px;
+}
+
+.mining-table-wrapper {
+  min-height: 300px;
+}
+
+.mining-table-wrapper table {
+  margin-bottom: 0;
 }

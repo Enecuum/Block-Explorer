@@ -15,7 +15,7 @@
 
     <b-row class="block-container mx-auto">
       <b-col>
-        <b-table class="wallet-table" striped hover responsive="md" :items="items" :fields="fields" :per-page="10" :current-page="currentPage">
+        <b-table class="table-wrapper" striped hover responsive="md" :items="items" :fields="fields" :per-page="10" :current-page="currentPage">
 
           <template slot="transaction" slot-scope="data">
             <router-link class="block-a" :to="{name: 'Index'}">{{data.item.transaction}}</router-link>
