@@ -1,8 +1,8 @@
 <template>
     <b-row>
       <block v-if="false"></block>
-      <transaction v-if="true"></transaction>
       <invalidRequest v-if="false"></invalidRequest>
+      <transaction v-if="false"></transaction>
     </b-row>
 </template>
 

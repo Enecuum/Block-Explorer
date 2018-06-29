@@ -39,6 +39,10 @@ html, body {
   font-weight: 700;
 }
 
+.font-16 {
+  font-size: 16px;
+}
+
 .font-18 {
   font-size: 18px;
 }
@@ -313,15 +317,17 @@ ul.header-links .navbar-text div a {
 /*token holding*/
 /*block*/
 
+.divider-row {
+  border-bottom: 1px solid #f3f3f3;
+}
+
 .block-container {
   max-width:1200px;
   width:100%;
 }
 
-.block-row {
-  border-bottom: 1px solid #f3f3f3;
-  padding-left: 260px;
-  padding-right: 260px;
+.block-wrapper {
+  max-width:680px;
 }
 
 .block-description-text{

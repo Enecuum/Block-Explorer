@@ -29,6 +29,31 @@
         </b-container>
 
       </b-row>
+
+    <b-row>
+      <b-container class="block-container divider-row">
+      <b-row class="transaction-container mx-auto">
+        <b-col class="p-0 mt-20 mb-20">
+          <p class="mb-20 font-16 weight-600">5000 EQN</p>
+          <p class="weight-600 m-0">
+            <span>17.04.18</span>
+            18:00
+          </p>
+        </b-col>
+      </b-row>
+      </b-container>
+    </b-row>
+
+    <b-row class="transaction-container mx-auto">
+      <b-col class="p-0 mt-20 mb-20">
+        <p class="weight-600 font-16 mb-20">Block: #694839393</p>
+        <p class="weight-600 m-0">
+          <span>Hash:</span>
+          <router-link :to="{name: 'Index'}" class="block-a">vhg4ie8yg745y8g9ruvb40i1</router-link>
+        </p>
+      </b-col>
+    </b-row>
+
   </b-container>
 </template>
 
