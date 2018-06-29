@@ -24,6 +24,14 @@
           <template slot="amountOfCurrency" slot-scope="data">
             {{data.item.amountOfCurrency}} ENQ
           </template>
+
+          <template slot="From" slot-scope="data">
+            <router-link class="block-a" :to="{name: 'Index'}">{{data.item.From}} </router-link>
+          </template>
+
+          <template slot="To" slot-scope="data">
+            <router-link class="block-a" :to="{name: 'Index'}">{{data.item.To}} </router-link>
+          </template>
        </b-table>
 
         <b-pagination class="mt-20"
@@ -43,23 +51,23 @@
 
 <script>
   const items = [
-    {date: '20.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '300'},
-    {date: '19.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '123'},
-    {date: '18.03.2006', typeOfTransaction: 'received', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '3'},
-    {date: '16.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '33'},
-    {date: '15.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '22'},
-    {date: '12.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '45'},
-    {date: '26.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '56'},
-    {date: '24.03.2006', typeOfTransaction: 'received', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '4'},
-    {date: '23.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '432'},   {date: '20.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '300'},
-    {date: '19.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '123'},
-    {date: '18.03.2006', typeOfTransaction: 'received', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '3'},
-    {date: '16.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '33'},
-    {date: '15.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '22'},
-    {date: '12.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '45'},
-    {date: '26.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '56'},
-    {date: '24.03.2006', typeOfTransaction: 'received', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '4'},
-    {date: '23.03.2006', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '432'},
+    {date: '2006.03.19 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r',  typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '300'},
+    {date: '2006.03.18 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '123'},
+    {date: '2006.03.17 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'received', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '3'},
+    {date: '2006.03.16 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '33'},
+    {date: '2006.03.15 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '22'},
+    {date: '2006.03.14 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '45'},
+    {date: '2006.03.13 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '56'},
+    {date: '2006.03.15 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'received', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '4'},
+    {date: '2006.03.11 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '432'},
+    {date: '2006.03.20 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '123'},
+    {date: '2006.03.25 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'received', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '3'},
+    {date: '2006.03.24 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '33'},
+    {date: '2006.03.26 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '22'},
+    {date: '2006.03.27 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '45'},
+    {date: '2006.03.28 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '56'},
+    {date: '2006.03.29 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'received', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '4'},
+    {date: '2006.03.30 18:20:53', From: 'tbjhr9yeub8er9bbjrb0r', To: 'tbjhr9yeub8er9bbjrb0r', typeOfTransaction: 'sent', transaction: 'vhg4ie8yg745y8g9ruvb40i1', amountOfCurrency: '432'},
   ];
 
   export default {
@@ -84,6 +92,16 @@
           {
             key: 'transaction',
             label: 'Transaction',
+            sortable: true,
+            tdClass: ' weight-600'
+          },
+          {
+            key: 'From',
+            sortable: true,
+            tdClass: ' weight-600'
+          },
+          {
+            key: 'To',
             sortable: true,
             tdClass: ' weight-600'
           },
