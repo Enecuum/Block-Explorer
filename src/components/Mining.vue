@@ -45,8 +45,7 @@
 
     <b-row class="mb-20">
       <b-col>
-        <div class="mining-table-wrapper mb-20">
-          <b-table responsive="md" small striped hover :items="blocks" :fields="blocksFields" :per-page="10" :currentPage="blocksCounter">
+          <b-table responsive="md" small striped hover :items="blocks" :fields="blocksFields" >
             <template slot="Height" slot-scope="data">
               <router-link class="block-a weight-600" :to="{name: 'Index'}">{{data.item.Height}}</router-link>
             </template>
@@ -72,8 +71,9 @@
             </template>
 
           </b-table>
-        </div>
-        <b-pagination class="m-0" size="md" align="center" :per-page="10" :total-rows="blocks.length" v-model="blocksCounter"></b-pagination>
+
+        <router-link :to="{name: 'Index'}" class="block-a weight-600 mt-20">All list of blocks</router-link>
+
       </b-col>
     </b-row>
 
@@ -91,8 +91,7 @@
 
     <b-row class="mb-20">
       <b-col>
-        <div class="mining-table-wrapper mb-20">
-          <b-table responsive="md" small striped hover :items="transactions" :fields="transactionsFields" :per-page="10" :currentPage="transactionsCounter">
+          <b-table responsive="md" small striped hover :items="transactions" :fields="transactionsFields" >
 
             <template slot="Hash" slot-scope="data">
               <router-link class="block-a" :to="{name: 'Index'}">{{data.item.Hash}}</router-link>
@@ -115,8 +114,9 @@
             </template>
 
           </b-table>
-        </div>
-        <b-pagination class="m-0" size="md" align="center" :per-page="10" :total-rows="transactions.length" v-model="transactionsCounter"></b-pagination>
+
+        <router-link :to="{name: 'Index'}" class="block-a weight-600 mt-20">All list of blocks</router-link>
+
       </b-col>
     </b-row>
 
@@ -134,24 +134,10 @@
     {Height: '948372', Hash: 'bjhr9yeub8er9bbjrb0', Size: '8083739',Transactions: '180', GenerationTime: '5', Miner: 'bjhr9yeub8er9bbjrb0r', Reward: '5000'},
     {Height: '948372', Hash: 'bjhr9yeub8er9bbjrb0', Size: '8083739',Transactions: '180', GenerationTime: '5', Miner: 'bjhr9yeub8er9bbjrb0r', Reward: '5000'},
     {Height: '948372', Hash: 'bjhr9yeub8er9bbjrb0', Size: '8083739',Transactions: '180', GenerationTime: '5', Miner: 'bjhr9yeub8er9bbjrb0r', Reward: '5000'},
-    {Height: '948372', Hash: 'bjhr9yeub8er9bbjrb0', Size: '8083739',Transactions: '180', GenerationTime: '5', Miner: 'bjhr9yeub8er9bbjrb0r', Reward: '5000'},
-    {Height: '948372', Hash: 'bjhr9yeub8er9bbjrb0', Size: '8083739',Transactions: '180', GenerationTime: '5', Miner: 'bjhr9yeub8er9bbjrb0r', Reward: '5000'},
-    {Height: '948372', Hash: 'bjhr9yeub8er9bbjrb0', Size: '8083739',Transactions: '180', GenerationTime: '5', Miner: 'bjhr9yeub8er9bbjrb0r', Reward: '5000'},
-    {Height: '948372', Hash: 'bjhr9yeub8er9bbjrb0', Size: '8083739',Transactions: '180', GenerationTime: '5', Miner: 'bjhr9yeub8er9bbjrb0r', Reward: '5000'},
-    {Height: '948372', Hash: 'bjhr9yeub8er9bbjrb0', Size: '8083739',Transactions: '180', GenerationTime: '5', Miner: 'bjhr9yeub8er9bbjrb0r', Reward: '5000'},
-    {Height: '948372', Hash: 'bjhr9yeub8er9bbjrb0', Size: '8083739',Transactions: '180', GenerationTime: '5', Miner: 'bjhr9yeub8er9bbjrb0r', Reward: '5000'},
-    {Height: '948372', Hash: 'bjhr9yeub8er9bbjrb0', Size: '8083739',Transactions: '180', GenerationTime: '5', Miner: 'bjhr9yeub8er9bbjrb0r', Reward: '5000'},
     {Height: '948372', Hash: 'bjhr9yeub8er9bbjrb0', Size: '8083739',Transactions: '180', GenerationTime: '5', Miner: 'bjhr9yeub8er9bbjrb0r', Reward: '5000'}
   ];
 
   let transactions= [
-    {Hash: 'bjhr9yeub8er9bbjrb0r', Block: '948372 ', From: 'bjhr9yeub8er9bbjrb0r', To: 'bjhr9yeub8er9bbjrb0r', Value: '5000'},
-    {Hash: 'bjhr9yeub8er9bbjrb0r', Block: '948372 ', From: 'bjhr9yeub8er9bbjrb0r', To: 'bjhr9yeub8er9bbjrb0r', Value: '5000'},
-    {Hash: 'bjhr9yeub8er9bbjrb0r', Block: '948372 ', From: 'bjhr9yeub8er9bbjrb0r', To: 'bjhr9yeub8er9bbjrb0r', Value: '5000'},
-    {Hash: 'bjhr9yeub8er9bbjrb0r', Block: '948372 ', From: 'bjhr9yeub8er9bbjrb0r', To: 'bjhr9yeub8er9bbjrb0r', Value: '5000'},
-    {Hash: 'bjhr9yeub8er9bbjrb0r', Block: '948372 ', From: 'bjhr9yeub8er9bbjrb0r', To: 'bjhr9yeub8er9bbjrb0r', Value: '5000'},
-    {Hash: 'bjhr9yeub8er9bbjrb0r', Block: '948372 ', From: 'bjhr9yeub8er9bbjrb0r', To: 'bjhr9yeub8er9bbjrb0r', Value: '5000'},
-    {Hash: 'bjhr9yeub8er9bbjrb0r', Block: '948372 ', From: 'bjhr9yeub8er9bbjrb0r', To: 'bjhr9yeub8er9bbjrb0r', Value: '5000'},
     {Hash: 'bjhr9yeub8er9bbjrb0r', Block: '948372 ', From: 'bjhr9yeub8er9bbjrb0r', To: 'bjhr9yeub8er9bbjrb0r', Value: '5000'},
     {Hash: 'bjhr9yeub8er9bbjrb0r', Block: '948372 ', From: 'bjhr9yeub8er9bbjrb0r', To: 'bjhr9yeub8er9bbjrb0r', Value: '5000'},
     {Hash: 'bjhr9yeub8er9bbjrb0r', Block: '948372 ', From: 'bjhr9yeub8er9bbjrb0r', To: 'bjhr9yeub8er9bbjrb0r', Value: '5000'},
@@ -178,7 +164,6 @@ export default {
         {key: 'Miner', thClass: 'border-bottom-0 border-top-0'},
         {key: 'Reward', thClass: 'border-bottom-0 border-top-0', tdClass: 'weight-600'},
       ],
-      blocksCounter: 1,
 
       transactions: transactions,
       transactionsFields: [
@@ -188,7 +173,6 @@ export default {
         {key: 'To', thClass: 'border-bottom-0 border-top-0', tdClass: 'weight-600'},
         {key: 'Value', thClass: 'border-bottom-0 border-top-0', tdClass: 'weight-600'},
       ],
-      transactionsCounter: 1
     }
   }
 }
