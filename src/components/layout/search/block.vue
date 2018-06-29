@@ -3,8 +3,8 @@
     <b-row class="gray-row pb-15 pt-15">
       <b-col class="d-flex flex-column justify-content-between align-items-center">
         <p class="font-18 weight-700 m-0">Block #4720582</p>
-        <p class="m-0">Hash:
-          <router-link class="pl-2 block-a weight-600" :to="{name: 'Index'}">vhg4ie8yg745y8g9ruvb40i1</router-link>
+        <p class="m-0 weight-600">Hash:
+          <span class="pl-2">vhg4ie8yg745y8g9ruvb40i1</span>
         </p>
       </b-col>
     </b-row>
@@ -51,7 +51,9 @@
 
             <b-row class="mb-10">
               <b-col class="weight-600 block-description-text">Miner:</b-col>
-              <b-col class="weight-600">chwi3f83yv943uv9</b-col>
+              <b-col class="weight-600">
+                <router-link :to="{name: 'Index'}" class="block-a">chwi3f83yv943uv9</router-link>
+              </b-col>
             </b-row>
 
             <b-row>

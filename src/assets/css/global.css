@@ -39,6 +39,10 @@ html, body {
   font-weight: 700;
 }
 
+.font-14 {
+  font-size: 14px;
+}
+
 .font-16 {
   font-size: 16px;
 }
@@ -48,6 +52,10 @@ html, body {
 }
 
 /*gutters*/
+.mt-5{
+  margin-top: 5px;
+}
+
 .mt-10{
   margin-top: 10px;
 }
@@ -58,6 +66,10 @@ html, body {
 
 .mt-20{
   margin-top: 20px;
+}
+
+.mb-5{
+  margin-bottom: 5px;
 }
 
 .mb-10{
@@ -397,4 +409,19 @@ ul.header-links .navbar-text div a {
   border: 3px solid var(--pending-border);
   color: var(--pending);
   padding: 2px 10px;
+}
+
+/*wallet*/
+
+.wallet-table {
+  min-height: 415px;
+  border: 1px solid #dee2e6;
+}
+
+.wallet-table table {
+  margin-bottom: 0;
+}
+
+.width-150 {
+  width: 150px;
 }

@@ -46,11 +46,10 @@
 
     <b-row class="transaction-container mx-auto">
       <b-col class="p-0 mt-20 mb-20">
-        <p class="weight-600 font-16 mb-20">Block: #694839393</p>
-        <p class="weight-600 m-0">
-          <span>Hash:</span>
-          <router-link :to="{name: 'Index'}" class="block-a">vhg4ie8yg745y8g9ruvb40i1</router-link>
+        <p class="weight-600 font-16 mb-20">
+          <router-link class="block-a" :to="{name: 'Index'}">Block: #694839393</router-link>
         </p>
+        <p class="weight-600 m-0">Hash: vhg4ie8yg745y8g9ruvb40i1</p>
       </b-col>
     </b-row>
 
