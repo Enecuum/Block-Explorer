@@ -24,8 +24,8 @@
             </div>
 
           </template>
-          <b-dropdown-item>EN</b-dropdown-item>
-          <b-dropdown-item>CHI</b-dropdown-item>
+          <b-dropdown-item>English</b-dropdown-item>
+          <b-dropdown-item>한국</b-dropdown-item>
         </b-dropdown>
       </b-col>
 

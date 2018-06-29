@@ -278,6 +278,18 @@ ul.header-links .navbar-text div a {
 
 .dropdown-language .dropdown-menu {
   margin-top:20px;
+  background: var(--black);
+}
+
+.dropdown-language .dropdown-menu .dropdown-item {
+  color: var(--white);
+  text-align: center;
+}
+
+.dropdown-language .dropdown-menu .dropdown-item:hover, .dropdown-language .dropdown-menu .dropdown-item:focus {
+  font-weight: bold;
+  background: none;
+  outline:none;
 }
 
 /*slide 1*/
