@@ -60,9 +60,9 @@
     data(){
       return {
         search: true,
+        error: true,
         types: ['transaction', 'block', 'wallet', 'invalid'],
         type: 'invalid',
-        error: true,
         searchText: ''
       }
     },
