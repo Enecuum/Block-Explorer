@@ -1,7 +1,7 @@
 <template>
 
   <b-container>
-    <b-row>
+    <b-row v-if="!$route.params.search">
       <b-col>
         <p class="font-18 text-center">Here you can search for particular transaction, block or wallet</p>
       </b-col>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Token',
   data () {

@@ -1,9 +1,9 @@
 <template>
     <b-row>
-      <block v-if="false"></block>
-      <invalidRequest v-if="false"></invalidRequest>
-      <transaction v-if="false"></transaction>
-      <wallet v-if="false"></wallet>
+      <block v-if="type === 'block'"></block>
+      <invalidRequest v-if="type === 'invalid'"></invalidRequest>
+      <transaction v-if="type === 'transaction'"></transaction>
+      <wallet v-if="type === 'wallet'"></wallet>
     </b-row>
 </template>
 
@@ -15,6 +15,7 @@
 
     export default {
       name: "searchResult",
+      props: ['type'],
       components:{
         block,
         transaction,

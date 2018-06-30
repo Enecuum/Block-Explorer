@@ -4,9 +4,11 @@
       <b-col cols="11">
 
         <b-form v-if="!($route.name === 'Index')">
-          <b-form-input onsubmit="event.preventDefault()" class="search-input" :class="{'is-invalid': error}"  type="text"
-                        Placeholder="Type public key (waller-address) or hash of transaction/block"></b-form-input>
-          <button class="d-none d-md-block search-button" type="button" onclick="return false;">Search</button>
+          <b-form-input class="search-input" :class="{'is-invalid': error}" type="text" :value="$route.params.search"
+                        placeholder="Type public key (waller-address) or hash of transaction/block"
+                        v-model="searchText"
+                        @keydown.enter.native="toSearch"></b-form-input>
+          <button class="d-none d-md-block search-button" type="button" @click="debouncedSearch">Search</button>
         </b-form>
 
       </b-col>
@@ -28,27 +30,59 @@
           <b-dropdown-item>한국</b-dropdown-item>
         </b-dropdown>
       </b-col>
-
     </b-row>
 
-    <searchRequest v-if="search"></searchRequest>
+    <b-row v-if="$route.params.search">
+      <block v-if="type === 'block'"></block>
+      <invalidRequest v-if="type === 'invalid'"></invalidRequest>
+      <transaction v-if="type === 'transaction'"></transaction>
+      <wallet v-if="type === 'wallet'"></wallet>
+    </b-row>
 
   </b-container>
 </template>
 
 <script>
-  import searchRequest from "@/components/layout/search/searchRequest"
+  import _ from 'lodash'
+  import block from "@/components/layout/search/block"
+  import transaction from "@/components/layout/search/transaction"
+  import wallet from "@/components/layout/search/wallet"
+  import invalidRequest from "@/components/layout/search/invalidRequest"
 
   export default {
     name: "search",
+    components: {
+      block,
+      transaction,
+      wallet,
+      invalidRequest
+    },
     data(){
       return {
         search: true,
-        error: false
+        types: ['transaction', 'block', 'wallet', 'invalid'],
+        type: 'invalid',
+        error: true,
+        searchText: ''
       }
     },
-    components: {
-      searchRequest
+    watch: {
+      searchText() {
+        this.debouncedSearch()
+      }
+    },
+    methods: {
+      toSearch() {
+        this.type = this.types[_.random(0, this.types.length-1)];
+        this.error = this.type === 'invalid';
+        this.$router.push({ name: 'Token', params: { search: this.searchText }})
+      }
+    },
+    created() {
+      this.debouncedSearch = _.debounce(this.toSearch, 500)
+    },
+    mounted() {
+      this.searchText = this.$route.params.search ? this.$route.params.search : ''
     }
   }
 </script>
