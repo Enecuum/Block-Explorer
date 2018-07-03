@@ -40,6 +40,10 @@ html, body {
   font-weight: 700;
 }
 
+.font-12 {
+  font-size: 12px;
+}
+
 .font-14 {
   font-size: 14px;
 }
@@ -421,18 +425,36 @@ ul.header-links .navbar-text div a {
 
 /*wallet*/
 
-.table-wrapper {
-  min-height: 415px;
-  border: 1px solid #dee2e6;
+.row-wallet-wrapper {
+  padding: 0 100px;
 }
 
-.table-wrapper table {
-  margin-bottom: 0;
+.col-wallet-wrapper {
+  width:400px;
 }
 
-.width-150 {
-  width: 150px;
+.row-wallet-wrapper .col-wallet-wrapper:nth-last-child(1) {
+  padding-left: 200px;
+  padding-right: 0;
 }
+
+.wallet-pagination {
+  background-color: var(--gray-block-filling);
+}
+
+.input-date {
+  padding-right: 3px;
+  width:82px;
+  text-align: right;
+  border: 1px solid #e1e1e1;
+}
+
+.input-date+.search-button {
+  position: static;
+  display: inline-block;
+}
+
+
 
 /*mining*/
 

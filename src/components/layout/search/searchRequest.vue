@@ -1,9 +1,10 @@
 <template>
     <b-row>
-      <block v-if="type === 'block'"></block>
-      <invalidRequest v-if="type === 'invalid'"></invalidRequest>
-      <transaction v-if="type === 'transaction'"></transaction>
-      <wallet v-if="type === 'wallet'"></wallet>
+      <!--<block v-if="type === 'block'"></block>-->
+      <!--<invalidRequest v-if="type === 'invalid'"></invalidRequest>-->
+      <!--<transaction v-if="type === 'transaction'"></transaction>-->
+      <!--<wallet v-if="type === 'wallet'"></wallet>-->
+      <wallet></wallet>
     </b-row>
 </template>
 
