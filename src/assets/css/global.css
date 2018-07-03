@@ -357,6 +357,13 @@ ul.header-links .navbar-text div a {
   align-items:center;
 }
 
+.second-nav a:hover .index-popup {
+  display: block;
+  top: 120px;
+  z-index: 3;
+  right: unset;
+}
+
 /*token holding*/
 /*block*/
 
