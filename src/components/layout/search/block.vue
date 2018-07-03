@@ -13,7 +13,7 @@
       <b-container fluid class="block-container divider-row">
         <b-row class="block-wrapper pt-20 pb-20 mx-auto">
 
-          <b-col class="text-left">
+          <b-col class="text-left" cols="5">
 
             <b-row class="mb-10">
               <b-col class="weight-600 block-description-text p-0">Height:</b-col>
