@@ -16,23 +16,23 @@
           <b-col class="text-left">
 
             <b-row class="mb-10">
-              <b-col class="weight-600 block-description-text">Height:</b-col>
-              <b-col class="weight-600">4720582</b-col>
+              <b-col class="weight-600 block-description-text p-0">Height:</b-col>
+              <b-col class="weight-600 p-0">4720582</b-col>
             </b-row>
 
             <b-row class="mb-10">
-              <b-col class="weight-600 block-description-text">Size:</b-col>
-              <b-col class="weight-600">97383383939 bytes</b-col>
+              <b-col class="weight-600 block-description-text p-0">Size:</b-col>
+              <b-col class="weight-600 p-0">97383383939 bytes</b-col>
             </b-row>
 
             <b-row class="mb-10">
-              <b-col class="weight-600 block-description-text">Difficulty:</b-col>
-              <b-col class="weight-600">1111</b-col>
+              <b-col class="weight-600 block-description-text p-0">Difficulty:</b-col>
+              <b-col class="weight-600 p-0">1111</b-col>
             </b-row>
 
             <b-row>
-              <b-col class="weight-600 block-description-text">Microblocks attached:</b-col>
-              <b-col class="weight-600">11110000</b-col>
+              <b-col class="weight-600 block-description-text p-0">Microblocks attached:</b-col>
+              <b-col class="weight-600 p-0">11110000</b-col>
             </b-row>
 
           </b-col>
@@ -40,25 +40,25 @@
           <b-col class="text-left">
 
             <b-row class="mb-10">
-              <b-col class="weight-600 block-description-text">Transactions:</b-col>
-              <b-col class="weight-600">113</b-col>
+              <b-col class="weight-600 block-description-text p-0">Transactions:</b-col>
+              <b-col class="weight-600 p-0">113</b-col>
             </b-row>
 
             <b-row class="mb-10">
-              <b-col class="weight-600 block-description-text">Generation time:</b-col>
-              <b-col class="weight-600">5 min</b-col>
+              <b-col class="weight-600 block-description-text p-0">Generation time:</b-col>
+              <b-col class="weight-600 p-0">5 min</b-col>
             </b-row>
 
             <b-row class="mb-10">
-              <b-col class="weight-600 block-description-text">Miner:</b-col>
-              <b-col class="weight-600">
+              <b-col class="weight-600 block-description-text p-0">Miner:</b-col>
+              <b-col class="weight-600 p-0">
                 <router-link :to="{name: 'Index'}" class="block-a">chwi3f83yv943uv9</router-link>
               </b-col>
             </b-row>
 
             <b-row>
-              <b-col class="weight-600 block-description-text">Reward:</b-col>
-              <b-col class="weight-600">12.5 ENQ</b-col>
+              <b-col class="weight-600 block-description-text p-0">Reward:</b-col>
+              <b-col class="weight-600 p-0">12.5 ENQ</b-col>
             </b-row>
 
           </b-col>

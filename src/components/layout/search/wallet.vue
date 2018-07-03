@@ -173,9 +173,9 @@
         items: items,
         fields: [
           {key: 'hiddenColumn1', thClass: 'd-none width-100', tdClass: 'wallet-td width-100 border-top-0 divider-row'},
-          {key: 'value', thClass: 'd-none', tdClass: 'wallet-td width-100 border-top-0 divider-row'},
-          {key: 'currency', thClass: 'd-none', tdClass: 'wallet-td width-100 border-top-0 divider-row'},
-          {key: 'hash', thClass: 'd-none', tdClass: 'wallet-td text-right border-top-0 divider-row'},
+          {key: 'value', thClass: 'd-none', tdClass: 'wallet-td width-100 border-top-0 weight-600 divider-row'},
+          {key: 'currency', thClass: 'd-none', tdClass: 'wallet-td width-100 border-top-0 weight-600 divider-row'},
+          {key: 'hash', thClass: 'd-none', tdClass: 'wallet-td text-right border-top-0 weight-600 divider-row'},
           {key: 'hiddenColumn2', thClass: 'd-none width-100', tdClass: 'wallet-td width-100 border-top-0 divider-row'}
         ]
       }

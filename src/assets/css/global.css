@@ -388,6 +388,11 @@ ul.header-links .navbar-text div a {
   max-width:680px;
 }
 
+.block-wrapper div.col:last-child {
+  padding-left: 100px;
+  padding-right: 0;
+}
+
 .block-description-text{
   color: var(--gray);
 }
