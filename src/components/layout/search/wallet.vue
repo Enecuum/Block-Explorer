@@ -85,34 +85,32 @@
         </b-row>
 
         <b-row>
-          <b-col class="p-0">
-            <b-table responsive :items="items" :fields="fields">
+          <b-col class="p-0 mb-20">
+            <b-table responsive :items="items" :fields="fields" :per-page="perPage" :current-page="currentPage">
 
               <template slot="hash" slot-scope="data">
                 <router-link class="" :to="{name: 'Index'}">{{data.item.hash}}</router-link>
               </template>
 
             </b-table>
+
+            <button @click="seeMore" class="more-collapse weight-600">{{tableLable}}</button>
+
           </b-col>
+
           <b-col class="p-0">
-            <b-table responsive :items="items" :fields="fields">
+            <b-table responsive :items="items" :fields="fields" :per-page="3" :current-page="1">
 
               <template slot="hash" slot-scope="data">
                 <router-link class="" :to="{name: 'Index'}">{{data.item.hash}}</router-link>
               </template>
 
             </b-table>
+            <button  class="more-collapse weight-600">See more</button>
+
           </b-col>
         </b-row>
 
-        <b-row class="row-wallet-wrapper mb-20">
-          <b-col class="col-wallet-wrapper p-0">
-            <button class="more-collapse weight-600">See more</button>
-          </b-col>
-          <b-col class="col-wallet-wrapper">
-            <button class="more-collapse weight-600">See more</button>
-          </b-col>
-        </b-row>
 
         <b-row class="row-wallet-wrapper mb-20">
           <b-col class="p-0">
@@ -169,6 +167,9 @@
     name: "wallet",
     data() {
       return {
+        perPage: 3,
+        tableLable: 'See more',
+        currentPage: 1,
         items: items,
         fields: [
           {key: 'hiddenColumn1', thClass: 'd-none width-100', tdClass: 'wallet-td width-100 border-top-0 divider-row'},
@@ -180,6 +181,10 @@
       }
     },
     methods: {
+      seeMore(e){
+        this.perPage === 6 ? this.perPage = 3 : this.perPage = 6;
+        this.tableLable === 'See more' ? this.tableLable = 'See less' : this.tableLable = 'See more';
+      },
     },
     components: {Avatar}
   }

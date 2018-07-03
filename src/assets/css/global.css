@@ -486,11 +486,15 @@ ul.header-links .navbar-text div a {
 
 .more-collapse {
   cursor: pointer;
-  padding: 0;
+  padding-left: 100px;
   border: none;
   background: none;
   outline: none;
   color: var(--href);
+}
+
+.more-collapse:active, .more-collapse:focus {
+  outline:none;
 }
 
 .avatar {
