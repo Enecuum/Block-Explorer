@@ -442,6 +442,19 @@ ul.header-links .navbar-text div a {
   background-color: var(--gray-block-filling);
 }
 
+.wallet-pagination-gray-text {
+  margin: 0 24px;
+  color: #979696;
+}
+
+.wallet-pagination-button {
+  cursor: pointer;
+  color: #3b3b3d;
+  background: none;
+  border:none;
+  outline:none;
+}
+
 .input-date {
   padding-right: 3px;
   width:82px;
@@ -452,6 +465,11 @@ ul.header-links .navbar-text div a {
 .input-date+.search-button {
   position: static;
   display: inline-block;
+}
+
+.wallet-arrows {
+  cursor: pointer;
+  margin: 0 12px;
 }
 
 

@@ -30,16 +30,49 @@
             <span class="weight-600 font-14">Sent</span>
           </b-col>
           <b-col class="col-wallet-wrapper">
-            <span class="weight-600 font-14">Sent</span>
+            <span class="weight-600 font-14">Received</span>
           </b-col>
         </b-row>
 
         <b-row class="row-wallet-wrapper">
           <b-col class="col-wallet-wrapper p-0">
-            <div class="wallet-pagination font-12 weight-600">345</div>
+            <div class="wallet-pagination font-12 weight-600 d-flex align-items-center justify-content-center">
+              <svg class="wallet-arrows" xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8">
+                <g fill="#595C69" fill-rule="nonzero">
+                  <path d="M.136 3.688L3.923.128A.478.478 0 0 1 4.253 0c.124 0 .241.045.329.128L4.86.39a.42.42 0 0 1 0 .619l-3.18 2.99L4.863 6.99a.422.422 0 0 1 0 .62l-.279.261a.478.478 0 0 1-.33.128.478.478 0 0 1-.328-.128L.136 4.31a.422.422 0 0 1 0-.621z"/>
+                  <path d="M5.136 3.688L8.923.128A.478.478 0 0 1 9.253 0c.124 0 .241.045.329.128L9.86.39a.42.42 0 0 1 0 .619l-3.18 2.99L9.863 6.99a.422.422 0 0 1 0 .62l-.279.261a.478.478 0 0 1-.33.128.478.478 0 0 1-.328-.128L5.136 4.31a.422.422 0 0 1 0-.621z"/>
+                </g>
+              </svg>
+              <button class="wallet-pagination-button" type="button">Previous</button>
+              <span class="wallet-pagination-gray-text">Page 1 of 1000</span>
+              <button class="wallet-pagination-button" type="button">Next</button>
+              <svg class="wallet-arrows" xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8">
+                <g fill="#595C69" fill-rule="nonzero">
+                  <path d="M9.864 3.688L6.077.128A.478.478 0 0 0 5.747 0a.478.478 0 0 0-.329.128L5.14.39a.42.42 0 0 0 0 .619l3.18 2.99L5.137 6.99a.422.422 0 0 0 0 .62l.279.261a.478.478 0 0 0 .33.128.478.478 0 0 0 .328-.128L9.864 4.31a.422.422 0 0 0 0-.621z"/>
+                  <path d="M4.864 3.688L1.077.128A.478.478 0 0 0 .747 0a.478.478 0 0 0-.329.128L.14.39a.42.42 0 0 0 0 .619l3.18 2.99L.137 6.99a.422.422 0 0 0 0 .62l.279.261A.478.478 0 0 0 .745 8a.478.478 0 0 0 .328-.128L4.864 4.31a.422.422 0 0 0 0-.621z"/>
+                </g>
+              </svg>
+            </div>
           </b-col>
+
           <b-col class="col-wallet-wrapper">
-            <div class="wallet-pagination font-12 weight-600">345</div>
+            <div class="wallet-pagination font-12 weight-600 d-flex align-items-center justify-content-center">
+              <svg class="wallet-arrows" xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8">
+                <g fill="#595C69" fill-rule="nonzero">
+                  <path d="M.136 3.688L3.923.128A.478.478 0 0 1 4.253 0c.124 0 .241.045.329.128L4.86.39a.42.42 0 0 1 0 .619l-3.18 2.99L4.863 6.99a.422.422 0 0 1 0 .62l-.279.261a.478.478 0 0 1-.33.128.478.478 0 0 1-.328-.128L.136 4.31a.422.422 0 0 1 0-.621z"/>
+                  <path d="M5.136 3.688L8.923.128A.478.478 0 0 1 9.253 0c.124 0 .241.045.329.128L9.86.39a.42.42 0 0 1 0 .619l-3.18 2.99L9.863 6.99a.422.422 0 0 1 0 .62l-.279.261a.478.478 0 0 1-.33.128.478.478 0 0 1-.328-.128L5.136 4.31a.422.422 0 0 1 0-.621z"/>
+                </g>
+              </svg>
+              <button class="wallet-pagination-button" type="button">Previous</button>
+              <span class="wallet-pagination-gray-text">Page 1 of 1000</span>
+              <button class="wallet-pagination-button" type="button">Next</button>
+              <svg class="wallet-arrows" xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8">
+                <g fill="#595C69" fill-rule="nonzero">
+                  <path d="M9.864 3.688L6.077.128A.478.478 0 0 0 5.747 0a.478.478 0 0 0-.329.128L5.14.39a.42.42 0 0 0 0 .619l3.18 2.99L5.137 6.99a.422.422 0 0 0 0 .62l.279.261a.478.478 0 0 0 .33.128.478.478 0 0 0 .328-.128L9.864 4.31a.422.422 0 0 0 0-.621z"/>
+                  <path d="M4.864 3.688L1.077.128A.478.478 0 0 0 .747 0a.478.478 0 0 0-.329.128L.14.39a.42.42 0 0 0 0 .619l3.18 2.99L.137 6.99a.422.422 0 0 0 0 .62l.279.261A.478.478 0 0 0 .745 8a.478.478 0 0 0 .328-.128L4.864 4.31a.422.422 0 0 0 0-.621z"/>
+                </g>
+              </svg>
+            </div>
           </b-col>
         </b-row>
 
