@@ -125,22 +125,22 @@
 
               <router-link class="avatar" :to="{name: 'Index'}">
                 <Avatar hash="012301asdgsdfghsdfhsfhsdfg230123012365478965412asdweqweqweqweqweasd"></Avatar>
-                <div class="popup-href mt-10 block-a">012301asdgsdfghsdfhsfhsdfg230123012365478965412asdweqweqweqweqweasd</div>
+                <div class="popup-href weight-600 mt-10 block-a">012301asdgsdfghsdfhsfhsdfg230123012365478965412asdweqweqweqweqweasd</div>
               </router-link>
 
               <router-link class="avatar" :to="{name: 'Index'}">
-                <Avatar hash="012301asdgsdfghsdfhsfhsdfg230123012365478965412asdweqweqweqweqweasd"></Avatar>
-                <div class="popup-href mt-10 block-a">012301asdgsdfghsdfhsfhsdfg230123012365478965412asdweqweqweqweqweasd</div>
+                <Avatar hash="012301asdgsdfghsdfhsfhsdfg2301230165478965412asdweqweqweqweqweasd"></Avatar>
+                <div class="popup-href weight-600 mt-10 block-a">012301asdgsdfghsdfhsfhsdfg230123012365478965412asdweqweqweqweqweasd</div>
               </router-link>
 
               <router-link class="avatar" :to="{name: 'Index'}">
-                <Avatar hash="012301asdgsdfghsdfhsfhsdfg230123012365478965412asdweqweqweqweqweasd"></Avatar>
-                <div class="popup-href mt-10 block-a">012301asdgsdfghsdfhsfhsdfg230123012365478965412asdweqweqweqweqweasd</div>
+                <Avatar hash="012301asdgsdfghsdfhsfhsdfg23012301478965412asdweqweqweqweqweasd"></Avatar>
+                <div class="popup-href weight-600 mt-10 block-a">012301asdgsdfghsdfhsfhsdfg230123012365478965412asdweqweqweqweqweasd</div>
               </router-link>
 
               <router-link class="avatar" :to="{name: 'Index'}">
-                <Avatar hash="012301asdgsdfghsdfhsfhsdfg230123012365478965412asdweqweqweqweqweasd"></Avatar>
-                <div class="popup-href mt-10 block-a">012301asdgsdfghsdfhsfhsdfg230123012365478965412asdweqweqweqweqweasd</div>
+                <Avatar hash="012301asdgsdfghsdfhsfhsdfg21230123012365478965412asdweqweqweqweqweasd"></Avatar>
+                <div class="popup-href weight-600 mt-10 block-a">012301asdgsdfghsdfhsfhsdfg230123012365478965412asdweqweqweqweqweasd</div>
               </router-link>
 
           </b-col>
@@ -157,6 +157,9 @@
   import Avatar from "@/components/Avatar.vue"
 
   const items = [
+    {value: '500', currency: 'ENQ', hash: 'bjhr9yeub8er9bbjrb0r'},
+    {value: '500', currency: 'ENQ', hash: 'bjhr9yeub8er9bbjrb0r'},
+    {value: '500', currency: 'ENQ', hash: 'bjhr9yeub8er9bbjrb0r'},
     {value: '500', currency: 'ENQ', hash: 'bjhr9yeub8er9bbjrb0r'},
     {value: '500', currency: 'ENQ', hash: 'bjhr9yeub8er9bbjrb0r'},
     {value: '500', currency: 'ENQ', hash: 'bjhr9yeub8er9bbjrb0r'}

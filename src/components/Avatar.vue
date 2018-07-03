@@ -1,5 +1,5 @@
 <template>
-  <div class="vue-avatar--wrapper" v-html="generateIcon">
+  <div class="vue-avatar--wrapper" @mouseover="hover" @mouseleave="unhover" v-html="generateIcon">
   </div>
 </template>
 
@@ -44,6 +44,30 @@
 
         return rgb;
       },
+
+      hover(e){
+        let el = e.currentTarget;
+        el.parentNode.classList.add('active');
+
+        let mass = Array.prototype.slice.call(el.parentNode.parentNode.childNodes);
+        let hrefs = mass.filter(function(item){
+          return (item.tagName === 'A' && !item.classList.contains('active') );
+        });
+        hrefs.forEach(function(item){
+          item.classList.add('transparent');
+        });
+      },
+
+      unhover(e){
+        e.currentTarget.parentNode.classList.remove('active');
+        let mass =Array.prototype.slice.call(e.currentTarget.parentNode.parentNode.childNodes);
+        let hrefs = mass.filter(function(item){
+          return (item.tagName === 'A' );
+        });
+        hrefs.forEach(function(item){
+          item.classList.remove('transparent');
+        })
+      }
     },
     computed: {
       /**

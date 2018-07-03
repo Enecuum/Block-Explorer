@@ -507,12 +507,17 @@ ul.header-links .navbar-text div a {
 }
 
 .popup-href {
+  left:0;
   position: absolute;
   display:none;
 }
 
 .avatar:hover .popup-href{
   display:block;
+}
+
+.transparent {
+  opacity: 0.5;
 }
 
 
