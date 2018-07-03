@@ -89,6 +89,10 @@ html, body {
   margin-bottom: 20px;
 }
 
+.mb-40{
+  margin-bottom: 40px;
+}
+
 .pt-15 {
   padding-top: 15px;
 }
@@ -433,7 +437,7 @@ ul.header-links .navbar-text div a {
   width:400px;
 }
 
-.row-wallet-wrapper .col-wallet-wrapper:nth-last-child(1) {
+.row-wallet-wrapper .col-wallet-wrapper:last-child {
   padding-left: 200px;
   padding-right: 0;
 }
@@ -472,6 +476,44 @@ ul.header-links .navbar-text div a {
   margin: 0 12px;
 }
 
+.width-100 {
+  width: 100px;
+}
+
+.table .wallet-td {
+  padding: 4px 0;
+}
+
+.more-collapse {
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--href);
+}
+
+.avatar {
+  display: inline-block;
+  margin: 0 7px;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.avatar:last-child {
+  margin-right: 0;
+}
+
+.popup-href {
+  position: absolute;
+  display:none;
+}
+
+.avatar:hover .popup-href{
+  display:block;
+}
 
 
 /*mining*/

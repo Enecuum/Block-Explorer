@@ -1,6 +1,5 @@
 <template>
-  <div class="vue-avatar--wrapper">
-    {{ generateIcon }}
+  <div class="vue-avatar--wrapper" v-html="generateIcon">
   </div>
 </template>
 
@@ -13,20 +12,22 @@
         required: true
       }
     },
-    data () {
+    data() {
       return {
         size: 30,
         extent: 5
       }
     },
-    computed: {
+    methods: {
       /**
        * Generate RGB code from hash
        * @param {string} val RGB
        * @return {Array} [r, g, b]
        */
       generateRGBCode(val) {
-        if (!val) { return [0,0,0]; }
+        if (!val) {
+          return [0, 0, 0];
+        }
         const len = Math.floor(val.length / 3);
         // /[\s\S]{1,n}/g
         const regexp = new RegExp(`[\\s\\S]{1,${len}}`, 'g');
@@ -43,13 +44,14 @@
 
         return rgb;
       },
-
+    },
+    computed: {
       /**
        * Generate SVG icon
        * @return {string} SVG
        */
       generateIcon() {
-        const forDraw = this.hash.substr(0,36);
+        const forDraw = this.hash.substr(0, 36);
         const forColor = this.hash.substr(36);
 
         // rgb(x, y, z)
@@ -61,7 +63,7 @@
 
         for (let c of forDraw) {
           const isDraw = c.charCodeAt() % 2 === 0;
-          if(!isDraw) hue = `rgb(${this.generateRGBCode(this.hash.substr(((x + y) / interval))).join(',')})`;
+          if (!isDraw) hue = `rgb(${this.generateRGBCode(this.hash.substr(((x + y) / interval))).join(',')})`;
           path += `<rect x="${x}" y="${y}" width="${interval}" height="${interval}" fill="${hue}" />`;
           if (x < this.size - interval) {
             x += interval;
@@ -73,18 +75,20 @@
 
         return [
           `<svg width="${this.size}" height="${this.size}">`,
-          `<clippath id="cp-circle"><circle r="${this.size/2}" cx="${this.size/2}" cy="${this.size/2}"></circle></clippath>`,
+          `<clippath id="cp-circle"><circle r="${this.size / 2}" cx="${this.size / 2}" cy="${this.size / 2}"></circle></clippath>`,
           '<g clip-path="url(#cp-circle)">',
           path,
           '</g>',
         ].join('');
       }
     },
-    mounted () {
+    mounted() {
     }
   };
 </script>
 
 <style scoped>
-
+  .vue-avatar--wrapper {
+    display: inline-block;
+  }
 </style>
