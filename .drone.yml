@@ -1,0 +1,57 @@
+pipeline:
+  build:
+    image: plugins/docker
+    secrets: [docker_username, docker_password]
+    registry: dev.enecuum.com:2087
+    repo: dev.enecuum.com:2087/explorer/block
+    tags: latest
+    when:
+      branch:
+        - master
+      event:
+        - push
+        - tag
+  notify-build:
+    image: dev.enecuum.com:2087/library/drone-telegram:v1.0.0
+    secrets: [telegram_token, telegram_id]
+    when:
+      branch:
+        - master
+      status:
+        - success
+        - failure
+      event:
+        - push
+        - tag
+  deploy:
+    image: peloton/drone-rancher
+    url: https://dev.enecuum.com:2096
+    secrets:
+      - source: rancher_access_key
+        target: PLUGIN_ACCESS_KEY
+      - source: rancher_secret_key
+        target: PLUGIN_SECRET_KEY
+    docker_image: dev.enecuum.com:2087/explorer/block:latest
+    service: explorer/block
+    confirm: true
+    timeout: 240
+    when:
+      branch:
+        - master
+      status:
+        - success
+      event:
+        - push
+        - tag
+  notify-deploy:
+    image: dev.enecuum.com:2087/library/drone-telegram:v1.0.0
+    secrets: [telegram_token, telegram_id]
+    message: \u2705 ${DRONE_REPO}:`${DRONE_COMMIT_BRANCH}` ${DRONE_BUILD_NUMBER} deployment successful
+    when:
+      branch:
+        - master
+      status:
+        - success
+      event:
+        - push
+        - tag
