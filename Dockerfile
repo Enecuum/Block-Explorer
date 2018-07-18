@@ -9,4 +9,4 @@ RUN npm install && \
 EXPOSE 80 8080
 
 ENTRYPOINT ["npm"]
-CMD ["run", "start"]
+CMD ["run", "dev"]
