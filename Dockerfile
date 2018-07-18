@@ -6,7 +6,7 @@ WORKDIR /usr/src/explorer
 RUN npm install && \
     npm run build
 
-EXPOSE 80 8081
+EXPOSE 80 8080
 
 ENTRYPOINT ["npm"]
 CMD ["run", "start"]
