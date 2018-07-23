@@ -3,10 +3,7 @@ FROM node:10-alpine
 ADD . /usr/src/explorer
 WORKDIR /usr/src/explorer
 
-RUN npm install && \
-    npm run build
-
-EXPOSE 80 8080
+RUN npm install
 
 ENTRYPOINT ["npm"]
-CMD ["run", "start"]
+CMD ["run", "build"]
