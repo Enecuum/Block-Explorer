@@ -213,8 +213,7 @@ viewBox="0 0 1237358 1418840"
           hash: this.$route.params.id
         }).then(block => {
           _.assign(this.$data, _.pick(block, _.keys(this.$data)))
-      }).
-        catch(e = > this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
+      }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
       )
       }
     },

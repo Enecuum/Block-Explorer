@@ -213,8 +213,7 @@ viewBox="0 0 523950 603031"
         }).then(microblock => {
           console.log(microblock)
         // _.assign(this.$data, _.pick(block, _.keys(this.$data)))
-      }).
-        catch(e = > this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
+      }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
       )
       }
     },

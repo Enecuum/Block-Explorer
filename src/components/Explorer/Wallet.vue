@@ -135,8 +135,7 @@ viewBox="0 0 9332488 9321506"
         }).then(wallet => {
           this.balance = wallet.balance
         this.items = wallet.txs
-      }).
-        catch(e = > this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
+      }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
       )
       }
     },

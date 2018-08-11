@@ -160,8 +160,7 @@ viewBox="0 0 1400273 1662572"
         }).then(tx => {
           console.log(tx)
         // _.assign(this.$data, _.pick(tx, _.keys(this.$data)))
-      }).
-        catch(e = > this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
+      }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
       )
       }
     },
