@@ -103,7 +103,6 @@ viewBox="0 0 9332488 9321506"
 </template>
 
 <script>
-  import _ from 'lodash'
   import avatar from '../Avatar'
 
   export default {
@@ -133,7 +132,7 @@ viewBox="0 0 9332488 9321506"
       load() {
         this.$socket.sendRpc('enq_getWalletByHash', {
           address: this.$route.params.id
-        }).then(wallet = > {
+        }).then(wallet => {
           this.balance = wallet.balance
         this.items = wallet.txs
       }).

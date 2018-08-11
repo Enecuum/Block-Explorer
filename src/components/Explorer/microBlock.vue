@@ -184,7 +184,6 @@ viewBox="0 0 523950 603031"
 </template>
 
 <script>
-  import _ from 'lodash'
 
   export default {
     name: 'kBlock',
@@ -211,7 +210,7 @@ viewBox="0 0 523950 603031"
       load() {
         this.$socket.sendRpc('enq_getMicroblockByHash', {
           hash: this.$route.params.id
-        }).then(microblock = > {
+        }).then(microblock => {
           console.log(microblock)
         // _.assign(this.$data, _.pick(block, _.keys(this.$data)))
       }).

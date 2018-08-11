@@ -335,7 +335,7 @@ viewBox="0 0 140981 140978"
 
           this.$socket.sendRpc('search', {
             hash: this.searchText
-          }).then(result = > {
+          }).then(result => {
             console.log('Search:', result)
           if (this.type.indexOf(result) !== -1) {
             this.$router.push({name: result, params: {id: this.searchText}})

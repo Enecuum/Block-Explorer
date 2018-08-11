@@ -35,10 +35,10 @@
 </template>
 
 <script>
-  import _ from 'lodash'
-  import topHeader from "@/components/layout/topHeader"
   import sidebar from "@/components/layout/sidebar"
   import sidebarMobile from "@/components/layout/sidebarMobile"
+  import topHeader from "@/components/layout/topHeader"
+  import _ from 'lodash'
 
   export default {
     name: 'App',
@@ -78,8 +78,8 @@
           id: ++this.ids
         }
         if (params) request.params = params
-        return new Promise((resolve, reject) = > {
-          this.$once('rpc.' + request.id, (response) = > {
+        return new Promise((resolve, reject) => {
+          this.$once('rpc.' + request.id, (response) => {
           if(_.has(response, 'error')
       )
         return reject(response.error)
@@ -87,7 +87,7 @@
       })
         if (this.ready) {
           this.$socket.sendObj(request)
-          this.interval = setTimeout(() = > {
+          this.interval = setTimeout(() => {
             console.log('timeout')
           this.$socket.close()
           // this.$socket.open()
@@ -115,15 +115,10 @@
     created() {
       //console.log('APP', this.$options.sockets);
       this.$socket.sendRpc = this.sendRpc
-      this.$options.sockets.onopen = () =
-    >
-      this.sendPool()
-      this.$options.sockets.onclose = () =
-    >
-      this.closed()
+      this.$options.sockets.onopen = () => this.sendPool()
+      this.$options.sockets.onclose = () => this.closed()
       // this.$options.sockets.onerror = (e) => this.error(e)
-      this.$options.sockets.onmessage = (e) =
-    >
+      this.$options.sockets.onmessage = (e) =>
       {
         if (e.data.indexOf('jsonrpc') !== -1)
           this.parseRpc(e)

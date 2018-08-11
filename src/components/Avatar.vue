@@ -70,7 +70,7 @@
         const codes = val.match(regexp)
 
         const rgb = []
-        codes.forEach(a = > {
+        codes.forEach(a => {
           let n = 0
         for (let x of a) {
           n += x.charCodeAt()

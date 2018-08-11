@@ -141,7 +141,6 @@ viewBox="0 0 1400273 1662572"
 </template>
 
 <script>
-  import _ from 'lodash'
 
   export default {
     name: 'Transaction',
@@ -158,7 +157,7 @@ viewBox="0 0 1400273 1662572"
       load() {
         this.$socket.sendRpc('enq_getTransactionByHash', {
           hash: this.$route.params.id
-        }).then(tx = > {
+        }).then(tx => {
           console.log(tx)
         // _.assign(this.$data, _.pick(tx, _.keys(this.$data)))
       }).

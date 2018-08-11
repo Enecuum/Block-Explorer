@@ -10,7 +10,7 @@
       return {}
     },
     beforeMount() {
-      this.$socket.sendRpc('enq_getChainInfo', {}).then(response = > {
+      this.$socket.sendRpc('enq_getChainInfo', {}).then(response => {
         this.$router.replace({name: 'Block', params: {id: response.lastKBlock}})
     })
     }

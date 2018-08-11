@@ -211,7 +211,7 @@ viewBox="0 0 1237358 1418840"
       load() {
         this.$socket.sendRpc('enq_getBlockByHash', {
           hash: this.$route.params.id
-        }).then(block = > {
+        }).then(block => {
           _.assign(this.$data, _.pick(block, _.keys(this.$data)))
       }).
         catch(e = > this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})

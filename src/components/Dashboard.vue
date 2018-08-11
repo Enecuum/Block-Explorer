@@ -420,8 +420,8 @@ viewBox="0 0 5164740 5164740"
 </template>
 
 <script>
-  import _ from 'lodash'
   import {TweenMax} from 'gsap'
+  import _ from 'lodash'
   import {Network} from 'vue2vis'
 
   export default {
@@ -703,12 +703,12 @@ viewBox="0 0 5164740 5164740"
       // })
 
 
-      this.$socket.sendRpc('enq_getChainInfo', {}).then(response = > {
+      this.$socket.sendRpc('enq_getChainInfo', {}).then(response => {
         _.assign(this.$data, _.pick(response, _.keys(this.$data)))
     })
 
-      setInterval(() = > {
-        this.$socket.sendRpc('enq_getChainInfo', {}).then(response = > {
+      setInterval(() => {
+          this.$socket.sendRpc('enq_getChainInfo', {}).then(response => {
         _.assign(this.$data, _.pick(response, _.keys(this.$data)))
     })
     },
