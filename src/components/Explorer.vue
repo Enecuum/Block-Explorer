@@ -2,7 +2,7 @@
   <b-container fluid class="container-wrapper">
     <b-row>
       <b-col>
-        123123
+        Blocks here
       </b-col>
     </b-row>
   </b-container>
@@ -12,6 +12,11 @@
 
   export default {
     name: 'Explorer',
-
+    data() {
+      return {
+        blocks: [],
+        fields: [],
+      }
+    }
   }
 </script>

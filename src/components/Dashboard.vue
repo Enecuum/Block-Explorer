@@ -630,7 +630,8 @@ viewBox="0 0 70287102 80398753">
     },
 
     created() {
-      this.$root.ws.on('dashboard.stats', function(r){
+
+      this.$root.ws.on('dashboard.stats', r => {
         _.assign(this.$data, _.pick( r, _.keys(this.$data)));
       });
 
