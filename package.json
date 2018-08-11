@@ -13,14 +13,13 @@
     "lodash": "~4.17.10",
     "vue": "~2.5.16",
     "vue-router": "~3.0.1",
-    "vue-native-websocket": "~2.0.8",
     "bootstrap-vue": "~2.0.0-rc.11",
     "bootstrap": "4.1.1",
     "vue2vis": "~0.0.13",
-    "gsap": "~2.0.1",
     "vue-moment": "~4.0.0",
     "vue2-touch-events": "~1.0.0",
-    "vue-clipboard2": "~0.2.0"
+    "vue-clipboard2": "~0.2.0",
+    "rpc-websockets": "~4.2.7"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

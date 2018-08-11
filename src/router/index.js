@@ -6,6 +6,7 @@ import Explorer from '@/components/Explorer'
 import Mining from '@/components/Mining'
 import About from '@/components/About'
 import Search from '@/components/layout/searchError'
+import Pending from '@/components/Pending'
 
 //Explorer
 import Block from '@/components/Explorer/Block'
@@ -26,7 +27,8 @@ export default new Router({
     {path: '/explorer/microblock/:id', name: 'microBlock', component: microBlock},
     {path: '/explorer/transaction/:id', name: 'Transaction', component: Transaction},
     {path: '/explorer/wallet/:id', name: 'Wallet', component: Wallet},
-    { path: '/mining', name: 'Mining', component: Mining },
-    {path: '/about', name: 'About', component: About}
+    {path: '/mining', name: 'Mining', component: Mining },
+    {path: '/about', name: 'About', component: About},
+    {path: '/pending', name: 'Pending', component: Pending}
   ]
 })

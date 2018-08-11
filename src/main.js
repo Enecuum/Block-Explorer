@@ -3,7 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueNativeSock from 'vue-native-websocket'
+
+import { Client } from 'rpc-websockets/'
 
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -18,18 +19,20 @@ Vue.use(BootstrapVue)
 Vue.use(Vue2TouchEvents)
 Vue.use(VueClipboard)
 Vue.use(require('vue-moment'))
-Vue.use(VueNativeSock, 'ws://46.21.248.176:1555', {
-  reconnection: true,
-  reconnectionAttempts: Infinity,
-  reconnectionDelay: 3000,
-  format: 'json'
-})
-
+// 'ws://46.21.248.176:1555'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  data: {
+    ws: new Client(
+      "ws://46.21.248.176:1555",
+      {
+        max_reconnects: 0
+      }
+    )
+  },
   router,
   components: { App },
   template: '<App/>'

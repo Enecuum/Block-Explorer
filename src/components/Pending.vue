@@ -1,17 +1,17 @@
 <template>
   <b-container fluid class="container-wrapper">
     <b-row>
-      <b-col>
-        123123
-      </b-col>
+      <b-col>Pending</b-col>
     </b-row>
   </b-container>
 </template>
 
 <script>
-
-  export default {
-    name: 'Explorer',
-
-  }
+    export default {
+        name: "Pending"
+    }
 </script>
+
+<style scoped>
+
+</style>
