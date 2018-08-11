@@ -1,6 +1,5 @@
 <template>
-  <div class="vue-avatar--wrapper" @mouseover="hover" @mouseleave="unhover" v-html="generateIcon">
-  </div>
+  <div class="vue-avatar--wrapper" v-html="generateIcon"></div>
 </template>
 
 <script>
@@ -18,64 +17,13 @@
         extent: 5
       }
     },
-    methods: {
-      /**
-       * Generate RGB code from hash
-       * @param {string} val RGB
-       * @return {Array} [r, g, b]
-       */
-      generateRGBCode(val) {
-        if (!val) {
-          return [0, 0, 0];
-        }
-        const len = Math.floor(val.length / 3);
-        // /[\s\S]{1,n}/g
-        const regexp = new RegExp(`[\\s\\S]{1,${len}}`, 'g');
-        const codes = val.match(regexp);
-
-        const rgb = [];
-        codes.forEach(a => {
-          let n = 0;
-          for (let x of a) {
-            n += x.charCodeAt();
-          }
-          rgb.push(n % 256);
-        });
-
-        return rgb;
-      },
-
-      hover(e){
-        let el = e.currentTarget;
-        el.parentNode.classList.add('active');
-
-        let mass = Array.prototype.slice.call(el.parentNode.parentNode.childNodes);
-        let hrefs = mass.filter(function(item){
-          return (item.tagName === 'A' && !item.classList.contains('active') );
-        });
-        hrefs.forEach(function(item){
-          item.classList.add('transparent');
-        });
-      },
-
-      unhover(e){
-        e.currentTarget.parentNode.classList.remove('active');
-        let mass =Array.prototype.slice.call(e.currentTarget.parentNode.parentNode.childNodes);
-        let hrefs = mass.filter(function(item){
-          return (item.tagName === 'A' );
-        });
-        hrefs.forEach(function(item){
-          item.classList.remove('transparent');
-        })
-      }
-    },
     computed: {
       /**
        * Generate SVG icon
        * @return {string} SVG
        */
       generateIcon() {
-        const forDraw = this.hash.substr(0, 36);
+        const forDraw = this.hash.substr(0, 36)
         const forColor = this.hash.substr(36);
 
         // rgb(x, y, z)
@@ -87,7 +35,7 @@
 
         for (let c of forDraw) {
           const isDraw = c.charCodeAt() % 2 === 0;
-          if (!isDraw) hue = `rgb(${this.generateRGBCode(this.hash.substr(((x + y) / interval))).join(',')})`;
+          if (!isDraw) hue = `rgb(${this.generateRGBCode(this.hash.substr(((x + y) / interval))).join(',')})`
           path += `<rect x="${x}" y="${y}" width="${interval}" height="${interval}" fill="${hue}" />`;
           if (x < this.size - interval) {
             x += interval;
@@ -106,13 +54,35 @@
         ].join('');
       }
     },
-    mounted() {
+    methods: {
+      /**
+       * Generate RGB code from hash
+       * @param {string} val RGB
+       * @return {Array} [r, g, b]
+       */
+      generateRGBCode(val) {
+        if (!val) {
+          return [0, 0, 0]
+        }
+        const len = Math.floor(val.length / 3)
+        // /[\s\S]{1,n}/g
+        const regexp = new RegExp(`[\\s\\S]{1,${len}}`, 'g')
+        const codes = val.match(regexp)
+
+        const rgb = []
+        codes.forEach(a = > {
+          let n = 0
+        for (let x of a) {
+          n += x.charCodeAt()
+        }
+        rgb.push(n % 256)
+      })
+        return rgb
+      }
     }
   };
 </script>
 
 <style scoped>
-  .vue-avatar--wrapper {
-    display: inline-block;
-  }
+
 </style>

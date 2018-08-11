@@ -1,37 +1,32 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/components/Index'
-import Token from '@/components/Token'
-import Mining from '@/components/Mining'
-import Partnership from '@/components/Partnership'
-import AllInfo from '@/components/AllInfo'
 
-import Search from '@/components/layout/search/searchRequest'
-import Block from '@/components/layout/search/block'
-import Transaction from '@/components/layout/search/transaction'
-import Wallet from '@/components/layout/search/wallet'
+import Dashboard from '@/components/Dashboard'
+import Explorer from '@/components/Explorer'
+import Mining from '@/components/Mining'
+import About from '@/components/About'
+import Search from '@/components/layout/searchError'
+
+//Explorer
+import Block from '@/components/Explorer/Block'
+import microBlock from '@/components/Explorer/microBlock'
+import Transaction from '@/components/Explorer/Transaction'
+import Wallet from '@/components/Explorer/Wallet'
+
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: '/', name: 'Index', component: Index },
-    { path: '/token/:search?', name: 'Token', component: Token },
+    {path: '/', redirect: '/dashboard'},
+    {path: '/dashboard', name: 'Dashboard', component: Dashboard},
+    {path: '/explorer', name: 'Explorer', component: Explorer},
+    {path: '/explorer/search/:id', name: 'Search', component: Search},
+    {path: '/explorer/block/:id', name: 'Block', component: Block},
+    {path: '/explorer/microblock/:id', name: 'microBlock', component: microBlock},
+    {path: '/explorer/transaction/:id', name: 'Transaction', component: Transaction},
+    {path: '/explorer/wallet/:id', name: 'Wallet', component: Wallet},
     { path: '/mining', name: 'Mining', component: Mining },
-    { path: '/partnership', name: 'Partnership', component: Partnership },
-    { path: '/allinfo', name: 'All Info', component: AllInfo },
-
-    /* TODO: детальное отображение
-    { path: '/transactions', name: 'Transactions', component: Transactions },
-    { path: '/transaction/:id', name: 'Transaction Info', component: Index },
-    { path: '/blocks', name: 'Blocks', component: Blocks },
-    { path: '/nodes', name: 'Nodes', component: Nodes },
-    { path: '/node/:id', name: 'Node Info', component: NodeInfo },
-    { path: '/token/:id', name: 'Token', component: Token },
-    */
-
-    { path: '/transaction/:id', name: 'Transaction', component: Transaction },
-    { path: '/block/:id', name: 'Block', component: Block },
-    { path: '/wallet/:id', name: 'Wallet', component: Wallet },
+    {path: '/about', name: 'About', component: About}
   ]
 })

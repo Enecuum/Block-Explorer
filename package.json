@@ -12,11 +12,15 @@
   "dependencies": {
     "lodash": "~4.17.10",
     "vue": "~2.5.16",
-    "vuex": "~3.0.1",
     "vue-router": "~3.0.1",
     "vue-native-websocket": "~2.0.8",
     "bootstrap-vue": "~2.0.0-rc.11",
-    "bootstrap": "4.1.1"
+    "bootstrap": "4.1.1",
+    "vue2vis": "~0.0.13",
+    "gsap": "~2.0.1",
+    "vue-moment": "~4.0.0",
+    "vue2-touch-events": "~1.0.0",
+    "vue-clipboard2": "~0.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -40,7 +44,7 @@
     "ora": "^1.2.0",
     "portfinder": "^1.0.13",
     "postcss-import": "^11.0.0",
-    "postcss-loader": "^2.0.8",
+    "postcss-loader": "^2.1.6",
     "postcss-url": "^7.2.1",
     "rimraf": "^2.6.0",
     "semver": "^5.3.0",

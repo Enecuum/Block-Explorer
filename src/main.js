@@ -4,65 +4,25 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueNativeSock from 'vue-native-websocket'
-import StoreWS from './store/WS'
 
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-import './assets/css/global.css'
+/*theme*/
+import '@/assets/css/global.css'
+import Vue2TouchEvents from 'vue2-touch-events'
+import VueClipboard from 'vue-clipboard2'
 
 Vue.use(BootstrapVue)
-                    // 'ws://demos.kaazing.com/echo'
-                    // 'ws://195.201.226.24:1555'
-Vue.use(VueNativeSock, 'ws://88.99.87.200:1555', {
-  store: StoreWS,
-  format: 'json',
-  ids: 1,
-  sendRpc (method, params) {
-    let obj = {
-      jsonrpc: "2.0",
-      method: method,
-      id: ++this.opts.ids
-    }
-    if(params) obj.params = params
-    return this.WebSocket.sendObj(obj)
-  },
-  passToStoreHandler (eventName, event) {
-    console.log('[WS]:', eventName, event)
-    if(eventName === 'SOCKET_onopen') {
-      setTimeout(() => {
-        this.opts.sendRpc.call(this, "enq_getAllTransactions", {
-          address: "QYy3AT4a3Z88MpEoGDixRgxtWW8v3RfSbJLFQEyFZwMe"
-        })
-        this.opts.sendRpc.call(this, "enq_getBalance", {
-          address: "QYy3AT4a3Z88MpEoGDixRgxtWW8v3RfSbJLFQEyFZwMe"
-        })
-        // this.opts.sendRpc.call(this, "enq_getTransactionByHash", {
-        //   hash: "QYy3AT4a3Z88MpEoGDixRgxtWW8v3RfSbJLFQEyFZwMe"
-        // })
-      }, 5000)
-
-    }
-    // rpc
-    //this.emit(eventName, event)
-
-    //if (!eventName.startsWith('SOCKET_')) { return }
-    /*let method = 'commit'
-    let target = eventName.toUpperCase()
-    let msg = event
-    if (this.format === 'json' && event.data) {
-      msg = JSON.parse(event.data)
-      if (msg.mutation) {
-        target = [msg.namespace || '', msg.mutation].filter((e) => !!e).join('/')
-      } else if (msg.action) {
-        method = 'dispatch'
-        target = [msg.namespace || '', msg.action].filter((e) => !!e).join('/')
-      }
-    }
-    this.store[method](target, msg)
-    */
-  }
+Vue.use(Vue2TouchEvents)
+Vue.use(VueClipboard)
+Vue.use(require('vue-moment'))
+Vue.use(VueNativeSock, 'ws://46.21.248.176:1555', {
+  reconnection: true,
+  reconnectionAttempts: Infinity,
+  reconnectionDelay: 3000,
+  format: 'json'
 })
 
 Vue.config.productionTip = false
