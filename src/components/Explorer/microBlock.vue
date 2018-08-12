@@ -72,7 +72,7 @@ viewBox="0 0 1325288 1672151"
 
               <b-row class="py-1 no-gutters">
                 <b-col class="weight-600 gray-text">Tx attached:</b-col>
-                <b-col class="weight-600"> {{ Tx.length }}</b-col>
+                <b-col class="weight-600"> {{ total }}</b-col>
               </b-row>
 
             </b-col>
@@ -80,22 +80,22 @@ viewBox="0 0 1325288 1672151"
           </b-row>
 
           <!--<b-row class="no-gutters border-bottom-gray ">-->
-            <!--<b-col cols="12" sm="5" class="text-left border-bottom-gray-xs">-->
+          <!--<b-col cols="12" sm="5" class="text-left border-bottom-gray-xs">-->
 
-              <!--<b-row class="py-1 no-gutters">-->
-                <!--<b-col class="weight-600 gray-text">Sign_s:</b-col>-->
-                <!--<b-col class="weight-600">{{ sign.sign_s }}</b-col>-->
-              <!--</b-row>-->
+          <!--<b-row class="py-1 no-gutters">-->
+          <!--<b-col class="weight-600 gray-text">Sign_s:</b-col>-->
+          <!--<b-col class="weight-600">{{ sign.sign_s }}</b-col>-->
+          <!--</b-row>-->
 
-            <!--</b-col>-->
-            <!--<b-col cols="12" sm="5" offset-sm="2" class="text-left ">-->
+          <!--</b-col>-->
+          <!--<b-col cols="12" sm="5" offset-sm="2" class="text-left ">-->
 
-              <!--<b-row class="py-1 no-gutters">-->
-                <!--<b-col class="weight-600 gray-text">Sign_r:</b-col>-->
-                <!--<b-col class="weight-600">{{ sign.sign_r }}</b-col>-->
-              <!--</b-row>-->
+          <!--<b-row class="py-1 no-gutters">-->
+          <!--<b-col class="weight-600 gray-text">Sign_r:</b-col>-->
+          <!--<b-col class="weight-600">{{ sign.sign_r }}</b-col>-->
+          <!--</b-row>-->
 
-            <!--</b-col>-->
+          <!--</b-col>-->
           <!--</b-row>-->
 
           <!--<b-row class="no-gutters border-bottom-gray ">-->
@@ -154,13 +154,13 @@ viewBox="0 0 523950 603031">
             <b-col>
               <b-table striped hover responsive :items="Tx" :fields="fields">
 
-                <!--<template slot="hash" slot-scope="data">-->
-                  <!--<div class="hash-wrapper">-->
-                    <!--<router-link class="href" :to="{name: 'Transaction', params: { id: data.item.hash }}">{{-->
-                      <!--data.item.hash }}-->
-                    <!--</router-link>-->
-                  <!--</div>-->
-                <!--</template>-->
+                <template slot="hash" slot-scope="data">
+                  <div class="hash-wrapper">
+                    <router-link class="href" :to="{name: 'Transaction', params: { id: data.item.hash }}">{{
+                      data.item.hash }}
+                    </router-link>
+                  </div>
+                </template>
 
                 <template slot="owner" slot-scope="data">
                   <div class="hash-wrapper">
@@ -184,12 +184,29 @@ viewBox="0 0 523950 603031">
 
               </b-table>
 
-              <b-pagination align="center" class="mt-10"
-                            v-model="currentPage"
-                            v-if="this.Tx.length > 25"
-                            :total-rows="this.Tx.length"
-                            :per-page="this.perPage">
-              </b-pagination>
+              <b-row v-if="!(last && currentPage == 1)">
+                <b-col>
+                  <b-button-toolbar key-nav class="mt-10 justify-content-center">
+
+                    <b-button-group class="mx-1">
+                      <b-btn @click="fetchData(currentPage--)" :disabled="currentPage == 1"
+                             class="pagination-button weight-600">newest
+                      </b-btn>
+                    </b-button-group>
+
+                    <b-button-group class="mx-1">
+                      <b-btn class="weight-600" disabled>{{ currentPage }}</b-btn>
+                    </b-button-group>
+
+                    <b-button-group class="mx-1">
+                      <b-btn @click="fetchData(currentPage++)"
+                             :disabled="this.last" class="pagination-button  weight-600">oldest
+                      </b-btn>
+                    </b-button-group>
+
+                  </b-button-toolbar>
+                </b-col>
+              </b-row>
 
             </b-col>
           </b-row>
@@ -209,12 +226,15 @@ viewBox="0 0 523950 603031">
     data() {
       return {
         currentPage: 1,
+        last: true,
+        total: 0,
+
         perPage: 25,
         K_hash: '0',
         publisher: '0',
         Tx: [],
         fields: [
-          // {key: 'hash', label: 'Hash', tdClass: 'weight-600'},
+          {key: 'hash', label: 'Hash', tdClass: 'weight-600'},
           {key: 'owner', label: 'From', tdClass: 'weight-600'},
           {key: 'receiver', label: 'To', tdClass: 'weight-600'},
           {key: 'amount', label: 'Amount', tdClass: 'weight-600'}
@@ -235,13 +255,15 @@ viewBox="0 0 523950 603031">
         }
       },
 
-      fetchData() {
+      fetchData(page = 1) {
         this.$root.ws.call('getMicroblock', {
-          hash: this.$route.params.id
+          hash: this.$route.params.id,
+          page: page
         }).then(r => {
-        _.assign(this.$data, _.pick(r, _.keys(this.$data)))
-      }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}}))
-      }
+          _.assign(this.$data, _.pick(r, _.keys(this.$data)))
+        }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}}))
+      },
+
     },
     mounted() {
       this.load()

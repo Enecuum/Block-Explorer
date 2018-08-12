@@ -47,7 +47,7 @@ viewBox="0 0 1400273 1662572"
               <b-row class="py-1  no-gutters">
                 <b-col class="weight-600 gray-text">From:</b-col>
                 <b-col class="weight-600 hash-wrapper">
-                  <router-link class="href weight-600" :to="{name: 'Wallet', params: { id: tx.owner}}">{{ tx.owner }}
+                  <router-link class="href weight-600" :to="{name: 'Wallet', params: { id: owner}}">{{ owner }}
                   </router-link>
                 </b-col>
               </b-row>
@@ -59,8 +59,8 @@ viewBox="0 0 1400273 1662572"
               <b-row class="py-1 no-gutters">
                 <b-col class="weight-600 gray-text">To:</b-col>
                 <b-col class="weight-600 hash-wrapper">
-                  <router-link class="href weight-600" :to="{name: 'Wallet', params: {id: tx.receiver}}">{{ tx.receiver
-                    }}
+                  <router-link class="href weight-600" :to="{name: 'Wallet', params: {id: receiver}}">
+                    {{ receiver }}
                   </router-link>
                 </b-col>
               </b-row>
@@ -74,7 +74,7 @@ viewBox="0 0 1400273 1662572"
               <b-row class="py-1  no-gutters">
                 <b-col class="weight-600 gray-text">Microblock:</b-col>
                 <b-col class="weight-600 hash-wrapper">
-                  <router-link class="href weight-600" :to="{name: 'microBlock', params: {id: block}}">{{ block }}
+                  <router-link class="href weight-600" :to="{name: 'microBlock', params: {id: microblock}}">{{ microblock }}
                   </router-link>
                 </b-col>
               </b-row>
@@ -85,7 +85,7 @@ viewBox="0 0 1400273 1662572"
               <b-row class="py-1 no-gutters">
                 <b-col class="weight-600 gray-text">Value:</b-col>
                 <b-col class="weight-600">
-                  {{tx.amount}} {{tx.currency}}
+                  {{amount}} {{currency}}
                 </b-col>
               </b-row>
 
@@ -98,39 +98,25 @@ viewBox="0 0 1400273 1662572"
               <b-row class="py-1  no-gutters">
                 <b-col class="weight-600 gray-text">Time:</b-col>
                 <b-col class="weight-600">
-                  {{ tx.timestamp | moment('YYYY-MM-DD HH:MM') }}
+                  {{ timestamp | moment('YYYY-MM-DD HH:MM') }}
                 </b-col>
               </b-row>
 
             </b-col>
 
-            <b-col cols="12" sm="5" offset-sm="2" class="text-left">
+            <!--<b-col cols="12" sm="5" offset-sm="2" class="text-left">-->
 
-              <b-row class="py-1 no-gutters align-items-center">
-                <b-col class="weight-600 gray-text">Status:</b-col>
-                <b-col class="weight-600">
-                  <div class="rejected-plate weight-600">rejected</div>
-                  <div class="mined-plate weight-600">mined</div>
-                  <div class="pending-plate weight-600">pending</div>
-                </b-col>
-              </b-row>
+              <!--<b-row class="py-1 no-gutters align-items-center">-->
+                <!--<b-col class="weight-600 gray-text">Status:</b-col>-->
+                <!--<b-col class="weight-600">-->
+                  <!--<div class="rejected-plate weight-600">rejected</div>-->
+                  <!--<div class="mined-plate weight-600">mined</div>-->
+                  <!--<div class="pending-plate weight-600">pending</div>-->
+                <!--</b-col>-->
+              <!--</b-row>-->
 
-            </b-col>
+            <!--</b-col>-->
           </b-row>
-
-          <!--<b-row class="no-gutters border-bottom-gray ">-->
-
-          <!--<b-col cols="5"  class="text-left ">-->
-
-          <!--<b-row class="py-1 no-gutters">-->
-          <!--<b-col class="weight-600 align-self-center gray-text">Fee:</b-col>-->
-          <!--<b-col>-->
-          <!--1 ENQ-->
-          <!--</b-col>-->
-          <!--</b-row>-->
-
-          <!--</b-col>-->
-          <!--</b-row>-->
 
         </b-container>
 
@@ -146,8 +132,12 @@ viewBox="0 0 1400273 1662572"
     name: 'Transaction',
     data() {
       return {
-        block: '1',
-        tx: '1'
+        amount: 0,
+        currency: 'ENQ',
+        owner: 0,
+        receiver: 0,
+        timestamp: 10,
+        microblock: '1'
       }
     },
     watch: {
@@ -155,11 +145,21 @@ viewBox="0 0 1400273 1662572"
     },
     methods: {
       load() {
+        if (this.$root.ws.ready) {
+          this.fetchData()
+        } else {
+          setTimeout(() => {
+            this.load()
+          }, 500)
+        }
+      },
+
+      fetchData() {
         this.$root.ws.call('getTransaction', {
           hash: this.$route.params.id
         }).then(r => {
           console.log(r)
-        // _.assign(this.$data, _.pick(tx, _.keys(this.$data)))
+        _.assign(this.$data, _.pick(r, _.keys(this.$data)))
       }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
       )
       }

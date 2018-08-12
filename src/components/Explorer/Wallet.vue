@@ -28,11 +28,11 @@ viewBox="0 0 9332488 9321506"
               <avatar :hash="$route.params.id"></avatar>
               <p class="m-0 font-14 weight-600">
                 Balance:
-                <span class="pl-2">{{ balance }} EQN / {{ (balance * 0.04).toFixed(2) }} USD</span></p>
+                <span class="pl-2">{{ balance }} ENQ / {{ (balance * 0.04).toFixed(2) }} USD</span></p>
             </b-col>
           </b-row>
 
-          <template v-if="items.length >= 1">
+          <template v-if="txs.length >= 1">
             <b-row class="mt-20 pb-20 border-bottom-gray ">
               <b-col class="text-center">
                 <h4 class="m-0 weight-600">
@@ -45,44 +45,44 @@ viewBox="0 0 9332488 9321506"
               <b-col>
 
                 <b-table striped hover responsive
-                         :items="items"
-                         :fields="fields"
-                         :per-page="perPage"
-                         :current-page="currentPage">
+                         :items="txs"
+                         :fields="fields">
 
                   <template slot="hash" slot-scope="data">
                     <div class="hash-wrapper">
-                      <router-link class="href" :to="{name: 'Transaction', params: {id: data.item.hash}}">
-                        {{data.item.hash.substring(0, 16)}}
-                      </router-link>
+                      <div class="hash-wrapper">
+                        <router-link class="href" :to="{name: 'Transaction', params: {id: data.item.hash}}">
+                          {{data.item.hash}}
+                        </router-link>
+                      </div>
                     </div>
                   </template>
 
-                  <template slot="tx.owner" slot-scope="data">
+                  <template slot="owner" slot-scope="data">
                     <div class="hash-wrapper">
                       <router-link class="href d-flex align-items-center justify-content-around"
-                                   :to="{name: 'Wallet', params: {id: data.item.tx.owner}}">
-                        <avatar :hash="data.item.tx.owner"></avatar>
-                        {{ data.item.tx.owner.substring(0, 16) }}
+                                   :to="{name: 'Wallet', params: {id: data.item.owner}}">
+                        <avatar :hash="data.item.owner"></avatar>
+                        {{ data.item.owner.substring(0, 16) }}
                       </router-link>
                     </div>
                   </template>
 
-                  <template slot="tx.receiver" slot-scope="data">
+                  <template slot="receiver" slot-scope="data">
                     <router-link class="href d-flex align-items-center justify-content-around"
-                                 :to="{name: 'Wallet', params: {id: data.item.tx.receiver}}">
-                      <avatar :hash="data.item.tx.receiver"></avatar>
-                      {{ data.item.tx.receiver.substring(0, 16) }}
+                                 :to="{name: 'Wallet', params: {id: data.item.receiver}}">
+                      <avatar :hash="data.item.receiver"></avatar>
+                      {{ data.item.receiver.substring(0, 16) }}
                     </router-link>
                   </template>
 
-                  <template slot="tx.amount" slot-scope="data">
-                    {{data.item.tx.amount}} {{ data.item.tx.currency }}
+                  <template slot="amount" slot-scope="data">
+                    {{data.item.amount}} {{ data.item.currency }}
                   </template>
 
-                  <template slot="tx.timestamp" slot-scope="data">
+                  <template slot="timestamp" slot-scope="data">
                     <div class="nowrap">
-                      {{data.item.tx.timestamp | moment("YYYY-MM-DD HH:mm:ss")}}
+                      {{data.item.timestamp | moment("YYYY-MM-DD HH:mm:ss")}}
                     </div>
                   </template>
 
@@ -90,25 +90,33 @@ viewBox="0 0 9332488 9321506"
 
               </b-col>
             </b-row>
+
+            <b-row v-if="!(last && currentPage == 1)">
+              <b-col>
+                <b-button-toolbar key-nav class="mt-10 justify-content-center">
+
+                  <b-button-group class="mx-1">
+                    <b-btn @click="fetchData(currentPage--)" :disabled="currentPage == 1"
+                           class="pagination-button weight-600">newest
+                    </b-btn>
+                  </b-button-group>
+
+                  <b-button-group class="mx-1">
+                    <b-btn class="weight-600" disabled>{{ currentPage }}</b-btn>
+                  </b-button-group>
+
+                  <b-button-group class="mx-1">
+                    <b-btn @click="fetchData(currentPage++)"
+                           :disabled="last" class="pagination-button  weight-600">oldest
+                    </b-btn>
+                  </b-button-group>
+
+                </b-button-toolbar>
+              </b-col>
+            </b-row>
+
           </template>
 
-          <b-row>
-            <b-col>
-              <b-button-toolbar key-nav class="mt-10 justify-content-center">
-                <b-button-group class="mx-1">
-                  <b-btn>&lsaquo;</b-btn>
-                </b-button-group>
-                <b-button-group class="mx-1">
-                  <b-btn>{{ this.currentPage }}</b-btn>
-                </b-button-group>
-
-                <b-button-group class="mx-1">
-                  <b-btn>&rsaquo;</b-btn>
-                </b-button-group>
-
-              </b-button-toolbar>
-            </b-col>
-          </b-row>
 
         </b-container>
 
@@ -128,15 +136,17 @@ viewBox="0 0 9332488 9321506"
     },
     data() {
       return {
+        currentPage: 1,
         balance: '0',
         emission: '0',
-        items: [],
+        last: true,
+        txs: [],
         fields: [
           {key: 'hash', label: 'Hash', tdClass: 'weight-600 align-middle'},
-          {key: 'tx.owner', label: 'From', tdClass: 'weight-600 align-middle'},
-          {key: 'tx.receiver', label: 'To', tdClass: 'weight-600 align-middle'},
-          {key: 'tx.amount', label: 'Amount', tdClass: 'weight-600 align-middle'},
-          {key: 'tx.timestamp', label: 'Time', tdClass: 'weight-600 align-middle'},
+          {key: 'owner', label: 'From', tdClass: 'weight-600 align-middle'},
+          {key: 'receiver', label: 'To', tdClass: 'weight-600 align-middle'},
+          {key: 'amount', label: 'Amount', tdClass: 'weight-600 align-middle'},
+          {key: 'timestamp', label: 'Time', tdClass: 'weight-600 align-middle'},
         ]
       }
     },
@@ -154,15 +164,16 @@ viewBox="0 0 9332488 9321506"
         }
       },
 
-      fetchData() {
+      fetchData(page = 1) {
         this.$root.ws.call('getWallet', {
-          hash: this.$route.params.id
+          hash: this.$route.params.id,
+          page: page
         }).then(r => {
-          this.balance = r.balance
-          this.items = r.emission
+          _.assign(this.$data, _.pick(r, _.keys(this.$data)));
         }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
         )
       }
+
     },
     mounted() {
       this.load()
