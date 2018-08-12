@@ -2,26 +2,34 @@
   <b-container fluid class="container-wrapper">
     <b-row>
       <b-col>
-        <h2>List of block</h2>
+        <h2>List of blocks</h2>
       </b-col>
+    </b-row>
+    <b-row>
       <b-col>
         <b-table striped hover responsive :items="items" :fields="fields">
 
           <template slot="number" slot-scope="data">
-            <router-link class="href" :to="{name: 'Block', params: {id: encodeURIComponent(data.item.hash) }}">
+            <router-link class="href" :to="{name: 'Block', params: {id: data.item.hash }}">
               {{ data.item.number }}
+            </router-link>
+          </template>
+
+          <template slot="hash" slot-scope="data">
+            <router-link class="href" :to="{name: 'Block', params: {id: data.item.hash}}">
+              {{ data.item.hash }}
             </router-link>
           </template>
 
           <template slot="prev_hash" slot-scope="data">
             <router-link class="href" :to="{name: 'Block', params: {id: data.item.prev_hash}}">
-              {{ encodeURIComponent(data.item.prev_hash) }}
+              {{ data.item.prev_hash }}
             </router-link>
           </template>
 
           <template slot="solver" slot-scope="data">
             <router-link class="href" :to="{name: 'Wallet', params: {id: data.item.solver}}">
-              {{ encodeURIComponent(data.item.solver) }}
+              {{ data.item.solver }}
             </router-link>
           </template>
 
@@ -52,6 +60,7 @@
         items: [],
         fields: [
           {key: 'number', label: 'Height', tdClass: 'weight-600'},
+          {key: 'hash', label: 'Hash', tdClass: 'weight-600'},
           {key: 'prev_hash', label: 'Prev hash', tdClass: 'hash-wrapper weight-600'},
           {key: 'nonce', label: 'Nonce', tdClass: 'weight-600'},
           {key: 'solver', label: 'Miner', tdClass: 'weight-600'},

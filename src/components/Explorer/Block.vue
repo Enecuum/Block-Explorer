@@ -209,6 +209,16 @@ viewBox="0 0 1237358 1418840"
     },
     methods: {
       load() {
+        if (this.$root.ws.ready) {
+          this.fetchData()
+        } else {
+          setTimeout(() => {
+            this.load()
+          }, 500)
+        }
+      },
+
+      fetchData() {
         this.$root.ws.call('getKBlock', {
           hash: this.$route.params.id
         }).then(r => {
@@ -216,6 +226,7 @@ viewBox="0 0 1237358 1418840"
       }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}}))
       }
     },
+
     mounted() {
       this.load()
     }

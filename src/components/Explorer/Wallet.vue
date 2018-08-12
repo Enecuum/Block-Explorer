@@ -130,6 +130,16 @@ viewBox="0 0 9332488 9321506"
     },
     methods: {
       load() {
+        if (this.$root.ws.ready) {
+          this.fetchData()
+        } else {
+          setTimeout(() => {
+            this.load()
+          }, 500)
+        }
+      },
+
+      fetchData() {
         this.$root.ws.call('getWallet', {
           hash: this.$route.params.id
         }).then(r => {

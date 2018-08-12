@@ -208,6 +208,16 @@ viewBox="0 0 523950 603031"
     },
     methods: {
       load() {
+        if (this.$root.ws.ready) {
+          this.fetchData()
+        } else {
+          setTimeout(() => {
+            this.load()
+          }, 500)
+        }
+      },
+
+      fetchData() {
         this.$root.ws.call('getMicroblock', {
           hash: this.$route.params.id
         }).then(r => {
