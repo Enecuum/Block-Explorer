@@ -189,7 +189,7 @@ viewBox="0 0 523950 603031">
                   <b-button-toolbar key-nav class="mt-10 justify-content-center">
 
                     <b-button-group class="mx-1">
-                      <b-btn @click="fetchData(currentPage--)" :disabled="currentPage == 1"
+                      <b-btn @click="fetchData(--currentPage)" :disabled="currentPage == 1"
                              class="pagination-button weight-600">newest
                       </b-btn>
                     </b-button-group>
@@ -199,7 +199,7 @@ viewBox="0 0 523950 603031">
                     </b-button-group>
 
                     <b-button-group class="mx-1">
-                      <b-btn @click="fetchData(currentPage++)"
+                      <b-btn @click="fetchData(++currentPage)"
                              :disabled="this.last" class="pagination-button  weight-600">oldest
                       </b-btn>
                     </b-button-group>
@@ -256,6 +256,7 @@ viewBox="0 0 523950 603031">
       },
 
       fetchData(page = 1) {
+        console.log(page);
         this.$root.ws.call('getMicroblock', {
           hash: this.$route.params.id,
           page: page

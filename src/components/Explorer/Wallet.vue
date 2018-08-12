@@ -32,7 +32,6 @@ viewBox="0 0 9332488 9321506"
             </b-col>
           </b-row>
 
-          <template v-if="txs.length >= 1">
             <b-row class="mt-20 pb-20 border-bottom-gray ">
               <b-col class="text-center">
                 <h4 class="m-0 weight-600">
@@ -41,7 +40,9 @@ viewBox="0 0 9332488 9321506"
               </b-col>
             </b-row>
 
-            <b-row>
+          <template v-if="txs.length >= 1">
+
+          <b-row>
               <b-col>
 
                 <b-table striped hover responsive
@@ -91,12 +92,12 @@ viewBox="0 0 9332488 9321506"
               </b-col>
             </b-row>
 
-            <b-row v-if="!(last && currentPage == 1)">
+          <b-row v-if="!(last && currentPage == 1)">
               <b-col>
                 <b-button-toolbar key-nav class="mt-10 justify-content-center">
 
                   <b-button-group class="mx-1">
-                    <b-btn @click="fetchData(currentPage--)" :disabled="currentPage == 1"
+                    <b-btn @click="fetchData(--currentPage)" :disabled="currentPage == 1"
                            class="pagination-button weight-600">newest
                     </b-btn>
                   </b-button-group>
@@ -106,7 +107,7 @@ viewBox="0 0 9332488 9321506"
                   </b-button-group>
 
                   <b-button-group class="mx-1">
-                    <b-btn @click="fetchData(currentPage++)"
+                    <b-btn @click="fetchData(++currentPage)"
                            :disabled="last" class="pagination-button  weight-600">oldest
                     </b-btn>
                   </b-button-group>
@@ -117,6 +118,11 @@ viewBox="0 0 9332488 9321506"
 
           </template>
 
+          <template>
+            <b-row>
+              <b-col></b-col>
+            </b-row>
+          </template>
 
         </b-container>
 

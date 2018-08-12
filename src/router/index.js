@@ -6,7 +6,7 @@ import Explorer from '@/components/Explorer'
 import Mining from '@/components/Mining'
 import About from '@/components/About'
 import Search from '@/components/layout/searchError'
-import Pending from '@/components/Pending'
+// import Pending from '@/components/Pending'
 
 //Explorer
 import Block from '@/components/Explorer/Block'
@@ -30,6 +30,6 @@ export default new Router({
     {path: '/explorer/wallet/:id', name: 'Wallet', component: Wallet},
     {path: '/mining', name: 'Mining', component: Mining },
     {path: '/about', name: 'About', component: About},
-    {path: '/pending', name: 'Pending', component: Pending}
+    // {path: '/pending', name: 'Pending', component: Pending}
   ]
 })

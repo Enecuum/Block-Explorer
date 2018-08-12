@@ -34,7 +34,7 @@
 
               </b-table>
 
-              <b-pagination class="mt-10"
+              <b-pagination class="mt-10 weight-600"
                             align="center"
                             @change="turnPage"
                             :total-rows="total"
@@ -91,7 +91,7 @@
       },
 
       fetchData(page = 1) {
-        this.$root.ws.call('getKBlockList', {page: page, limit: this.perPage}).then(r => {
+        this.$root.ws.call('getKBlockList', {page: parseInt(page), limit: this.perPage}).then(r => {
           _.assign(this.$data, _.pick(r, _.keys(this.$data)));
           this.currentPage = parseInt(page);
         });
