@@ -2,11 +2,14 @@
   <b-container fluid class="container-wrapper">
     <b-row>
       <b-col>
+        <h2>List of block</h2>
+      </b-col>
+      <b-col>
         <b-table striped hover responsive :items="items" :fields="fields">
 
           <template slot="number" slot-scope="data">
-            <router-link class="href" :to="{name: 'Block', params: {id: data.item.number}}">
-              {{ encodeURIComponent(data.item.number) }}
+            <router-link class="href" :to="{name: 'Block', params: {id: encodeURIComponent(data.item.hash) }}">
+              {{ data.item.number }}
             </router-link>
           </template>
 
@@ -49,7 +52,7 @@
         items: [],
         fields: [
           {key: 'number', label: 'Height', tdClass: 'weight-600'},
-          {key: 'prev_hash', label: 'Prev hash', tdClass: 'weight-600'},
+          {key: 'prev_hash', label: 'Prev hash', tdClass: 'hash-wrapper weight-600'},
           {key: 'nonce', label: 'Nonce', tdClass: 'weight-600'},
           {key: 'solver', label: 'Miner', tdClass: 'weight-600'},
         ],

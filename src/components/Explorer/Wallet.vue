@@ -130,23 +130,17 @@ viewBox="0 0 9332488 9321506"
     },
     methods: {
       load() {
-        this.$socket.sendRpc('enq_getWalletByHash', {
-          address: this.$route.params.id
-        }).then(wallet => {
-          this.balance = wallet.balance
-        this.items = wallet.txs
+        this.$root.ws.call('getWallet', {
+          hash: this.$route.params.id
+        }).then(r => {
+          this.balance = r.balance
+          this.items = r.emission
       }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
       )
       }
     },
     mounted() {
       this.load()
-    },
-    beforeUpdate() {
-      console.log('1')
-    },
-    updated() {
-      console.log('2')
     }
   }
 </script>

@@ -151,8 +151,8 @@ viewBox="0 0 1237358 1418840"
 
                 <template slot="hash" slot-scope="data">
                   <div class="hash-wrapper">
-                    <router-link class="href" :to="{name: 'microBlock', params: {id: data.item.hash}}">{{data.item.hash
-                      }}
+                    <router-link class="href" :to="{name: 'microBlock', params: {id: data.item.hash}}">
+                      {{ data.item.hash }}
                     </router-link>
                   </div>
                 </template>
@@ -209,12 +209,11 @@ viewBox="0 0 1237358 1418840"
     },
     methods: {
       load() {
-        this.$socket.sendRpc('enq_getBlockByHash', {
+        this.$root.ws.call('getKBlock', {
           hash: this.$route.params.id
-        }).then(block => {
-          _.assign(this.$data, _.pick(block, _.keys(this.$data)))
-      }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
-      )
+        }).then(r => {
+          _.assign(this.$data, _.pick(r, _.keys(this.$data)))
+      }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}}))
       }
     },
     mounted() {

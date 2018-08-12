@@ -208,10 +208,10 @@ viewBox="0 0 523950 603031"
     },
     methods: {
       load() {
-        this.$socket.sendRpc('enq_getMicroblockByHash', {
+        this.$root.ws.call('getMicroblock', {
           hash: this.$route.params.id
-        }).then(microblock => {
-          console.log(microblock)
+        }).then(r => {
+          console.log(r)
         // _.assign(this.$data, _.pick(block, _.keys(this.$data)))
       }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
       )

@@ -155,17 +155,16 @@ viewBox="0 0 1400273 1662572"
     },
     methods: {
       load() {
-        this.$socket.sendRpc('enq_getTransactionByHash', {
+        this.$root.ws.call('getTransaction', {
           hash: this.$route.params.id
-        }).then(tx => {
-          console.log(tx)
+        }).then(r => {
+          console.log(r)
         // _.assign(this.$data, _.pick(tx, _.keys(this.$data)))
       }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
       )
       }
     },
     mounted() {
-      console.log('mounted transaction')
       this.load()
     }
   }
