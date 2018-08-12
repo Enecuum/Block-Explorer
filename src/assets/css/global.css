@@ -545,6 +545,12 @@ a.header-button:hover, a.header-button:active {
   text-overflow: ellipsis;
 }
 
+.td-hash-wrapper {
+  max-width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 td .hash-wrapper {
   max-width: 250px;
 }

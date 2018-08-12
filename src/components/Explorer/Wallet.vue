@@ -28,69 +28,85 @@ viewBox="0 0 9332488 9321506"
               <avatar :hash="$route.params.id"></avatar>
               <p class="m-0 font-14 weight-600">
                 Balance:
-                <span class="pl-2">{{ balance }} EQN / 1000 USD</span></p>
+                <span class="pl-2">{{ balance }} EQN / {{ (balance * 0.04).toFixed(2) }} USD</span></p>
             </b-col>
           </b-row>
 
-          <b-row class="mt-20 pb-20 border-bottom-gray ">
-            <b-col class="text-center">
-              <h4 class="m-0 weight-600">
-                Committed transactions
-              </h4>
-            </b-col>
-          </b-row>
+          <template v-if="items.length >= 1">
+            <b-row class="mt-20 pb-20 border-bottom-gray ">
+              <b-col class="text-center">
+                <h4 class="m-0 weight-600">
+                  Committed transactions
+                </h4>
+              </b-col>
+            </b-row>
+
+            <b-row>
+              <b-col>
+
+                <b-table striped hover responsive
+                         :items="items"
+                         :fields="fields"
+                         :per-page="perPage"
+                         :current-page="currentPage">
+
+                  <template slot="hash" slot-scope="data">
+                    <div class="hash-wrapper">
+                      <router-link class="href" :to="{name: 'Transaction', params: {id: data.item.hash}}">
+                        {{data.item.hash.substring(0, 16)}}
+                      </router-link>
+                    </div>
+                  </template>
+
+                  <template slot="tx.owner" slot-scope="data">
+                    <div class="hash-wrapper">
+                      <router-link class="href d-flex align-items-center justify-content-around"
+                                   :to="{name: 'Wallet', params: {id: data.item.tx.owner}}">
+                        <avatar :hash="data.item.tx.owner"></avatar>
+                        {{ data.item.tx.owner.substring(0, 16) }}
+                      </router-link>
+                    </div>
+                  </template>
+
+                  <template slot="tx.receiver" slot-scope="data">
+                    <router-link class="href d-flex align-items-center justify-content-around"
+                                 :to="{name: 'Wallet', params: {id: data.item.tx.receiver}}">
+                      <avatar :hash="data.item.tx.receiver"></avatar>
+                      {{ data.item.tx.receiver.substring(0, 16) }}
+                    </router-link>
+                  </template>
+
+                  <template slot="tx.amount" slot-scope="data">
+                    {{data.item.tx.amount}} {{ data.item.tx.currency }}
+                  </template>
+
+                  <template slot="tx.timestamp" slot-scope="data">
+                    <div class="nowrap">
+                      {{data.item.tx.timestamp | moment("YYYY-MM-DD HH:mm:ss")}}
+                    </div>
+                  </template>
+
+                </b-table>
+
+              </b-col>
+            </b-row>
+          </template>
 
           <b-row>
             <b-col>
+              <b-button-toolbar key-nav class="mt-10 justify-content-center">
+                <b-button-group class="mx-1">
+                  <b-btn>&lsaquo;</b-btn>
+                </b-button-group>
+                <b-button-group class="mx-1">
+                  <b-btn>{{ this.currentPage }}</b-btn>
+                </b-button-group>
 
-              <b-table striped hover responsive :items="items" :fields="fields" :per-page="perPage"
-                       :current-page="currentPage">
+                <b-button-group class="mx-1">
+                  <b-btn>&rsaquo;</b-btn>
+                </b-button-group>
 
-                <template slot="hash" slot-scope="data">
-                  <div class="hash-wrapper">
-                    <router-link class="href" :to="{name: 'Transaction', params: {id: data.item.hash}}">
-                      {{data.item.hash.substring(0, 16)}}
-                    </router-link>
-                  </div>
-                </template>
-
-                <template slot="tx.owner" slot-scope="data">
-                  <div class="hash-wrapper">
-                    <router-link class="href d-flex align-items-center justify-content-around"
-                                 :to="{name: 'Wallet', params: {id: data.item.tx.owner}}">
-                      <avatar :hash="data.item.tx.owner"></avatar>
-                      {{ data.item.tx.owner.substring(0, 16) }}
-                    </router-link>
-                  </div>
-                </template>
-
-                <template slot="tx.receiver" slot-scope="data">
-                  <router-link class="href d-flex align-items-center justify-content-around"
-                               :to="{name: 'Wallet', params: {id: data.item.tx.receiver}}">
-                    <avatar :hash="data.item.tx.receiver"></avatar>
-                    {{ data.item.tx.receiver.substring(0, 16) }}
-                  </router-link>
-                </template>
-
-                <template slot="tx.amount" slot-scope="data">
-                  {{data.item.tx.amount}} {{ data.item.tx.currency }}
-                </template>
-
-                <template slot="tx.timestamp" slot-scope="data">
-                  <div class="nowrap">
-                    {{data.item.tx.timestamp | moment("YYYY-MM-DD HH:mm:ss")}}
-                  </div>
-                </template>
-
-              </b-table>
-
-              <b-row>
-                <b-col class="mt-20" v-if="items.length > 25">
-                  <b-pagination class="m-0 href" align="center" :per-page="perPage" v-model="currentPage"
-                                :total-rows="items.length"></b-pagination>
-                </b-col>
-              </b-row>
-
+              </b-button-toolbar>
             </b-col>
           </b-row>
 
@@ -112,9 +128,8 @@ viewBox="0 0 9332488 9321506"
     },
     data() {
       return {
-        balance: '-',
-        perPage: 25,
-        currentPage: 1,
+        balance: '0',
+        emission: '0',
         items: [],
         fields: [
           {key: 'hash', label: 'Hash', tdClass: 'weight-600 align-middle'},
@@ -145,8 +160,8 @@ viewBox="0 0 9332488 9321506"
         }).then(r => {
           this.balance = r.balance
           this.items = r.emission
-      }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
-      )
+        }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
+        )
       }
     },
     mounted() {
