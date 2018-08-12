@@ -22,6 +22,7 @@ export default new Router({
     {path: '/', redirect: '/dashboard'},
     {path: '/dashboard', name: 'Dashboard', component: Dashboard},
     {path: '/explorer', name: 'Explorer', component: Explorer},
+    {path: '/explorer/:id', name: 'ExplorerPage', component: Explorer},
     {path: '/explorer/search/:id', name: 'Search', component: Search},
     {path: '/explorer/block/:id', name: 'Block', component: Block},
     {path: '/explorer/microblock/:id', name: 'microBlock', component: microBlock},
