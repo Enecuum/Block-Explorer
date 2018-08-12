@@ -6,19 +6,19 @@
 
           <template slot="number" slot-scope="data">
               <router-link class="href" :to="{name: 'Block', params: {id: data.item.number}}">
-                {{data.item.number }}
+                {{ encodeURIComponent(data.item.number) }}
               </router-link>
           </template>
 
           <template slot="prev_hash" slot-scope="data">
             <router-link class="href" :to="{name: 'Block', params: {id: data.item.prev_hash}}">
-              {{data.item.prev_hash}}
+              {{ encodeURIComponent(data.item.prev_hash) }}
             </router-link>
           </template>
 
           <template slot="solver" slot-scope="data">
               <router-link class="href" :to="{name: 'Wallet', params: {id: data.item.solver}}">
-                {{data.item.solver }}
+                {{ encodeURIComponent(data.item.solver) }}
               </router-link>
           </template>
 
