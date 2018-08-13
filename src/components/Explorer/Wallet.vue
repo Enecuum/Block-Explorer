@@ -6,7 +6,7 @@
 
         <b-container fluid class="container-wrapper">
 
-          <b-row class="m-0 mb-20 pb-20 border-bottom-gray">
+          <b-row class="m-0 pb-20 border-bottom-gray">
 
             <b-col class="d-flex align-items-center justify-content-center">
               <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30px" height="30px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
@@ -22,19 +22,33 @@ viewBox="0 0 9332488 9321506"
             </b-col>
           </b-row>
 
-          <b-row class="text-center mt-10 pb-10 border-bottom-gray">
+          <b-row class="text-center m-0 pt-10 pb-10 border-bottom-gray">
 
             <b-col class="text-center">
               <avatar :hash="$route.params.id"></avatar>
+
               <p class="m-0 font-14 weight-600">
                 Balance:
-                <span class="pl-2">{{ balance }} ENQ / {{ (balance * 0.04).toFixed(2) }} USD</span></p>
+                <span class="pl-2">{{ balance }} ENQ </span>
+              </p>
+
+              <div class="d-flex align-items-center">
+                <p class="m-0 font-14 weight-600">
+                  Hash:
+                </p>
+                <div class="hash-wrapper weight-600">
+                  {{ $route.params.id }}
+                </div>
+                <button v-clipboard:copy="$route.params.id" class="copy">Copy</button>
+              </div>
+
+              <!-- {{ (balance * 0.04).toFixed(2) }} USD-->
             </b-col>
           </b-row>
 
           <template v-if="txs.length">
 
-            <b-row class="mt-20 pb-20 border-bottom-gray ">
+            <b-row class="m-0 pt-20 pb-20 border-bottom-gray ">
               <b-col class="text-center">
                 <h4 class="m-0 weight-600">
                   Committed transactions
@@ -60,32 +74,38 @@ viewBox="0 0 9332488 9321506"
                   </template>
 
                   <template slot="owner" slot-scope="data">
-                    <div class="hash-wrapper">
-                      <router-link class="href d-flex align-items-center justify-content-around"
-                                   :to="{name: 'Wallet', params: {id: data.item.owner}}">
-                        <avatar :hash="data.item.owner"></avatar>
-                        {{ data.item.owner.substring(0, 16) }}
-                      </router-link>
+                    <div class="d-flex align-items-center">
+                      <avatar class="mr-3" :hash="data.item.owner"></avatar>
+                      <div class="hash-wrapper">
+                        <router-link class="href"
+                                     :to="{name: 'Wallet', params: {id: data.item.owner}}">
+                          {{ data.item.owner }}
+                        </router-link>
+                      </div>
                     </div>
                   </template>
 
                   <template slot="receiver" slot-scope="data">
-                    <router-link class="href d-flex align-items-center justify-content-around"
-                                 :to="{name: 'Wallet', params: {id: data.item.receiver}}">
-                      <avatar :hash="data.item.receiver"></avatar>
-                      {{ data.item.receiver.substring(0, 16) }}
-                    </router-link>
+                    <div class="d-flex align-items-center">
+                      <avatar class="mr-3" :hash="data.item.receiver"></avatar>
+                      <div class="hash-wrapper">
+                        <router-link class="href d-flex align-items-center justify-content-around"
+                                     :to="{name: 'Wallet', params: {id: data.item.receiver}}">
+                          {{ data.item.receiver }}
+                        </router-link>
+                      </div>
+                    </div>
                   </template>
 
                   <template slot="amount" slot-scope="data">
                     {{data.item.amount}} {{ data.item.currency }}
                   </template>
 
-                  <template slot="timestamp" slot-scope="data">
-                    <div class="nowrap">
-                      {{data.item.timestamp | moment("YYYY-MM-DD HH:mm:ss")}}
-                    </div>
-                  </template>
+                  <!--<template slot="timestamp" slot-scope="data">-->
+                  <!--<div class="nowrap">-->
+                  <!--{{data.item.timestamp | moment("YYYY-MM-DD HH:mm:ss")}}-->
+                  <!--</div>-->
+                  <!--</template>-->
 
                 </b-table>
 
@@ -149,7 +169,7 @@ viewBox="0 0 9332488 9321506"
           {key: 'owner', label: 'From', tdClass: 'weight-600 align-middle'},
           {key: 'receiver', label: 'To', tdClass: 'weight-600 align-middle'},
           {key: 'amount', label: 'Amount', tdClass: 'weight-600 align-middle'},
-          {key: 'timestamp', label: 'Time', tdClass: 'weight-600 align-middle'},
+          // {key: 'timestamp', label: 'Time', tdClass: 'weight-600 align-middle'},
         ]
       }
     },

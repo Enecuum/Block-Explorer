@@ -74,7 +74,7 @@ viewBox="0 0 1400273 1662572"
               <b-row class="py-1  no-gutters">
                 <b-col class="weight-600 gray-text">Time:</b-col>
                 <b-col class="weight-600">
-                  {{ timestamp | moment('YYYY-MM-DD HH:MM') }}
+                  {{ timestamp | moment('YYYY-MM-DD HH:MM:ss') }}
                 </b-col>
               </b-row>
 

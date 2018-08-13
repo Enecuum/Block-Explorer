@@ -437,7 +437,8 @@ a.header-button:hover, a.header-button:active {
 }
 
 .page-item .active, .page-item.active .page-link, .page-item.active .page-link:active {
-  background: var(--blue-theme) !important;
+  background-color: var(--blue-theme) !important;
+  border-color: var(--blue-theme) !important;
 }
 
 .page-item.active .page-link:active {
@@ -625,7 +626,7 @@ td .hash-wrapper {
 .pagination-button[disabled]:hover,
 .pagination-button[disabled]:active,
 .pagination-button[disabled]:focus{
-  background: var(--gray-icon) !important;
+  background: var(--white) !important;
   color: var(--gray) !important;
   border: 1px solid var(--gray-icon);
   outline: none !important;

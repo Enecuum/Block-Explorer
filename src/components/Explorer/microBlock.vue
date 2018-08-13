@@ -10,8 +10,7 @@
 
             <b-col class="d-flex align-items-center justify-content-center pl-0 pr-0">
               <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30px" height="39px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-viewBox="0 0 1325288 1672151"
- >
+viewBox="0 0 1325288 1672151">
  <g>
   <g>
    <path fill="#00ADD9" d="M1325288 156760c0,86594 -70199,156793 -156793,156793 -86594,0 -156792,-70199 -156792,-156793 0,-86561 70198,-156760 156792,-156760 86594,0 156793,70199 156793,156760z"/>
@@ -158,8 +157,8 @@ viewBox="0 0 523950 603031">
 
                   <template slot="hash" slot-scope="data">
                     <div class="hash-wrapper">
-                      <router-link class="href" :to="{name: 'Transaction', params: { id: data.item.hash }}">{{
-                        data.item.hash }}
+                      <router-link class="href" :to="{name: 'Transaction', params: { id: data.item.hash }}">
+                        {{ data.item.hash }}
                       </router-link>
                     </div>
                   </template>
