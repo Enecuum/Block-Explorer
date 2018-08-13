@@ -96,19 +96,16 @@ viewBox="0 0 9332488 9321506"
               <b-col>
                 <b-button-toolbar key-nav class="mt-10 justify-content-center">
 
-                  <b-button-group class="mx-1">
+                  <b-button-group class="pagination-group border-right-0">
                     <b-btn @click="fetchData(--currentPage)" :disabled="currentPage == 1"
-                           class="pagination-button weight-600">newest
+                           class="pagination-button weight-600">
+                      &lsaquo; newest
                     </b-btn>
-                  </b-button-group>
 
-                  <b-button-group class="mx-1">
-                    <b-btn class="weight-600" disabled>{{ currentPage }}</b-btn>
-                  </b-button-group>
+                    <b-btn class="weight-600 current-page" disabled>{{ currentPage }}</b-btn>
 
-                  <b-button-group class="mx-1">
                     <b-btn @click="fetchData(++currentPage)"
-                           :disabled="last" class="pagination-button  weight-600">oldest
+                           :disabled="this.last" class="pagination-button border-left-0 weight-600">oldest &rsaquo;
                     </b-btn>
                   </b-button-group>
 

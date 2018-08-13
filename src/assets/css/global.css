@@ -593,12 +593,41 @@ td .hash-wrapper {
   top: 1px;
 }
 
-.pagination-button:not([disabled]),
-.pagination-button:hover:not([disabled]),
-.pagination-button:active:not([disabled]),
-.pagination-button:focus:not([disabled]) {
+.pagination-group {
+  border-radius: unset;
+}
+
+.pagination-group button, .pagination-group button:hover {
+  margin: 0 !important;
+  outline: none !important;
+}
+
+.current-page {
   background: var(--blue-theme) !important;
-  border: none !important;
+  border: 1px solid var(--blue-theme) !important;
+}
+
+.pagination-group .pagination-button:not([disabled]),
+.pagination-group .pagination-button:active:not([disabled]),
+.pagination-group .pagination-button:focus:not([disabled]) {
+  background: var(--white) !important;
+  color: var(--blue-theme) !important;
+  border: 1px solid var(--gray-icon);
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.pagination-group .pagination-button:hover:not([disabled]){
+  background: #e9ecef !important;
+}
+
+.pagination-button[disabled],
+.pagination-button[disabled]:hover,
+.pagination-button[disabled]:active,
+.pagination-button[disabled]:focus{
+  background: var(--gray-icon) !important;
+  color: var(--gray) !important;
+  border: 1px solid var(--gray-icon);
   outline: none !important;
   box-shadow: none !important;
 }
