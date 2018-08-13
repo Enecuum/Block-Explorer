@@ -580,6 +580,16 @@ td .hash-wrapper {
   transition: background-color 0.2s ease;
 }
 
+a.copy {
+  max-width: unset;
+  margin: unset;
+}
+
+a.copy:hover {
+  color: white;
+  text-decoration: none;
+}
+
 .copy:hover {
   background-color: rgba(0, 0, 0, 0.7);
   transition: background-color 0.2s ease;
