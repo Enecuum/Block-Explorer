@@ -330,10 +330,11 @@ viewBox="0 0 140981 140978"
       },
       toSearch() {
         this.$root.ws.call('search', {
-          hash: this.searchText
+          hash: this.searchText.replace(/ /g,"")
         }).then(r => {
           if (this.types.indexOf(r) !== -1) {
-            this.$router.push({name: r, params: {id: this.searchText}})
+            this.error = false;
+            this.$router.push({name: r, params: {id: this.searchText.replace(/ /g,"") }})
           } else {
             this.error = true
           }
