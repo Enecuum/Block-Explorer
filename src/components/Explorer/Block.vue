@@ -116,6 +116,8 @@ viewBox="0 0 3385608 4271657"
 
           </b-row>
 
+          <template v-if="microblocks.length">
+
           <b-row class="mt-20 mx-0 pb-20 border-bottom-gray">
             <b-col class="d-flex align-items-center justify-content-center">
               <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="21px" height="25px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
@@ -136,19 +138,21 @@ viewBox="0 0 1237358 1418840">
 
                 <template slot="hash" slot-scope="data">
                     <router-link class="href" :to="{name: 'microBlock', params: {id: data.item.hash}}">
-                      {{ encodeURIComponent(data.item.hash) }}
+                      {{ data.item.hash }}
                     </router-link>
                 </template>
 
                 <template slot="publisher" slot-scope="data">
                     <router-link class="href" :to="{name: 'Wallet', params: {id: data.item.publisher}}">
-                      {{ encodeURIComponent(data.item.publisher) }}
+                      {{ data.item.publisher }}
                     </router-link>
                 </template>
 
               </b-table>
             </b-col>
           </b-row>
+
+          </template>
 
         </b-container>
 

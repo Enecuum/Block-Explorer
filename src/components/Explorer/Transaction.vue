@@ -72,14 +72,14 @@ viewBox="0 0 1400273 1662572"
             <b-col cols="12" sm="5" class="text-left border-bottom-gray-xs">
 
               <b-row class="py-1  no-gutters">
-                <b-col class="weight-600 gray-text">Microblock:</b-col>
-                <b-col class="weight-600 hash-wrapper">
-                  <router-link class="href weight-600" :to="{name: 'microBlock', params: {id: microblock}}">{{ microblock }}
-                  </router-link>
+                <b-col class="weight-600 gray-text">Time:</b-col>
+                <b-col class="weight-600">
+                  {{ timestamp | moment('YYYY-MM-DD HH:MM') }}
                 </b-col>
               </b-row>
 
             </b-col>
+
             <b-col cols="12" sm="5" offset-sm="2" class="text-left">
 
               <b-row class="py-1 no-gutters">
@@ -93,16 +93,17 @@ viewBox="0 0 1400273 1662572"
           </b-row>
 
           <b-row class="no-gutters align-items-center border-bottom-gray">
-            <b-col cols="12" sm="5" class="text-left border-bottom-gray-xs">
+            <!--<b-col cols="12" sm="5" class="text-left border-bottom-gray-xs">-->
 
-              <b-row class="py-1  no-gutters">
-                <b-col class="weight-600 gray-text">Time:</b-col>
-                <b-col class="weight-600">
-                  {{ timestamp | moment('YYYY-MM-DD HH:MM') }}
-                </b-col>
-              </b-row>
+            <!--<b-row class="py-1  no-gutters">-->
+            <!--<b-col class="weight-600 gray-text">Microblock:</b-col>-->
+            <!--<b-col class="weight-600 hash-wrapper">-->
+            <!--<router-link class="href weight-600" :to="{name: 'microBlock', params: {id: microblock}}">{{ microblock }}-->
+            <!--</router-link>-->
+            <!--</b-col>-->
+            <!--</b-row>-->
 
-            </b-col>
+            <!--</b-col>-->
 
             <!--<b-col cols="12" sm="5" offset-sm="2" class="text-left">-->
 
@@ -137,7 +138,7 @@ viewBox="0 0 1400273 1662572"
         owner: 0,
         receiver: 0,
         timestamp: 10,
-        microblock: '1'
+        // microblock: '1'
       }
     },
     watch: {
@@ -158,7 +159,6 @@ viewBox="0 0 1400273 1662572"
         this.$root.ws.call('getTransaction', {
           hash: this.$route.params.id
         }).then(r => {
-          console.log(r)
         _.assign(this.$data, _.pick(r, _.keys(this.$data)))
       }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
       )

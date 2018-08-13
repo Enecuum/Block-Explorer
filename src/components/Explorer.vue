@@ -14,22 +14,26 @@
             <b-col>
               <b-table striped hover responsive :items="items" :fields="fields">
 
-                 <template slot="hash" slot-scope="data">
-                    <router-link class="href" :to="{name: 'Block', params: {id: data.item.hash}}">
-                      {{ encodeURIComponent(data.item.hash) }}
-                    </router-link>
+                <template slot="hash" slot-scope="data">
+                  <router-link class="href" :to="{name: 'Block', params: {id: data.item.hash}}">
+                    {{ data.item.hash }}
+                  </router-link>
                 </template>
 
                 <template slot="prev_hash" slot-scope="data">
+                  <div class="hash-wrapper">
                     <router-link class="href" :to="{name: 'Block', params: {id: data.item.prev_hash}}">
-                      {{ encodeURIComponent(data.item.prev_hash) }}
+                      {{ data.item.prev_hash }}
                     </router-link>
+                  </div>
                 </template>
 
                 <template slot="solver" slot-scope="data">
+                  <div class="hash-wrapper">
                     <router-link class="href" :to="{name: 'Wallet', params: {id: data.item.solver}}">
-                      {{ encodeURIComponent(data.item.solver) }}
+                      {{ data.item.solver }}
                     </router-link>
+                  </div>
                 </template>
 
               </b-table>
@@ -66,6 +70,7 @@
         fields: [
           {key: 'number', label: 'Height', tdClass: 'weight-600'},
           {key: 'hash', label: 'Hash', tdClass: 'weight-600 td-hash-wrapper'},
+          {key: 'microblocks', label: 'Microblocks', tdClass: 'weight-600 '},
           {key: 'prev_hash', label: 'Prev hash', tdClass: 'hash-wrapper weight-600 td-hash-wrapper'},
           {key: 'nonce', label: 'Nonce', tdClass: 'weight-600'},
           {key: 'solver', label: 'Miner', tdClass: 'weight-600 td-hash-wrapper'},

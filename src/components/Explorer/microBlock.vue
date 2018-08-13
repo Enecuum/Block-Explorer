@@ -136,80 +136,84 @@ viewBox="0 0 1325288 1672151"
           <!--</b-col>-->
           <!--</b-row>-->
 
-          <b-row class="mt-20 mx-0 pb-20 border-bottom-gray">
-            <b-col class="d-flex align-items-center justify-content-center">
-              <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="17px" height="20px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
+          <template v-if="total">
+
+            <b-row class="mt-20 mx-0 pb-20 border-bottom-gray">
+              <b-col class="d-flex align-items-center justify-content-center">
+                <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="17px" height="20px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
 viewBox="0 0 523950 603031">
  <g>
   <path fill="#00ADD9" fill-rule="nonzero" d="M261975 569139l230446 -134802 158 -267084 -230604 -133384 -230581 133384 157 267084 230424 134802zm254076 -112230l-246132 143961c-4748,2768 -10825,2971 -15888,0l-246109 -143961c-4614,-2746 -7742,-7787 -7742,-13548l-157 -284344c-293,-5694 2543,-11365 7809,-14426l246266 -142453c4726,-2723 10712,-2926 15753,0l246290 142453c4658,2746 7809,7809 7809,13593l-158 285177c0,5401 -2768,10645 -7741,13548zm-122065 -236320c8147,0 14763,6616 14763,14763 0,8147 -6616,14763 -14763,14763l-228420 0 40553 40531c5738,5716 5761,15055 45,20794 -5716,5738 -15056,5761 -20794,45l-64881 -64858 -135 -113 -157 -135 -113 -112 -180 -158 -68 -67 -225 -203 -45 -45 -225 -247 -22 -23 -225 -247 -23 0 -225 -270 -45 -46 -180 -225 -67 -67 -158 -203 -90 -112 -135 -180 -90 -135 -112 -135 -113 -180 -90 -113 -135 -202 -67 -113 -158 -225 -23 -67 -180 -270 0 -45 -112 -203 -68 -90 0 -23 -157 -292 -23 -45 -135 -293 -45 -67 -112 -248 -45 -112 -90 -225 -68 -158 -67 -180 -90 -180 -45 -157 -90 -225 -45 -113 -90 -270 0 -68 -113 -315 0 -45 -90 -337 -90 -360 -22 -45 -68 -315 0 -90 -67 -270 0 -45 -23 -68 -22 -247 -45 -158 -23 -225 -22 -203 -23 -157 -22 -248 0 -135 -23 -292 0 -68 -22 -337 0 -45 0 -383 0 -383 0 -45 22 -337 0 -68 23 -292 0 -135 22 -248 23 -157 22 -203 45 -225 23 -157 22 -248 23 -67 0 -45 67 -271 0 -90 68 -315 22 -45 90 -360 90 -337 0 -45 113 -315 22 -68 68 -270 45 -112 90 -225 45 -158 90 -180 67 -180 68 -158 90 -225 45 -112 112 -248 45 -67 135 -293 23 -45 157 -292 0 -23 180 -292 23 -45 157 -270 45 -68 136 -225 67 -113 135 -202 90 -113 113 -180 112 -135 90 -135 158 -180 67 -112 180 -203 45 -67 203 -225 22 -45 225 -270 23 0 225 -248 22 -22 225 -248 45 -45 225 -203 68 -67 180 -158 113 -112 157 -135 135 -113 64881 -64835c5738,-5716 15078,-5694 20794,45 5716,5739 5693,15078 -45,20794l-40531 40508 228398 0zm9520 158409l-64881 64836c-5738,5716 -15078,5693 -20794,-45 -5716,-5739 -5694,-15078 45,-20794l40531 -40509 -228398 0c-8147,0 -14763,-6616 -14763,-14762 0,-8147 6616,-14763 14763,-14763l228420 0 -40553 -40531c-5739,-5716 -5761,-15056 -45,-20794 5716,-5739 15056,-5761 20794,-45l64881 64858 135 112 157 135 113 113 180 157 67 68 225 202 45 45 225 248 23 23 225 247 22 0 226 270 45 45 180 225 67 68 158 202 90 113 135 180 90 135 112 135 113 180 90 112 135 203 67 112 158 226 22 67 180 270 0 45 113 203 67 90 0 22 158 293 22 45 135 292 45 68 113 247 45 113 90 225 68 157 67 180 90 181 45 157 90 225 45 113 90 270 0 67 113 315 0 45 90 338 90 360 22 45 68 315 0 90 67 270 0 45 23 68 22 247 45 158 23 225 22 202 23 158 22 247 0 135 23 293 0 67 22 338 0 45 0 383 0 382 0 45 -22 338 0 67 -23 293 0 135 -22 247 -23 158 -22 202 -45 225 -23 158 -22 248 -23 67 0 45 -67 270 0 90 -68 315 -22 45 -90 360 -90 338 0 45 -113 315 -22 67 -68 270 -45 113 -90 225 -45 158 -90 180 -67 180 -68 157 -90 225 -45 113 -113 247 -45 68 -135 292 -22 45 -158 293 0 22 -180 293 -22 45 -158 270 -45 68 -135 225 -67 112 -135 203 -90 112 -113 180 -112 135 -90 135 -158 180 -67 113 -180 202 -45 68 -203 225 -22 45 -226 270 -22 0 -225 248 -23 22 -225 248 -45 45 -225 202 -67 68 -180 157 -113 113 -157 135 -135 112z"/>
  </g>
 </svg>
-              <h4 class="m-0 weight-600">
-                Transactions in the Microblock
-              </h4>
-            </b-col>
-          </b-row>
+                <h4 class="m-0 weight-600">
+                  Transactions in the Microblock
+                </h4>
+              </b-col>
+            </b-row>
 
-          <b-row>
-            <b-col>
-              <b-table striped hover responsive :items="Tx" :fields="fields">
+            <b-row>
+              <b-col>
+                <b-table striped hover responsive :items="Tx" :fields="fields">
 
-                <template slot="hash" slot-scope="data">
-                  <div class="hash-wrapper">
-                    <router-link class="href" :to="{name: 'Transaction', params: { id: data.item.hash }}">{{
-                      data.item.hash }}
-                    </router-link>
-                  </div>
-                </template>
+                  <template slot="hash" slot-scope="data">
+                    <div class="hash-wrapper">
+                      <router-link class="href" :to="{name: 'Transaction', params: { id: data.item.hash }}">{{
+                        data.item.hash }}
+                      </router-link>
+                    </div>
+                  </template>
 
-                <template slot="owner" slot-scope="data">
-                  <div class="hash-wrapper">
-                    <router-link class="href" :to="{name: 'Wallet', params: { id: data.item.owner }}">
-                      {{ encodeURIComponent(data.item.owner) }}
-                    </router-link>
-                  </div>
-                </template>
+                  <template slot="owner" slot-scope="data">
+                    <div class="hash-wrapper">
+                      <router-link class="href" :to="{name: 'Wallet', params: { id: data.item.owner }}">
+                        {{ encodeURIComponent(data.item.owner) }}
+                      </router-link>
+                    </div>
+                  </template>
 
-                <template slot="receiver" slot-scope="data">
-                  <div class="hash-wrapper">
-                    <router-link class="href" :to="{name: 'Wallet', params: { id: data.item.receiver }}">
-                      {{ encodeURIComponent(data.item.receiver) }}
-                    </router-link>
-                  </div>
-                </template>
+                  <template slot="receiver" slot-scope="data">
+                    <div class="hash-wrapper">
+                      <router-link class="href" :to="{name: 'Wallet', params: { id: data.item.receiver }}">
+                        {{ encodeURIComponent(data.item.receiver) }}
+                      </router-link>
+                    </div>
+                  </template>
 
-                <template slot="amount" slot-scope="data">
-                  {{data.item.amount}} {{data.item.currency}}
-                </template>
+                  <template slot="amount" slot-scope="data">
+                    {{data.item.amount}} {{data.item.currency}}
+                  </template>
 
-              </b-table>
+                </b-table>
 
-              <b-row v-if="!(last && currentPage == 1)">
-                <b-col>
-                  <b-button-toolbar key-nav class="mt-10 justify-content-center">
+                <b-row v-if="!(last && currentPage == 1)">
+                  <b-col>
+                    <b-button-toolbar key-nav class="mt-10 justify-content-center">
 
-                    <b-button-group class="mx-1">
-                      <b-btn @click="fetchData(--currentPage)" :disabled="currentPage == 1"
-                             class="pagination-button weight-600">newest
-                      </b-btn>
-                    </b-button-group>
+                      <b-button-group class="mx-1">
+                        <b-btn @click="fetchData(--currentPage)" :disabled="currentPage == 1"
+                               class="pagination-button weight-600">newest
+                        </b-btn>
+                      </b-button-group>
 
-                    <b-button-group class="mx-1">
-                      <b-btn class="weight-600" disabled>{{ currentPage }}</b-btn>
-                    </b-button-group>
+                      <b-button-group class="mx-1">
+                        <b-btn class="weight-600" disabled>{{ currentPage }}</b-btn>
+                      </b-button-group>
 
-                    <b-button-group class="mx-1">
-                      <b-btn @click="fetchData(++currentPage)"
-                             :disabled="this.last" class="pagination-button  weight-600">oldest
-                      </b-btn>
-                    </b-button-group>
+                      <b-button-group class="mx-1">
+                        <b-btn @click="fetchData(++currentPage)"
+                               :disabled="this.last" class="pagination-button  weight-600">oldest
+                        </b-btn>
+                      </b-button-group>
 
-                  </b-button-toolbar>
-                </b-col>
-              </b-row>
+                    </b-button-toolbar>
+                  </b-col>
+                </b-row>
 
-            </b-col>
-          </b-row>
+              </b-col>
+            </b-row>
+
+          </template>
 
         </b-container>
 
@@ -256,7 +260,6 @@ viewBox="0 0 523950 603031">
       },
 
       fetchData(page = 1) {
-        console.log(page);
         this.$root.ws.call('getMicroblock', {
           hash: this.$route.params.id,
           page: page

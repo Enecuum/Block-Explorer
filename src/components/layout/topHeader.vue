@@ -55,7 +55,7 @@ viewBox="0 0 200608 200435"
 
         <b-form-input id="search" type="text" autocomplete="off"
                       :class="{'is-invalid': error}" :value="$route.params.search"
-                      v-model="searchText" @keydown.enter.native.prevent="debouncedSearch()"
+                      v-model="searchText" @keydown.enter.native.prevent="toSearch"
                       placeholder="Search for address, transaction or block"></b-form-input>
       </b-nav-form>
 
@@ -329,41 +329,17 @@ viewBox="0 0 140981 140978"
         return this.language = lang
       },
       toSearch() {
-        if (this.$socket.readyState === 1 && this.searchText.length > 10) {
-          this.error = false
-          console.log('length', this.searchText.length, /^[a-fA-F0-9]{64}$/.test(this.searchText.length))
-
-          this.$socket.sendRpc('search', {
-            hash: this.searchText
-          }).then(result => {
-            console.log('Search:', result)
-          if (this.type.indexOf(result) !== -1) {
-            this.$router.push({name: result, params: {id: this.searchText}})
+        this.$root.ws.call('search', {
+          hash: this.searchText
+        }).then(r => {
+          if (this.types.indexOf(r) !== -1) {
+            this.$router.push({name: r, params: {id: this.searchText}})
           } else {
-            this.$router.push({name: 'Search', params: {id: this.searchText}})
+            this.error = true
           }
         })
-        } else {
-          this.error = true
-        }
-      }
+      },
     },
-    created() {
-      this.debouncedSearch = _.debounce(this.toSearch, 500)
-      // this.$root.$on('enq_getBlockByHash', (response, request) => {
-      //   console.log(response)
-      // })
-      // this.$root.$on('enq_getMicroblockByHash', (response, request) => {
-      //   console.log(response)
-      // })
-      // this.$root.$on('enq_getTransactionByHash', (response, request) => {
-      //   console.log(response)
-      // })
-      // this.$root.$on('enq_getBalance', (response, request) => {
-      //   console.log('BALANCE:', response)
-      //   this.$router.push({ name: 'Wallet', params: { id: this.searchText }})
-      // })
-    }
   }
 </script>
 

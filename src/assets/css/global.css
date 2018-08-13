@@ -436,8 +436,12 @@ a.header-button:hover, a.header-button:active {
   border-bottom: 1px solid #f3f3f3;
 }
 
-.page-item .active, .page-item.active .page-link {
-  background: var(--blue-theme);
+.page-item .active, .page-item.active .page-link, .page-item.active .page-link:active {
+  background: var(--blue-theme) !important;
+}
+
+.page-item.active .page-link:active {
+  border:none;
 }
 
 .rejected-plate {
