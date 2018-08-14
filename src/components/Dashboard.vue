@@ -636,7 +636,8 @@ viewBox="0 0 5164740 5164740"
 
       this.$root.ws.on('dashboard.removeNode', r => {
         if(!_.find(this.network.nodes, r.node)) return
-        this.network.nodes.splice(_.findIndex(this.network.nodes, node => { return node.id === r.node.id }), 1)
+        this.network.nodes = this.network.nodes.filter(v => { return !(v.id === r.node.id) })
+        // this.network.nodes.splice(_.findIndex(this.network.nodes, node => { return node.id === r.node.id }), 1)
         this.network.edges = this.network.edges.filter(v => { return ![v.from, v.to].includes(r.node.id) })
       })
     },
