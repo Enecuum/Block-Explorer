@@ -1,7 +1,12 @@
 <template>
 
   <b-container fluid class="h-100">
-    <b-row>
+    <div id="loadingProgressG" v-if="preload">
+      <div class="loadingProgressG"></div>
+    </div>
+
+    <template v-else>
+      <b-row>
       <b-col>
 
         <b-container fluid class="container-wrapper">
@@ -160,6 +165,7 @@ viewBox="0 0 1237358 1418840">
 
       </b-col>
     </b-row>
+    </template>
   </b-container>
 
 </template>
@@ -177,7 +183,6 @@ viewBox="0 0 1237358 1418840">
         time: 10,
         prev_hash: '1',
         next_hash: '',
-
         type: 0,
         reward: 0,
         microblocks: [],
@@ -185,7 +190,8 @@ viewBox="0 0 1237358 1418840">
           {key: 'hash', label: 'Hash', tdClass: 'weight-600 td-hash-wrapper'},
           {key: 'publisher', label: 'Publisher', tdClass: 'weight-600 td-hash-wrapper'},
           {key: 'Tx', label: 'Tx amount'}
-          ]
+          ],
+        preload: true
       }
     },
     computed: {
@@ -212,6 +218,7 @@ viewBox="0 0 1237358 1418840">
           hash: this.$route.params.id
         }).then(r => {
           _.assign(this.$data, _.pick(r, _.keys(this.$data)))
+          this.preload = false
       }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}}))
       }
     },

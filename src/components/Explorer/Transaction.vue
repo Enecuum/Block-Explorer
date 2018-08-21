@@ -1,14 +1,18 @@
 <template>
 
   <b-container fluid class="h-100">
-    <b-row>
-      <b-col>
+    <div id="loadingProgressG" v-if="preload">
+      <div class="loadingProgressG"></div>
+    </div>
+    <template v-else>
+      <b-row>
+        <b-col>
 
-        <b-container fluid class="container-wrapper">
+          <b-container fluid class="container-wrapper">
 
-          <b-row class="no-gutters pb-20 border-bottom-gray">
-            <b-col class="d-flex align-items-center justify-content-center">
-              <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="26px" height="30px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
+            <b-row class="no-gutters pb-20 border-bottom-gray">
+              <b-col class="d-flex align-items-center justify-content-center">
+                <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="26px" height="30px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
 viewBox="0 0 1400273 1662572"
  >
  <g>
@@ -19,110 +23,111 @@ viewBox="0 0 1400273 1662572"
   </g>
  </g>
 </svg>
-              <h1 class="weight-600 m-0">
-                Transaction details
-              </h1>
-            </b-col>
-          </b-row>
+                <h1 class="weight-600 m-0">
+                  Transaction details
+                </h1>
+              </b-col>
+            </b-row>
 
-          <b-row class="text-center mt-10 mb-10">
+            <b-row class="text-center mt-10 mb-10">
 
-            <b-col class="text-center">
-              <p class="m-0 font-14 weight-600">
-                Hash:
-              </p>
-              <div class="d-flex align-items-center">
-                <div class="hash-wrapper weight-600">
-                  {{ $route.params.id }}
+              <b-col class="text-center">
+                <p class="m-0 font-14 weight-600">
+                  Hash:
+                </p>
+                <div class="d-flex align-items-center">
+                  <div class="hash-wrapper weight-600">
+                    {{ $route.params.id }}
+                  </div>
+                  <button v-clipboard:copy="$route.params.id" class="copy">Copy</button>
                 </div>
-                <button v-clipboard:copy="$route.params.id" class="copy">Copy</button>
-              </div>
-            </b-col>
+              </b-col>
 
-          </b-row>
+            </b-row>
 
-          <b-row class="no-gutters border-bottom-gray border-top-gray">
-            <b-col cols="12" sm="5" class="text-left border-bottom-gray-xs">
+            <b-row class="no-gutters border-bottom-gray border-top-gray">
+              <b-col cols="12" sm="5" class="text-left border-bottom-gray-xs">
 
-              <b-row class="py-1  no-gutters">
-                <b-col class="weight-600 gray-text">From:</b-col>
-                <b-col class="weight-600 hash-wrapper">
-                  <router-link class="href weight-600" :to="{name: 'Wallet', params: { id: owner}}">{{ owner }}
-                  </router-link>
-                </b-col>
-              </b-row>
+                <b-row class="py-1  no-gutters">
+                  <b-col class="weight-600 gray-text">From:</b-col>
+                  <b-col class="weight-600 hash-wrapper">
+                    <router-link class="href weight-600" :to="{name: 'Wallet', params: { id: owner}}">{{ owner }}
+                    </router-link>
+                  </b-col>
+                </b-row>
 
-            </b-col>
+              </b-col>
 
-            <b-col cols="12" sm="5" offset-sm="2" class="text-left">
+              <b-col cols="12" sm="5" offset-sm="2" class="text-left">
 
-              <b-row class="py-1 no-gutters">
-                <b-col class="weight-600 gray-text">To:</b-col>
-                <b-col class="weight-600 hash-wrapper">
-                  <router-link class="href weight-600" :to="{name: 'Wallet', params: {id: receiver}}">
-                    {{ receiver }}
-                  </router-link>
-                </b-col>
-              </b-row>
+                <b-row class="py-1 no-gutters">
+                  <b-col class="weight-600 gray-text">To:</b-col>
+                  <b-col class="weight-600 hash-wrapper">
+                    <router-link class="href weight-600" :to="{name: 'Wallet', params: {id: receiver}}">
+                      {{ receiver }}
+                    </router-link>
+                  </b-col>
+                </b-row>
 
-            </b-col>
-          </b-row>
+              </b-col>
+            </b-row>
 
-          <b-row class="no-gutters border-bottom-gray">
-            <b-col cols="12" sm="5" class="text-left border-bottom-gray-xs">
+            <b-row class="no-gutters border-bottom-gray">
+              <b-col cols="12" sm="5" class="text-left border-bottom-gray-xs">
 
-              <b-row class="py-1  no-gutters">
-                <b-col class="weight-600 gray-text">Time:</b-col>
-                <b-col class="weight-600">
-                  {{ timestamp | moment('YYYY-MM-DD HH:MM:ss') }}
-                </b-col>
-              </b-row>
+                <b-row class="py-1  no-gutters">
+                  <b-col class="weight-600 gray-text">Time:</b-col>
+                  <b-col class="weight-600">
+                    {{ timestamp | moment('YYYY-MM-DD HH:MM:ss') }}
+                  </b-col>
+                </b-row>
 
-            </b-col>
+              </b-col>
 
-            <b-col cols="12" sm="5" offset-sm="2" class="text-left">
+              <b-col cols="12" sm="5" offset-sm="2" class="text-left">
 
-              <b-row class="py-1 no-gutters">
-                <b-col class="weight-600 gray-text">Value:</b-col>
-                <b-col class="weight-600">
-                  {{amount}} {{currency}}
-                </b-col>
-              </b-row>
+                <b-row class="py-1 no-gutters">
+                  <b-col class="weight-600 gray-text">Value:</b-col>
+                  <b-col class="weight-600">
+                    {{amount}} {{currency}}
+                  </b-col>
+                </b-row>
 
-            </b-col>
-          </b-row>
+              </b-col>
+            </b-row>
 
-          <b-row class="no-gutters align-items-center border-bottom-gray">
-            <!--<b-col cols="12" sm="5" class="text-left border-bottom-gray-xs">-->
+            <b-row class="no-gutters align-items-center border-bottom-gray">
+              <!--<b-col cols="12" sm="5" class="text-left border-bottom-gray-xs">-->
 
-            <!--<b-row class="py-1  no-gutters">-->
-            <!--<b-col class="weight-600 gray-text">Microblock:</b-col>-->
-            <!--<b-col class="weight-600 hash-wrapper">-->
-            <!--<router-link class="href weight-600" :to="{name: 'microBlock', params: {id: microblock}}">{{ microblock }}-->
-            <!--</router-link>-->
-            <!--</b-col>-->
-            <!--</b-row>-->
-
-            <!--</b-col>-->
-
-            <!--<b-col cols="12" sm="5" offset-sm="2" class="text-left">-->
-
-              <!--<b-row class="py-1 no-gutters align-items-center">-->
-                <!--<b-col class="weight-600 gray-text">Status:</b-col>-->
-                <!--<b-col class="weight-600">-->
-                  <!--<div class="rejected-plate weight-600">rejected</div>-->
-                  <!--<div class="mined-plate weight-600">mined</div>-->
-                  <!--<div class="pending-plate weight-600">pending</div>-->
-                <!--</b-col>-->
+              <!--<b-row class="py-1  no-gutters">-->
+              <!--<b-col class="weight-600 gray-text">Microblock:</b-col>-->
+              <!--<b-col class="weight-600 hash-wrapper">-->
+              <!--<router-link class="href weight-600" :to="{name: 'microBlock', params: {id: microblock}}">{{ microblock }}-->
+              <!--</router-link>-->
+              <!--</b-col>-->
               <!--</b-row>-->
 
-            <!--</b-col>-->
-          </b-row>
+              <!--</b-col>-->
 
-        </b-container>
+              <!--<b-col cols="12" sm="5" offset-sm="2" class="text-left">-->
 
-      </b-col>
-    </b-row>
+              <!--<b-row class="py-1 no-gutters align-items-center">-->
+              <!--<b-col class="weight-600 gray-text">Status:</b-col>-->
+              <!--<b-col class="weight-600">-->
+              <!--<div class="rejected-plate weight-600">rejected</div>-->
+              <!--<div class="mined-plate weight-600">mined</div>-->
+              <!--<div class="pending-plate weight-600">pending</div>-->
+              <!--</b-col>-->
+              <!--</b-row>-->
+
+              <!--</b-col>-->
+            </b-row>
+
+          </b-container>
+
+        </b-col>
+      </b-row>
+    </template>
   </b-container>
 
 </template>
@@ -139,6 +144,7 @@ viewBox="0 0 1400273 1662572"
         receiver: 0,
         timestamp: 10,
         // microblock: '1'
+        preload: true
       }
     },
     watch: {
@@ -160,9 +166,9 @@ viewBox="0 0 1400273 1662572"
           hash: this.$route.params.id
         }).then(r => {
         _.assign(this.$data, _.pick(r, _.keys(this.$data)))
+          this.preload = false
       }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
-      )
-      }
+      )}
     },
     mounted() {
       this.load()

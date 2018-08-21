@@ -1,13 +1,17 @@
 <template>
   <b-container fluid class="h-100">
-    <b-row>
-      <b-col>
-        <b-container fluid class="container-wrapper">
+    <div id="loadingProgressG" v-if="preload">
+      <div class="loadingProgressG"></div>
+    </div>
+    <template v-else>
+      <b-row>
+        <b-col>
+          <b-container fluid class="container-wrapper">
 
-          <b-row class="m-0 mb-20 pb-20 border-bottom-gray">
+            <b-row class="m-0 mb-20 pb-20 border-bottom-gray">
 
-            <b-col class="d-flex pr-0 pl-0 align-items-center justify-content-center">
-              <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30px" height="33px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 426564 444266">
+              <b-col class="d-flex pr-0 pl-0 align-items-center justify-content-center">
+                <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30px" height="33px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 426564 444266">
  <g id="Слой_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
   <g id="_811910480">
@@ -44,54 +48,55 @@
   </g>
  </g>
 </svg>
-              <h1 class="weight-600 m-0">
-                List of blocks
-              </h1>
-            </b-col>
+                <h1 class="weight-600 m-0">
+                  List of blocks
+                </h1>
+              </b-col>
 
-          </b-row>
+            </b-row>
 
-          <b-row>
-            <b-col>
-              <b-table striped hover responsive :items="items" :fields="fields">
+            <b-row>
+              <b-col>
+                <b-table striped hover responsive :items="items" :fields="fields">
 
-                <template slot="hash" slot-scope="data">
+                  <template slot="hash" slot-scope="data">
                     <router-link class="href" :to="{name: 'Block', params: {id: data.item.hash}}">
                       {{ data.item.hash }}
                     </router-link>
-                </template>
+                  </template>
 
-                <template slot="prev_hash" slot-scope="data">
-                  <div class="hash-wrapper">
-                    <router-link class="href" :to="{name: 'Block', params: {id: data.item.prev_hash}}">
-                      {{ data.item.prev_hash }}
-                    </router-link>
-                  </div>
-                </template>
+                  <template slot="prev_hash" slot-scope="data">
+                    <div class="hash-wrapper">
+                      <router-link class="href" :to="{name: 'Block', params: {id: data.item.prev_hash}}">
+                        {{ data.item.prev_hash }}
+                      </router-link>
+                    </div>
+                  </template>
 
-                <template slot="solver" slot-scope="data">
-                  <div class="hash-wrapper">
-                    <router-link class="href" :to="{name: 'Wallet', params: {id: data.item.solver}}">
-                      {{ data.item.solver }}
-                    </router-link>
-                  </div>
-                </template>
+                  <template slot="solver" slot-scope="data">
+                    <div class="hash-wrapper">
+                      <router-link class="href" :to="{name: 'Wallet', params: {id: data.item.solver}}">
+                        {{ data.item.solver }}
+                      </router-link>
+                    </div>
+                  </template>
 
-              </b-table>
+                </b-table>
 
-              <b-pagination class="mt-10 weight-600"
-                            align="center"
-                            @change="turnPage"
-                            :total-rows="total"
-                            :per-page="perPage"
-                            v-model="currentPage">
-              </b-pagination>
-            </b-col>
-          </b-row>
-        </b-container>
+                <b-pagination class="mt-10 weight-600"
+                              align="center"
+                              @change="turnPage"
+                              :total-rows="total"
+                              :per-page="perPage"
+                              v-model="currentPage">
+                </b-pagination>
+              </b-col>
+            </b-row>
+          </b-container>
 
-      </b-col>
-    </b-row>
+        </b-col>
+      </b-row>
+    </template>
   </b-container>
 
 </template>
@@ -105,6 +110,7 @@
     data() {
       return {
         currentPage: 1,
+        preload: true,
         perPage: 25,
         total: 0,
         items: [],
@@ -134,12 +140,14 @@
 
       turnPage(page) {
         this.$router.push({name: 'ExplorerPage', params: {id: page}});
+        this.preload = true
       },
 
       fetchData(page = 1) {
         this.$root.ws.call('getKBlockList', {page: parseInt(page), limit: this.perPage}).then(r => {
           _.assign(this.$data, _.pick(r, _.keys(this.$data)));
           this.currentPage = parseInt(page);
+          this.preload = false
         });
       }
     },

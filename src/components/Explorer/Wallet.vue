@@ -1,7 +1,11 @@
 <template>
 
   <b-container fluid class="h-100">
-    <b-row>
+    <div id="loadingProgressG" v-if="preload">
+      <div class="loadingProgressG"></div>
+    </div>
+    <template v-else>
+      <b-row>
       <b-col>
 
         <b-container fluid class="container-wrapper">
@@ -145,6 +149,7 @@ viewBox="0 0 9332488 9321506"
 
       </b-col>
     </b-row>
+    </template>
   </b-container>
 
 </template>
@@ -170,7 +175,8 @@ viewBox="0 0 9332488 9321506"
           {key: 'receiver', label: 'To', tdClass: 'weight-600 align-middle'},
           {key: 'amount', label: 'Amount', tdClass: 'weight-600 align-middle'},
           // {key: 'timestamp', label: 'Time', tdClass: 'weight-600 align-middle'},
-        ]
+        ],
+        preload: true
       }
     },
     watch: {
@@ -192,7 +198,8 @@ viewBox="0 0 9332488 9321506"
           hash: this.$route.params.id,
           page: page
         }).then(r => {
-          _.assign(this.$data, _.pick(r, _.keys(this.$data)));
+          _.assign(this.$data, _.pick(r, _.keys(this.$data)))
+          this.preload = false
         }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
         )
       }

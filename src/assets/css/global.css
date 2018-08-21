@@ -682,6 +682,98 @@ a.copy:hover {
   max-height: 150px;
 }
 
+/*placeholder*/
+#loadingProgressG{
+  height: 5px;
+  margin: 0 -15px;
+  overflow:hidden;
+  background: rgb(0, 173, 217);
+  border-radius:5px;
+    -o-border-radius:5px;
+    -ms-border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+}
+
+.loadingProgressG{
+  background-color:rgb(255,255,255);
+  background: radial-gradient(circle at top, rgb(255,255,255), transparent),
+              radial-gradient(circle at bottom, rgb(255,255,255), transparent);
+  margin-left:-50vw;
+  animation-name:bounce_loadingProgressG;
+    -o-animation-name:bounce_loadingProgressG;
+    -ms-animation-name:bounce_loadingProgressG;
+    -webkit-animation-name:bounce_loadingProgressG;
+    -moz-animation-name:bounce_loadingProgressG;
+  animation-duration:2s;
+    -o-animation-duration:2s;
+    -ms-animation-duration:2s;
+    -webkit-animation-duration:2s;
+    -moz-animation-duration:2s;
+  animation-iteration-count:infinite;
+    -o-animation-iteration-count:infinite;
+    -ms-animation-iteration-count:infinite;
+    -webkit-animation-iteration-count:infinite;
+    -moz-animation-iteration-count:infinite;
+  animation-timing-function:linear;
+    -o-animation-timing-function:linear;
+    -ms-animation-timing-function:linear;
+    -webkit-animation-timing-function:linear;
+    -moz-animation-timing-function:linear;
+  width:50vw;
+  height:5px;
+}
+
+@keyframes bounce_loadingProgressG{
+  0%{
+    margin-left:-50vw;
+  }
+
+  100%{
+    margin-left:100vw;
+  }
+}
+
+@-o-keyframes bounce_loadingProgressG{
+  0%{
+    margin-left:-50vw;
+  }
+
+  100%{
+    margin-left:100vw;
+  }
+}
+
+@-ms-keyframes bounce_loadingProgressG{
+  0%{
+    margin-left:-50vw;
+  }
+
+  100%{
+    margin-left:100vw;
+  }
+}
+
+@-webkit-keyframes bounce_loadingProgressG{
+  0%{
+    margin-left:-50vw;
+  }
+
+  100%{
+    margin-left:100vw;
+  }
+}
+
+@-moz-keyframes bounce_loadingProgressG{
+  0%{
+    margin-left:-50vw;
+  }
+
+  100%{
+    margin-left:100vw;
+  }
+}
+
 @media screen and (min-width: 1600px) {
   .dash-description .full {
     display: block !important;
