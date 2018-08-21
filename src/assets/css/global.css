@@ -426,8 +426,7 @@ a.header-button:hover, a.header-button:active {
 
 .container-wrapper {
   width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  padding-top: 20px;
 }
 
 .container-wrapper table {
@@ -456,7 +455,7 @@ a.header-button:hover, a.header-button:active {
   border-color: var(--blue-theme) !important;
 }
 
-.page-link:hover {
+.page-link, .page-link:hover {
   color: var(--blue-theme);
 }
 
