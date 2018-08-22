@@ -153,6 +153,13 @@ html, body {
   padding: 0;
 }
 
+.alpha {
+  top: 5px;
+  left: 190px;
+  color: var(--gray-icon);
+  font-size: 12px;
+}
+
 .header-search {
   position: relative;
   margin-left: 100px;
@@ -806,6 +813,10 @@ a.copy:hover {
 
 @media screen and (max-width: 1200px) {
 
+  .alpha {
+    left:150px;
+  }
+
   .td-hash-wrapper {
     max-width: 140px;
   }
@@ -837,6 +848,10 @@ a.copy:hover {
 }
 
 @media screen and (max-width: 991px) {
+
+  .alpha {
+    display: none;
+  }
 
   .header-logo {
     width: 60px;
