@@ -442,6 +442,8 @@ a.header-button:hover, a.header-button:active {
   color: var(--blue-theme);
 }
 
+
+
 .border-top-gray {
   border-top: 1px solid #f3f3f3;
 }
@@ -569,9 +571,10 @@ a.header-button:hover, a.header-button:active {
 }
 
 .td-hash-wrapper {
-  max-width: 400px;
-  overflow: hidden;
+  display: block;
+  overflow:hidden;
   text-overflow: ellipsis;
+  max-width:500px;
 }
 
 td .hash-wrapper {
@@ -773,6 +776,12 @@ a.copy:hover {
   }
 }
 
+@media screen and (max-width: 1630px) {
+  .td-hash-wrapper {
+    max-width:300px;
+  }
+}
+
 @media screen and (min-width: 1600px) {
   .dash-description .full {
     display: block !important;
@@ -783,7 +792,23 @@ a.copy:hover {
   }
 }
 
+@media screen and (max-width: 1470px) {
+  .td-hash-wrapper {
+    max-width:240px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .td-hash-wrapper {
+    max-width:200px;
+  }
+}
+
 @media screen and (max-width: 1200px) {
+
+  .td-hash-wrapper {
+    max-width: 140px;
+  }
 
   .header-nav {
     padding: 0 20px;

@@ -146,13 +146,13 @@ viewBox="0 0 1237358 1418840">
                     <b-table striped hover responsive :items="microblocks" :fields="fields">
 
                       <template slot="hash" slot-scope="data">
-                        <router-link class="href" :to="{name: 'microBlock', params: {id: data.item.hash}}">
+                        <router-link class="href td-hash-wrapper" :to="{name: 'microBlock', params: {id: data.item.hash}}">
                           {{ data.item.hash }}
                         </router-link>
                       </template>
 
                       <template slot="publisher" slot-scope="data">
-                        <router-link class="href" :to="{name: 'Wallet', params: {id: data.item.publisher}}">
+                        <router-link class="href td-hash-wrapper" :to="{name: 'Wallet', params: {id: data.item.publisher}}">
                           {{ data.item.publisher }}
                         </router-link>
                       </template>
@@ -190,8 +190,8 @@ viewBox="0 0 1237358 1418840">
         reward: 0,
         microblocks: [],
         fields: [
-          {key: 'hash', label: 'Hash', tdClass: 'weight-600 td-hash-wrapper'},
-          {key: 'publisher', label: 'Publisher', tdClass: 'weight-600 td-hash-wrapper'},
+          {key: 'hash', label: 'Hash', tdClass: 'weight-600'},
+          {key: 'publisher', label: 'Publisher', tdClass: 'weight-600'},
           {key: 'Tx', label: 'Tx amount'}
         ],
         preload: true

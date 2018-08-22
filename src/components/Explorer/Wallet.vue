@@ -70,36 +70,28 @@ viewBox="0 0 9332488 9321506"
                              :fields="fields">
 
                       <template slot="hash" slot-scope="data">
-                        <div class="hash-wrapper">
-                          <div class="hash-wrapper">
-                            <router-link class="href" :to="{name: 'Transaction', params: {id: data.item.hash}}">
+                            <router-link class="href td-hash-wrapper" :to="{name: 'Transaction', params: {id: data.item.hash}}">
                               {{data.item.hash}}
                             </router-link>
-                          </div>
-                        </div>
                       </template>
 
                       <template slot="owner" slot-scope="data">
                         <div class="d-flex align-items-center">
                           <avatar class="mr-3" :hash="data.item.owner"></avatar>
-                          <div class="hash-wrapper">
-                            <router-link class="href"
+                            <router-link class="href td-hash-wrapper"
                                          :to="{name: 'Wallet', params: {id: data.item.owner}}">
                               {{ data.item.owner }}
                             </router-link>
-                          </div>
                         </div>
                       </template>
 
                       <template slot="receiver" slot-scope="data">
                         <div class="d-flex align-items-center">
                           <avatar class="mr-3" :hash="data.item.receiver"></avatar>
-                          <div class="hash-wrapper">
-                            <router-link class="href d-flex align-items-center justify-content-around"
+                            <router-link class="href  td-hash-wrapper"
                                          :to="{name: 'Wallet', params: {id: data.item.receiver}}">
                               {{ data.item.receiver }}
                             </router-link>
-                          </div>
                         </div>
                       </template>
 
