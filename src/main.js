@@ -26,11 +26,10 @@ new Vue({
   el: '#app',
   data: {
     ws: new Client(
-      "ws://46.21.248.176:1555",
+      "ws://" + process.env.API_URL,
       {
         max_reconnects: 0
-      }
-    )
+      })
   },
   router,
   components: { App },
