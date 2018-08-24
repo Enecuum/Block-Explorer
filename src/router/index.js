@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import Dashboard from '@/components/Dashboard'
 import Explorer from '@/components/Explorer'
 // import Mining from '@/components/Mining'
-import About from '@/components/About'
+// import About from '@/components/About'
 import Search from '@/components/layout/searchError'
 // import Pending from '@/components/Pending'
 
@@ -29,7 +29,7 @@ export default new Router({
     {path: '/explorer/transaction/:id', name: 'Transaction', component: Transaction},
     {path: '/explorer/wallet/:id', name: 'Wallet', component: Wallet},
     // {path: '/mining', name: 'Mining', component: Mining },
-    {path: '/about', name: 'About', component: About},
+    // {path: '/about', name: 'About', component: About},
     // {path: '/pending', name: 'Pending', component: Pending}
   ]
 })
