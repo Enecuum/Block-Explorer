@@ -562,6 +562,7 @@
           this.$root.ws.call('getStats').then( r => {
             _.assign(this.$data, _.pick( r, _.keys(this.$data)));
             _.assign(this.$data.network, r.tophology);
+            this.network.edges = _.flatten(this.network.edges)
           })
         } else {
           setTimeout(() => {
@@ -572,7 +573,6 @@
     },
 
     created() {
-
       this.$root.ws.on('dashboard.stats', r => {
         _.assign(this.$data, _.pick( r, _.keys(this.$data)));
       });
@@ -586,9 +586,9 @@
       });
 
       this.$root.ws.on('dashboard.removeNode', r => {
-        if(!_.find(this.network.nodes, r.node)) return
-        this.network.nodes = this.network.nodes.filter(v => { return !(v.id === r.node.id) })
-        this.network.edges = this.network.edges.filter(v => { return ![v.from, v.to].includes(r.node.id) })
+        if(!_.find(this.network.nodes, r)) return
+        this.network.nodes = this.network.nodes.filter(v => { return !(v.id === r.id) })
+        this.network.edges = this.network.edges.filter(v => { return ![v.from, v.to].includes(r.id) })
       })
     },
     mounted() {
