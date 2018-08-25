@@ -26,7 +26,7 @@ new Vue({
   el: '#app',
   data: {
     ws: new Client(
-      "ws://" + process.env.API_URL,
+      process.env.API_URL,
       {
         max_reconnects: 0
       })
