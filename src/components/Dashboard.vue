@@ -586,9 +586,9 @@
       });
 
       this.$root.ws.on('dashboard.removeNode', r => {
-        if(!_.find(this.network.nodes, r)) return
-        this.network.nodes = this.network.nodes.filter(v => { return !(v.id === r.id) })
-        this.network.edges = this.network.edges.filter(v => { return ![v.from, v.to].includes(r.id) })
+        if(!_.find(this.network.nodes, r.node)) return
+        this.network.nodes = this.network.nodes.filter(v => { return !(v.id === r.node.id) })
+        this.network.edges = this.network.edges.filter(v => { return ![v.from, v.to].includes(r.node.id) })
       })
     },
     mounted() {
