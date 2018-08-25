@@ -552,6 +552,7 @@
           this.$root.ws.call('getStats').then( r => {
             _.assign(this.$data, _.pick( r, _.keys(this.$data)));
             _.assign(this.$data.network, r.tophology);
+            this.network.edges = _.flatten(this.network.edges)
           })
         } else {
           setTimeout(() => {
@@ -562,7 +563,6 @@
     },
 
     created() {
-
       this.$root.ws.on('dashboard.stats', r => {
         _.assign(this.$data, _.pick( r, _.keys(this.$data)));
       });

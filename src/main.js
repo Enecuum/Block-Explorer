@@ -19,7 +19,6 @@ Vue.use(BootstrapVue)
 Vue.use(Vue2TouchEvents)
 Vue.use(VueClipboard)
 Vue.use(require('vue-moment'))
-// 'ws://46.21.248.176:1555'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -27,11 +26,10 @@ new Vue({
   el: '#app',
   data: {
     ws: new Client(
-      "ws://46.21.248.176:1555",
+      process.env.API_URL,
       {
         max_reconnects: 0
-      }
-    )
+      })
   },
   router,
   components: { App },
