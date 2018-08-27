@@ -551,7 +551,7 @@
         if(this.$root.ws.ready) {
           this.$root.ws.call('getStats').then( r => {
             _.assign(this.$data, _.pick( r, _.keys(this.$data)));
-            _.assign(this.$data.network, r.tophology);
+            _.assign(this.$data.network, r.topology);
             this.network.edges = _.flatten(this.network.edges)
           })
         } else {
