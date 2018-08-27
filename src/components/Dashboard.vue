@@ -580,6 +580,13 @@
         this.network.nodes = this.network.nodes.filter(v => { return !(v.id === r.node.id) })
         this.network.edges = this.network.edges.filter(v => { return ![v.from, v.to].includes(r.node.id) })
       })
+
+      this.$root.ws.on('dashboard.disconnect', () =>
+      {
+        this.network.nodes = []
+        this.network.edges = []
+        this.$root.ws.close()
+      })
     },
     mounted() {
       this.reload();
