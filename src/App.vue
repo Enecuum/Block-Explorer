@@ -54,13 +54,6 @@
         document.querySelector('.mobile-toggler').classList.remove('expand')
       },
     },
-    mounted() {
-      this.$root.ws.on('open', function(){
-        this.subscribe('dashboard.stats');
-        this.subscribe('dashboard.addNode');
-        this.subscribe('dashboard.removeNode');
-      })
-    },
     components: {
       topHeader,
       sidebar,

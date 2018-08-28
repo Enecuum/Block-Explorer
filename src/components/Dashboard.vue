@@ -567,27 +567,49 @@
             this.reload()
           }, 500)
         }
+      },
+
+      addListeners(e) {
+        if (e) {
+          this.$root.ws.on('dashboard.stats', r => {
+            _.assign(this.$data, _.pick(r, _.keys(this.$data)));
+          });
+
+          this.$root.ws.on('dashboard.addNode', r => {
+            if (_.find(this.network.nodes, r.node)) return
+            this.network.nodes.push(r.node)
+            if (r.edge) {
+              this.network.edges = this.network.edges.concat(...r.edge);
+            }
+          });
+
+          this.$root.ws.on('dashboard.removeNode', r => {
+            if (!_.find(this.network.nodes, r.node)) return
+            this.network.nodes = this.network.nodes.filter(v => {
+              return !(v.id === r.node.id)
+            })
+            this.network.edges = this.network.edges.filter(v => {
+              return ![v.from, v.to].includes(r.node.id)
+            })
+          })
+
+          this.$root.ws.on('dashboard.disconnect', () => {
+            this.network.nodes = []
+            this.network.edges = []
+            this.$root.ws.close()
+          })
+        }
+        else
+        {
+          setTimeout(() =>
+          {
+            this.addListeners((this.$root.ws.ready))
+          }, 2000)
+        }
       }
     },
-
     created() {
-      this.$root.ws.on('dashboard.stats', r => {
-        _.assign(this.$data, _.pick( r, _.keys(this.$data)));
-      });
-
-      this.$root.ws.on('dashboard.addNode', r => {
-        if(_.find(this.network.nodes, r.node)) return
-        this.network.nodes.push(r.node)
-        if(r.edge) {
-          this.network.edges = this.network.edges.concat(...r.edge);
-        }
-      });
-
-      this.$root.ws.on('dashboard.removeNode', r => {
-        if(!_.find(this.network.nodes, r.node)) return
-        this.network.nodes = this.network.nodes.filter(v => { return !(v.id === r.node.id) })
-        this.network.edges = this.network.edges.filter(v => { return ![v.from, v.to].includes(r.node.id) })
-      })
+      this.addListeners(this.$root.ws.ready)
     },
     mounted() {
       this.reload();
