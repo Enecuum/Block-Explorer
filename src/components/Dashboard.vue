@@ -440,11 +440,6 @@
           edges: [],
           options: {
             clickToUse: true,
-            nodes: {
-              shape: 'image',
-              size: 15,
-              image: 'static/icons/dashboard/network/Node.svg',
-            },
             groups: {
               Master: {
                 size: 25,
@@ -496,24 +491,37 @@
               selectionWidth: 0.25,
               color: {inherit: true, highlight: '#00add9', hover: '#00add9'},
               smooth: {
-                //enabled: false,
-                type: 'continuous',
-                //forceDirection: 'none',
-                //roundness: 0
+                enabled: false,
+                // type: 'continuous',
+                // forceDirection: 'none',
+                // roundness: 0
               }
             },
             physics: {
-              enabled: true,
+              solver: 'hierarchicalRepulsion',
+              // enabled: true,
               adaptiveTimestep: true,
-              barnesHut: {
-                gravitationalConstant: -5000,
-                springLength: 35,
-                springConstant: 0.09
+              // scaling: {
+              //   min: 1,
+              //   max: 15
+              // },
+              hierarchicalRepulsion: {
+                nodeDistance: 100,
+                // centralGravity: 5,
+                springLength: 50,
+                // springConstant: 0.01,
+                damping: 1
               },
+              // barnesHut: {
+              //   gravitationalConstant: -5000,
+              //   springLength: 80,
+              //   springConstant: 0.09
+              // },
               stabilization: {
+                fit: false,
                 iterations: 20
               },
-              //minVelocity: 0.75
+              // minVelocity: 0.75
             },
             layout: {
               improvedLayout: false,
