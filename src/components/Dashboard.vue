@@ -492,31 +492,27 @@
               color: {inherit: true, highlight: '#00add9', hover: '#00add9'},
               smooth: {
                 enabled: false,
-                // type: 'continuous',
-                // forceDirection: 'none',
-                // roundness: 0
+                type: 'continuous',
+                forceDirection: 'none',
+                roundness: 0.35
               }
             },
             physics: {
-              solver: 'hierarchicalRepulsion',
-              // enabled: true,
+              solver: "barnesHut",
               adaptiveTimestep: true,
-              // scaling: {
-              //   min: 1,
-              //   max: 15
-              // },
               hierarchicalRepulsion: {
                 nodeDistance: 100,
-                // centralGravity: 5,
-                springLength: 50,
-                // springConstant: 0.01,
+                centralGravity: 5,
+                springLength: 150,
+                springConstant: 0.01,
                 damping: 1
               },
-              // barnesHut: {
-              //   gravitationalConstant: -5000,
-              //   springLength: 80,
-              //   springConstant: 0.09
-              // },
+              barnesHut: {
+                gravitationalConstant: -9800,
+                centralGravity: 1,
+                springLength: 80,
+                springConstant: 0.09
+              },
               stabilization: {
                 fit: false,
                 iterations: 20
