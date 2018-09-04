@@ -7,6 +7,7 @@ import Explorer from '@/components/Explorer'
 // import About from '@/components/About'
 import Search from '@/components/layout/searchError'
 // import Pending from '@/components/Pending'
+import SendTransaction from '@/components/sendTransaction'
 
 //Explorer
 import Block from '@/components/Explorer/Block'
@@ -22,6 +23,7 @@ export default new Router({
     {path: '/', redirect: '/dashboard'},
     {path: '/dashboard', name: 'Dashboard', component: Dashboard},
     {path: '/explorer', name: 'Explorer', component: Explorer},
+    {path: '/sendTransaction', name: 'SendTransaction', component: SendTransaction},
     {path: '/explorer/:id', name: 'ExplorerPage', component: Explorer},
     {path: '/explorer/search/:id', name: 'Search', component: Search},
     {path: '/explorer/block/:id', name: 'Block', component: Block},
