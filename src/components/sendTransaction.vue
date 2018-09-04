@@ -29,12 +29,7 @@
             </b-col>
 
             <b-col>
-              <div class="d-flex">
-                <b-input v-model="owner" class="transaction border-radius-right-0"></b-input>
-                <b-btn @click="generateTx" class="transaction-button font-14 weight-600 border-radius-left-0">
-                  GenerateTx
-                </b-btn>
-              </div>
+                <b-input readonly v-model="owner" class="transaction border-radius-right-0"></b-input>
             </b-col>
 
           </b-row>
@@ -53,18 +48,78 @@
               Amount:
             </b-col>
             <b-col>
-              <b-input v-model="amount" class="transaction"></b-input>
+              <b-input v-model="amount"  class="transaction"></b-input>
+            </b-col>
+          </b-row>
+          <b-row v-if="error.amount">
+            <b-col offset="1">
+              <span class="text-danger">amount must be an integer</span>
             </b-col>
           </b-row>
 
-          <b-row class="mt-10">
+          <b-row class="mt-20">
             <b-col class="d-flex justify-content-center">
-              <b-btn class="transaction-button font-14 weight-600">
+              <b-btn @click="sendTransaction" class="transaction-button font-14 weight-600">
                 Generate transaction
               </b-btn>
             </b-col>
           </b-row>
 
+          <b-row class="mt-20 font-14 weight-600" v-if="this.items.length">
+            <b-col>
+
+            <b-table striped hover responsive :items="this.items" :fields="fields">
+
+              <template slot="hash" slot-scope="data">
+                <router-link class="href td-hash-wrapper" :to="{name: 'Transaction', params: { id: data.item.hash }}">
+                  {{ data.item.hash }}
+                </router-link>
+              </template>
+
+              <template slot="owner" slot-scope="data">
+                <router-link class="href td-hash-wrapper" :to="{name: 'Wallet', params: { id: data.item.owner }}">
+                  {{ encodeURIComponent(data.item.owner) }}
+                </router-link>
+              </template>
+
+              <template slot="receiver" slot-scope="data">
+                <router-link class="href td-hash-wrapper" :to="{name: 'Wallet', params: { id: data.item.receiver }}">
+                  {{ encodeURIComponent(data.item.receiver) }}
+                </router-link>
+              </template>
+
+              <template slot="amount" slot-scope="data">
+                {{data.item.amount}} {{data.item.currency}}
+              </template>
+
+            </b-table>
+
+            </b-col>
+          </b-row>
+
+          <b-modal ref="wallet"
+                   @ok="handleOk"
+                  no-close-on-esc
+                  no-close-on-backdrop
+                  hide-header-close
+                  ok-only
+                  size="lg">
+            <template slot="modal-header">
+                <span class="font-18 weight-600">Wallet</span>
+            </template>
+            <p class="mt-20">
+              We do not store your key on the server. The key generation is handled on your browser only.
+              <br>
+              <br>
+              Back up your key if you want to reuse in the future. If you lose your key, it cannot be recovered.
+            </p>
+              <div class="d-flex mb-20">
+                <b-input v-model="owner" class="transaction border-radius-right-0"></b-input>
+                <b-btn @click="generateTx" class="transaction-button font-14 weight-600 border-radius-left-0">
+                  Generate
+                </b-btn>
+              </div>
+          </b-modal>
 
         </b-form>
 
@@ -75,29 +130,104 @@
 </template>
 
 <script>
+  const bs = require("bs58")
+  const EC = require("elliptic").ec
+  const ec = new EC("secp256k1")
+
   export default {
     name: "sendTransaction",
     data() {
       return {
-        owner: "",
+        owner: window.localStorage.owner || "1",
         receiver: "",
-        amount: "",
+        amount: 0,
         currency: "ENQ",
         uuid: _.random(1, 100),
         sign: {
           sign_s:"",
           sign_r:""
         },
-        timestamp: ""
+        timestamp: "",
+        items:[],
+        fields: [
+          {key: 'hash', label: 'Hash', tdClass: 'weight-600'},
+          {key: 'owner', label: 'From', tdClass: 'weight-600'},
+          {key: 'receiver', label: 'To', tdClass: 'weight-600'},
+          {key: 'amount', label: 'Amount', tdClass: 'weight-600'}
+        ],
+        error: {
+          amount: false,
+          receiver: true
+        }
+      }
+    },
+    watch: {
+      amount: function(val) {
+        if (val) {
+          let reg = /\D+/
+          reg.test(val) ? this.error.amount = true : this.error.amount = false
+        }
+      },
+      receiver: function(val) {
+        val ? this.error.receiver = false : this.error.receiver = true
       }
     },
     methods: {
+      handleOk(e){
+        e.preventDefault()
+        if(this.owner == ""){
+          alert("please enter your key")
+        } else if(this.owner.length < 32){
+          alert("Key should have 32 bytes")
+        } else {
+            this.$refs.wallet.hide()
+        }
+      },
+
       generateTx() {
-        this.owner = "123"
+        const priv = ec.genKeyPair()
+        this.sign_s = ""
+        this.sign_r = ""
+        let buffer = Buffer.from(priv.getPublic().encode("hex"), "hex")
+        this.owner = bs.encode(buffer).substr(0, 40)
+        window.localStorage.setItem("owner", this.owner)
+      },
+
+      sendTransaction() {
+        if (this.validation()){ alert("error"); return}
+        this.timestamp = new Date().valueOf()
+
+        let params = {
+          tx: {
+            owner: this.owner,
+            receiver: this.receiver,
+            amount: this.amount,
+            currency: this.currency,
+            uuid: this.uuid,
+            sign: {
+              sign_s: this.sign_s,
+              sign_r: this.sign_r
+            },
+            timestamp: this.timestamp
+          }
+        }
+
+        this.$root.ws.call("sendTransaction", params).then((response) =>
+        {
+          params.tx.hash = response
+          this.items.push(params.tx)
+        })
+      },
+
+      validation() {
+        for (let key in this.error) {
+          if(this.error[key]) return true
+        }
+        return false
       }
     },
     mounted() {
-
+      if (!window.localStorage.owner) this.$refs.wallet.show()
     }
   }
 </script>

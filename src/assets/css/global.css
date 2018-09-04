@@ -692,10 +692,6 @@ a.copy:hover {
 }
 
 /*sendTransaction*/
-.transaction {
-  padding-right: 100px;
-}
-
 .transaction-button {
   min-width: 100px;
   background: var(--blue-theme);
