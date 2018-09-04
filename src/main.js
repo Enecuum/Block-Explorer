@@ -44,19 +44,21 @@ new Vue({
       }
       else
       {
+        this.bootnode.close()
         response.forEach( ws =>
         {
-          this.bootnode.close()
-          this.ws = new Client("ws://" + ws)
-          if (this.ws.ready) return
-        })
+          if (this.ws ) return
+          else {
+            this.ws = new Client("ws://" + ws)
 
-        this.ws.on('open', function()
-        {
-            this.subscribe('dashboard.stats')
-            this.subscribe('dashboard.addNode')
-            this.subscribe('dashboard.removeNode')
-            this.subscribe('dashboard.disconnect')
+            this.ws.on('open', function()
+            {
+              this.subscribe('dashboard.stats')
+              this.subscribe('dashboard.addNode')
+              this.subscribe('dashboard.removeNode')
+              this.subscribe('dashboard.disconnect')
+            })
+          }
         })
       }
     }
