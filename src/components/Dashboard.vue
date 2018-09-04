@@ -580,6 +580,11 @@
           });
 
           this.$root.ws.on('dashboard.removeNode', r => {
+            if (r.type && r.type === "Master") {
+              this.network.nodes = this.network.nodes.filter(v => {
+                return !(v.id === r.topology + "-PoA" || v.id === r.topology + "-PoW")
+              })
+            }
             if (r.topology) {
               this.network.nodes = this.network.nodes.filter(v => {
                 return !(v.id === r.topology)
