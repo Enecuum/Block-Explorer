@@ -346,7 +346,7 @@
               </svg>
               <div class="dash-description">
                 <h4>PoW</h4>
-                <h1>{{ counter.PoW }}</h1>
+                <h1>{{ totalCounter.PoW }}</h1>
               </div>
             </div>
           </b-col>
@@ -379,7 +379,7 @@
               </svg>
               <div class="dash-description">
                 <h4>PoA units</h4>
-                <h1>{{ counter.PoA }}</h1>
+                <h1>{{ totalCounter.PoA }}</h1>
               </div>
             </div>
           </b-col>
@@ -536,7 +536,7 @@
         transactions: 0,
         masterNodes: 0,
         poaTeams: 0,
-        counter: {
+        totalCounter: {
           PoA:0,
           PoW:0
         }
@@ -576,17 +576,19 @@
                 this.network.edges = this.network.edges.concat(...r.topology.edges);
               }
             }
-            _.assign(this.$data.counter, r.counter)
+            _.assign(this.$data.totalCounter, r.totalCounter)
           });
 
           this.$root.ws.on('dashboard.removeNode', r => {
-            if (!_.find(this.network.nodes, r.node)) return
-            this.network.nodes = this.network.nodes.filter(v => {
-              return !(v.id === r.node.id)
-            })
-            this.network.edges = this.network.edges.filter(v => {
-              return ![v.from, v.to].includes(r.node.id)
-            })
+            if (r.topology) {
+              this.network.nodes = this.network.nodes.filter(v => {
+                return !(v.id === r.topology)
+              })
+              this.network.edges = this.network.edges.filter(v => {
+                return ![v.from, v.to].includes(r.topology)
+              })
+            }
+            _.assign(this.$data.totalCounter, r.totalCounter)
           })
 
           this.$root.ws.on('dashboard.disconnect', () => {
