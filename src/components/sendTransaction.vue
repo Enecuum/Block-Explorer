@@ -63,7 +63,7 @@
 
           <b-row class="mt-1" v-if="error.amount ">
             <b-col offset="1">
-              <span class="text-danger">Amount must be an integer</span>
+              <span class="text-danger">Amount must be an integer, greater than 0 and no more than 100</span>
             </b-col>
           </b-row>
 
@@ -71,6 +71,9 @@
             <b-col class="d-flex justify-content-center">
               <b-btn @click="sendTransaction" class="transaction-button font-14 weight-600">
                 Generate transaction
+              </b-btn>
+              <b-btn @click="$refs.wallet.show()" class="transaction-button font-14 weight-600 ml-3">
+                Change wallet
               </b-btn>
             </b-col>
           </b-row>
@@ -112,10 +115,15 @@
                   no-close-on-esc
                   no-close-on-backdrop
                   hide-header-close
-                  ok-only
                   size="lg">
             <template slot="modal-header">
                 <span class="font-18 weight-600">Wallet</span>
+            </template>
+
+            <template slot="modal-footer">
+              <b-btn @click="handleOk" class="transaction-button font-14 weight-600">
+                ОК
+              </b-btn>
             </template>
             <p class="mt-20">
               We do not store your key on the server. The key generation is handled on your browser only.
@@ -185,7 +193,7 @@
         if (this.owner == ""){
           alert("please enter your key")
         } else if (this.owner.length < 32){
-          alert("Key should have 32 bytes")
+          alert("Key must be base58 and at least 32 characters long")
         } else {
             this.$refs.wallet.hide()
         }
@@ -245,7 +253,7 @@
         }
 
         reg = /\D+/
-        if (reg.test(this.amount)) {
+        if (reg.test(this.amount) || this.amount > 100 || this.amount < 1) {
           this.error.amount = true
           return true
         } else {
