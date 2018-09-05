@@ -167,10 +167,12 @@
         this.$root.ws.call('getTransaction', {
           hash: this.$route.params.id
         }).then(r => {
+          console.log(r)
           _.assign(this.$data, _.pick(r, _.keys(this.$data)))
           this.preload = false
-        }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
-        )
+        }).catch(e => {
+          this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
+        })
       }
     },
     mounted() {

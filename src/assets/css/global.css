@@ -187,9 +187,9 @@ html, body {
   color: var(--gray-icon);
 }
 
-.header-search input.form-control.is-invalid {
-  color: var(--rejected);
-  box-shadow: 0 0 0 0.1rem var(--rejected-border);
+.header-search input.form-control.is-invalid, .error {
+  color: var(--rejected) !important;
+  box-shadow: 0 0 0 0.1rem var(--rejected-border) !important;
 }
 
 .header-search label {

@@ -4,14 +4,15 @@
     <b-row class="m-0 mb-20 pb-20 border-bottom-gray">
 
       <b-col class="d-flex pr-0 pl-0 align-items-center justify-content-center">
-        <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30px" height="39px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 3385608 4271657">
-               <g>
-                <g>
-                 <path fill="#00ADD9" fill-rule="nonzero" d="M1705724 2523665l3384 1400936 1198102 -697001 0 -1397798 -1201486 693863zm-1644139 -1015988l1454761 -840396c39625,-22950 86764,-21381 123830,0l1454926 840396c45900,26583 68272,78344 59769,127794l0 1662960c-413,42598 -22455,83958 -61916,106825l-1411007 820914c-49532,60676 -158007,60594 -207375,-248l-1411007 -820666c-39460,-22867 -61502,-64227 -61585,-106825l-330 -1664281c-4458,-27243 165,-55889 15025,-81563 11227,-19318 26830,-34508 44909,-44910zm1389213 1015988l-1201486 -693946 0 1397881 1198184 697001 3302 -1400936zm127463 -1606989l-1207843 697743 1207843 697744 1207925 -697744 -1207925 -697743zm1807347 -518767c0,219675 -178151,397743 -397908,397743 -219758,0 -397909,-178068 -397909,-397743 0,-219841 178151,-397909 397909,-397909 219757,0 397908,178068 397908,397909z"/>
-                 <path fill="white" fill-rule="nonzero" d="M3056714 194249c0,38057 -30957,69015 -69014,69015 -38058,0 -69015,-30958 -69015,-69015l0 -7100c0,-38057 30957,-69015 69015,-69015 38057,0 69014,30958 69014,69015l0 7100zm-82 431095c0,43258 -30875,78343 -68932,78343 -38058,0 -68933,-35085 -68933,-78343l0 -227518c0,-43258 30875,-78343 68933,-78343 38057,0 68932,35085 68932,78343l0 227518z"/>
-                </g>
-               </g>
-              </svg>
+        <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="26px" height="30px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 1400273 1662572">
+                   <g>
+                    <g>
+                     <path fill="#00ADD9" d="M1400273 160409c0,88609 -71833,160442 -160442,160442 -88609,0 -160442,-71833 -160442,-160442 0,-88576 71833,-160409 160442,-160409 88609,0 160442,71833 160442,160409z"/>
+                     <path fill="white" fill-rule="nonzero" d="M1267659 78324c0,15345 -12483,27827 -27828,27827 -15345,0 -27828,-12482 -27828,-27827l0 -2896c0,-15345 12483,-27828 27828,-27828 15345,0 27828,12483 27828,27828l0 2896zm-34 173823c0,17442 -12449,31589 -27794,31589 -15345,0 -27795,-14147 -27795,-31589l0 -91772c0,-17442 12450,-31589 27795,-31589 15345,0 27794,14147 27794,31589l0 91772z"/>
+                     <path fill="#00ADD9" fill-rule="nonzero" d="M1289927 632315c27562,0 49931,22368 49931,49930 0,27561 -22369,49930 -49931,49930l-1119499 0 223421 223420c19472,19473 19472,51096 0,70568 -19473,19473 -51096,19473 -70568,0l-307503 -307502 -300 -267 -166 -166 -433 -433 -266 -233 -167 -200 -432 -466 -233 -199 -200 -233 -433 -466 -166 -200 -266 -266 -400 -466 -133 -167 -266 -299 -433 -500 -67 -100 -299 -366 -400 -499 -66 -67 -333 -432 -366 -500 -34 -33 -332 -466 -367 -499 -366 -500 -333 -499 -33 -33 -333 -533 -299 -432 -34 -67 -332 -533 -267 -399 -66 -133 -333 -566 -200 -366 -100 -167 -333 -532 -166 -333 -133 -233 -267 -566 -166 -266 -133 -300 -266 -566 -134 -233 -166 -333 -266 -566 -67 -199 -200 -366 -233 -600 -66 -133 -167 -432 -266 -600 -33 -99 -200 -500 -200 -566 -33 -66 -200 -533 -199 -599 0 -33 -200 -599 -200 -566 0 -34 -166 -599 -167 -566 -33 -66 -166 -599 -134 -500 -33 -133 -133 -632 -133 -433 -33 -200 -134 -632 -99 -400 -34 -233 -133 -632 -66 -366 -34 -266 -100 -633 -66 -333 -33 -333 -100 -632 -34 -266 -33 -400 -100 -632 0 -233 -66 -433 -34 -666 -33 -166 -33 -499 -33 -666 0 -100 -34 -566 0 -666 -33 -33 0 -632 0 -666 0 -666 0 -632 33 -34 0 -665 34 -566 0 -100 33 -666 33 -499 33 -167 34 -665 66 -433 0 -233 100 -632 33 -400 34 -266 100 -633 33 -333 66 -332 100 -633 34 -266 66 -366 133 -633 34 -233 99 -399 134 -633 33 -199 133 -433 133 -633 33 -133 134 -499 166 -599 33 -67 167 -566 166 -599 0 -33 200 -566 200 -599 0 -33 199 -600 200 -532 33 -67 200 -566 200 -499 33 -100 266 -599 167 -433 66 -133 233 -599 200 -366 67 -200 266 -566 166 -333 134 -233 266 -565 133 -300 166 -266 267 -566 133 -233 166 -333 333 -533 100 -166 200 -366 333 -566 66 -133 267 -400 332 -532 34 -67 299 -433 333 -532 33 -33 333 -500 366 -499 367 -499 332 -466 34 -34 366 -499 333 -433 66 -66 400 -500 299 -366 67 -100 433 -499 266 -299 133 -167 400 -466 266 -266 166 -200 433 -466 200 -233 233 -200 432 -466 167 -166 266 -266 433 -433 166 -167 300 -266 307503 -307536c19472,-19473 51095,-19473 70568,0 19472,19473 19472,51095 0,70568l-223421 223454 1119499 0zm36949 705279l-1665 1731 -1131 1132 -307503 307503c-19473,19472 -51095,19472 -70568,0 -19473,-19473 -19473,-51096 0,-70568l223420 -223421 -1119499 0c-27561,0 -49930,-22369 -49930,-49930 0,-27561 22369,-49930 49930,-49930l1119499 0 -223420 -223454c-19473,-19473 -19473,-51095 0,-70568 19473,-19473 51095,-19473 70568,0l307503 307536 299 267 167 166 432 433 267 266 166 167 433 466 233 199 200 233 432 466 167 200 266 266 399 466 134 167 266 299 433 500 66 99 300 367 399 499 67 66 333 433 366 500 33 33 333 466 366 499 366 499 333 500 33 33 333 533 300 432 33 67 333 532 266 400 67 133 333 566 199 366 100 167 333 532 167 333 133 233 266 566 167 266 133 300 266 566 133 233 167 333 266 565 66 200 200 366 233 599 67 134 166 432 266 599 34 100 199 500 200 565 33 67 200 533 200 599 0 33 200 599 199 566 0 33 167 600 166 565 33 67 167 599 133 499 33 134 133 632 134 433 33 200 133 632 100 399 33 233 133 633 67 366 33 266 100 633 67 333 33 333 100 632 33 266 33 400 100 632 0 233 67 433 33 666 33 166 34 499 33 666 0 100 33 566 0 666 34 33 0 632 0 666 0 1298 -67 1265 -67 1265 -133 1265 -133 1265 -166 1231 -200 1232 -233 1232 -266 1231 -300 1199 -333 1165 -333 1198 -399 1165 -400 1165 -432 1132 -466 1131 -500 1099 -499 1098 -532 1099 -566 1065 -600 1032 -299 532 -300 500 0 33 -333 499 -299 500 -33 0 -300 499 -333 499 -699 999 -699 965 -732 966 -766 932 -765 898 -799 899z"/>
+                    </g>
+                   </g>
+                  </svg>
         <h1 class="weight-600 m-0">
           Send Transaction
         </h1>
@@ -23,23 +24,30 @@
       <b-col>
 
         <b-form>
+
           <b-row>
             <b-col cols="1" class="font-14 weight-600 d-flex align-items-center">
-              From:
+              Owner:
             </b-col>
 
             <b-col>
-                <b-input readonly v-model="owner" class="transaction border-radius-right-0"></b-input>
+                <b-input readonly v-model="owner"  class="transaction border-radius-right-0"></b-input>
             </b-col>
-
           </b-row>
 
           <b-row class="mt-10">
-            <b-col cols="1" class="font-14 weight-600 d-flex align-items-center">
-              To:
+            <b-col cols="1" class="font-14  weight-600 d-flex align-items-center">
+              Receiver:
             </b-col>
+
             <b-col>
-              <b-input v-model="receiver" class="transaction"></b-input>
+              <b-input v-model="receiver" placeholder="0xjNds..." class="transaction" :class="{'error': error.receiver}"></b-input>
+            </b-col>
+          </b-row>
+
+          <b-row class="mt-1" v-if="error.receiver">
+            <b-col offset="1">
+              <span class="text-danger">Receiver must be base58 and at least 32 characters long and no more than 35 </span>
             </b-col>
           </b-row>
 
@@ -47,13 +55,15 @@
             <b-col cols="1" class="font-14 weight-600 d-flex align-items-center">
               Amount:
             </b-col>
+
             <b-col>
-              <b-input v-model="amount"  class="transaction"></b-input>
+              <b-form-input v-model="amount" placeholder="100" class="transaction" :class="{'error': error.amount}"></b-form-input>
             </b-col>
           </b-row>
-          <b-row v-if="error.amount">
+
+          <b-row class="mt-1" v-if="error.amount ">
             <b-col offset="1">
-              <span class="text-danger">amount must be an integer</span>
+              <span class="text-danger">Amount must be an integer</span>
             </b-col>
           </b-row>
 
@@ -138,9 +148,9 @@
     name: "sendTransaction",
     data() {
       return {
-        owner: window.localStorage.owner || "1",
+        owner: window.localStorage.owner || "",
         receiver: "",
-        amount: 0,
+        amount: "",
         currency: "ENQ",
         uuid: _.random(1, 100),
         sign: {
@@ -157,27 +167,24 @@
         ],
         error: {
           amount: false,
-          receiver: true
+          receiver: false
         }
       }
     },
     watch: {
       amount: function(val) {
-        if (val) {
-          let reg = /\D+/
-          reg.test(val) ? this.error.amount = true : this.error.amount = false
-        }
+        if (this.error.amount) this.validation()
       },
       receiver: function(val) {
-        val ? this.error.receiver = false : this.error.receiver = true
+        if (this.error.receiver) this.validation()
       }
     },
     methods: {
       handleOk(e){
         e.preventDefault()
-        if(this.owner == ""){
+        if (this.owner == ""){
           alert("please enter your key")
-        } else if(this.owner.length < 32){
+        } else if (this.owner.length < 32){
           alert("Key should have 32 bytes")
         } else {
             this.$refs.wallet.hide()
@@ -185,17 +192,21 @@
       },
 
       generateTx() {
-        const priv = ec.genKeyPair()
-        this.sign_s = ""
-        this.sign_r = ""
-        let buffer = Buffer.from(priv.getPublic().encode("hex"), "hex")
-        this.owner = bs.encode(buffer).substr(0, 40)
+        const key = ec.genKeyPair()
+        let publicKey = key.getPublic().encode("hex")
+        this.owner = bs.encode(publicKey).substr(0, 32)
+
         window.localStorage.setItem("owner", this.owner)
       },
 
       sendTransaction() {
-        if (this.validation()){ alert("error"); return}
+        if (this.validation()) return
         this.timestamp = new Date().valueOf()
+
+        const key = ec.genKeyPair()
+        const sign = key.getPublic().encode("hex")
+        this.sign.sign_r = window.btoa(sign.substr(0,12))
+        this.sign.sign_s = window.btoa(sign.substr(-12,12))
 
         let params = {
           tx: {
@@ -205,8 +216,8 @@
             currency: this.currency,
             uuid: this.uuid,
             sign: {
-              sign_s: this.sign_s,
-              sign_r: this.sign_r
+              sign_s: this.sign.sign_s,
+              sign_r: this.sign.sign_r
             },
             timestamp: this.timestamp
           }
@@ -220,18 +231,32 @@
       },
 
       validation() {
-        for (let key in this.error) {
-          if(this.error[key]) return true
+        if (!this.receiver || !this.amount) {
+          alert("you did not fill out the required fields")
+          return true
         }
+
+        let reg = /^\w{32,35}$/
+        if(reg.test(this.receiver)) {
+          this.error.receiver = false
+        } else {
+          this.error.receiver = true
+          return true
+        }
+
+        reg = /\D+/
+        if (reg.test(this.amount)) {
+          this.error.amount = true
+          return true
+        } else {
+          this.error.amount = false
+        }
+
         return false
       }
     },
     mounted() {
-      if (!window.localStorage.owner) this.$refs.wallet.show()
+     if (!window.localStorage.owner) this.$refs.wallet.show()
     }
   }
 </script>
-
-<style scoped>
-
-</style>
