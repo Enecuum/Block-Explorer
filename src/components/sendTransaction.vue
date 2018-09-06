@@ -70,7 +70,7 @@
           <b-row class="mt-20">
             <b-col class="d-flex justify-content-center">
               <b-btn @click="sendTransaction" class="transaction-button font-14 weight-600">
-                Generate transaction
+                Send transaction
               </b-btn>
               <b-btn @click="$refs.wallet.show()" class="transaction-button font-14 weight-600 ml-3">
                 Change wallet
@@ -78,37 +78,37 @@
             </b-col>
           </b-row>
 
-          <b-row class="mt-20 font-14 weight-600" v-if="this.items.length">
-            <b-col>
+          <!--<b-row class="mt-20 font-14 weight-600" v-if="this.items.length">-->
+            <!--<b-col>-->
 
-            <b-table striped hover responsive :items="this.items" :fields="fields">
+            <!--<b-table striped hover responsive :items="this.items" :fields="fields">-->
 
-              <template slot="hash" slot-scope="data">
-                <router-link class="href td-hash-wrapper" :to="{name: 'Transaction', params: { id: data.item.hash }}">
-                  {{ data.item.hash }}
-                </router-link>
-              </template>
+              <!--<template slot="hash" slot-scope="data">-->
+                <!--<router-link class="href td-hash-wrapper" :to="{name: 'Transaction', params: { id: data.item.hash }}">-->
+                  <!--{{ data.item.hash }}-->
+                <!--</router-link>-->
+              <!--</template>-->
 
-              <template slot="owner" slot-scope="data">
-                <router-link class="href td-hash-wrapper" :to="{name: 'Wallet', params: { id: data.item.owner }}">
-                  {{ encodeURIComponent(data.item.owner) }}
-                </router-link>
-              </template>
+              <!--<template slot="owner" slot-scope="data">-->
+                <!--<router-link class="href td-hash-wrapper" :to="{name: 'Wallet', params: { id: data.item.owner }}">-->
+                  <!--{{ encodeURIComponent(data.item.owner) }}-->
+                <!--</router-link>-->
+              <!--</template>-->
 
-              <template slot="receiver" slot-scope="data">
-                <router-link class="href td-hash-wrapper" :to="{name: 'Wallet', params: { id: data.item.receiver }}">
-                  {{ encodeURIComponent(data.item.receiver) }}
-                </router-link>
-              </template>
+              <!--<template slot="receiver" slot-scope="data">-->
+                <!--<router-link class="href td-hash-wrapper" :to="{name: 'Wallet', params: { id: data.item.receiver }}">-->
+                  <!--{{ encodeURIComponent(data.item.receiver) }}-->
+                <!--</router-link>-->
+              <!--</template>-->
 
-              <template slot="amount" slot-scope="data">
-                {{data.item.amount}} {{data.item.currency}}
-              </template>
+              <!--<template slot="amount" slot-scope="data">-->
+                <!--{{data.item.amount}} {{data.item.currency}}-->
+              <!--</template>-->
 
-            </b-table>
+            <!--</b-table>-->
 
-            </b-col>
-          </b-row>
+            <!--</b-col>-->
+          <!--</b-row>-->
 
           <b-modal ref="wallet"
                    @ok="handleOk"
@@ -166,13 +166,13 @@
           sign_r:""
         },
         timestamp: "",
-        items:[],
-        fields: [
-          {key: 'hash', label: 'Hash', tdClass: 'weight-600'},
-          {key: 'owner', label: 'From', tdClass: 'weight-600'},
-          {key: 'receiver', label: 'To', tdClass: 'weight-600'},
-          {key: 'amount', label: 'Amount', tdClass: 'weight-600'}
-        ],
+        // items:[],
+        // fields: [
+        //   {key: 'hash', label: 'Hash', tdClass: 'weight-600'},
+        //   {key: 'owner', label: 'From', tdClass: 'weight-600'},
+        //   {key: 'receiver', label: 'To', tdClass: 'weight-600'},
+        //   {key: 'amount', label: 'Amount', tdClass: 'weight-600'}
+        // ],
         error: {
           amount: false,
           receiver: false
@@ -233,9 +233,17 @@
 
         this.$root.ws.call("sendTransaction", params).then((response) =>
         {
-          params.tx.hash = response
-          this.items.push(params.tx)
-        })
+          if (response) {
+            this.receiver = ""
+            this.amount = ""
+            alert("Transaction successfully sent")
+          }
+        }).catch(error => alert("error"))
+        // then((response) =>
+        // {
+        //   params.tx.hash = response
+        //   this.items.push(params.tx)
+        // })
       },
 
       validation() {
