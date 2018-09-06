@@ -26,21 +26,21 @@
         <b-form>
 
           <b-row>
-            <b-col cols="1" class="font-14 weight-600 d-flex align-items-center">
+            <b-col cols="12" md="1" class="font-14 weight-600 d-flex align-items-center">
               Owner:
             </b-col>
 
-            <b-col>
+            <b-col cols="12" md="11">
                 <b-input readonly v-model="owner"  class="transaction border-radius-right-0"></b-input>
             </b-col>
           </b-row>
 
           <b-row class="mt-10">
-            <b-col cols="1" class="font-14  weight-600 d-flex align-items-center">
+            <b-col cols="12" md="1" class="font-14  weight-600 d-flex align-items-center">
               Receiver:
             </b-col>
 
-            <b-col>
+            <b-col cols="12" md="11">
               <b-input v-model="receiver" placeholder="0xjNds..." class="transaction" :class="{'error': error.receiver}"></b-input>
             </b-col>
           </b-row>
@@ -52,11 +52,11 @@
           </b-row>
 
           <b-row class="mt-10">
-            <b-col cols="1" class="font-14 weight-600 d-flex align-items-center">
+            <b-col cols="12" md="1" class="font-14 weight-600 d-flex align-items-center">
               Amount:
             </b-col>
 
-            <b-col>
+            <b-col cols="12" md="11">
               <b-form-input v-model="amount" placeholder="100" class="transaction" :class="{'error': error.amount}"></b-form-input>
             </b-col>
           </b-row>
