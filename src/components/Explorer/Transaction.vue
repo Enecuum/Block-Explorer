@@ -169,8 +169,9 @@
         }).then(r => {
           _.assign(this.$data, _.pick(r, _.keys(this.$data)))
           this.preload = false
-        }).catch(e => this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
-        )
+        }).catch(e => {
+          this.$router.replace({name: 'Search', params: {id: this.$route.params.id}})
+        })
       }
     },
     mounted() {
