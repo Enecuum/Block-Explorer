@@ -47,7 +47,7 @@
 
           <b-row class="mt-1" v-if="error.receiver">
             <b-col offset="1">
-              <span class="text-danger">Receiver must be base58 and at least 32 characters long and no more than 35 </span>
+              <span class="text-danger">Receiver must be base58 and at least 41 characters long and no more than 45 </span>
             </b-col>
           </b-row>
 
@@ -193,7 +193,7 @@
         if (this.owner == ""){
           alert("please enter your key")
         } else if (this.owner.length < 32){
-          alert("Key must be base58 and at least 32 characters long")
+          alert("Key must be base58 and at least 41 characters long")
         } else {
             this.$refs.wallet.hide()
         }
