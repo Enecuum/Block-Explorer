@@ -202,7 +202,7 @@
       generateTx() {
         const key = ec.genKeyPair()
         let publicKey = key.getPublic().encode("hex")
-        this.owner = bs.encode(publicKey).substr(0, 32)
+        this.owner = bs.encode(publicKey).substr(0, 42)
 
         window.localStorage.setItem("owner", this.owner)
       },
@@ -244,7 +244,7 @@
           return true
         }
 
-        let reg = /^\w{32,35}$/
+        let reg = /^\w{41,45}$/
         if(reg.test(this.receiver)) {
           this.error.receiver = false
         } else {
