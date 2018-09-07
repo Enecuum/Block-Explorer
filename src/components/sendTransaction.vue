@@ -31,7 +31,17 @@
             </b-col>
 
             <b-col cols="12" md="11">
-                <b-input readonly v-model="owner"  class="transaction border-radius-right-0"></b-input>
+                <b-input readonly v-model="owner.public"  class="transaction border-radius-right-0"></b-input>
+            </b-col>
+          </b-row>
+
+          <b-row class="mt-10">
+            <b-col cols="12" md="1" class="font-14 weight-600 d-flex align-items-center">
+              Private:
+            </b-col>
+
+            <b-col cols="12" md="11">
+              <b-input readonly v-model="owner.private"  class="transaction border-radius-right-0"></b-input>
             </b-col>
           </b-row>
 
@@ -132,7 +142,7 @@
               Back up your key if you want to reuse in the future. If you lose your key, it cannot be recovered.
             </p>
               <div class="d-flex mb-20">
-                <b-input v-model="owner" class="transaction border-radius-right-0"></b-input>
+                <b-input v-model="owner.public" class="transaction border-radius-right-0"></b-input>
                 <b-btn @click="generateTx" class="transaction-button font-14 weight-600 border-radius-left-0">
                   Generate
                 </b-btn>
@@ -156,7 +166,10 @@
     name: "sendTransaction",
     data() {
       return {
-        owner: window.localStorage.owner || "",
+        owner: {
+          public: window.localStorage.public || "",
+          private: window.localStorage.private || ""
+        },
         receiver: "",
         amount: "",
         currency: "ENQ",
@@ -190,9 +203,9 @@
     methods: {
       handleOk(e){
         e.preventDefault()
-        if (this.owner == ""){
+        if (this.owner.public === ""){
           alert("please enter your key")
-        } else if (this.owner.length < 32){
+        } else if (this.owner.public.length < 41){
           alert("Key must be base58 and at least 41 characters long")
         } else {
             this.$refs.wallet.hide()
@@ -201,24 +214,50 @@
 
       generateTx() {
         const key = ec.genKeyPair()
-        let publicKey = key.getPublic().encode("hex")
-        this.owner = bs.encode(publicKey).substr(0, 42)
+        let publicKey = key.getPublic().encodeCompressed()
+        let privateKey = key.getPrivate().toString("hex")
 
-        window.localStorage.setItem("owner", this.owner)
+        this.owner.public = bs.encode(publicKey)
+        this.owner.private = privateKey
+
+        window.localStorage.setItem("public", this.owner.public)
+        window.localStorage.setItem("private", this.owner.private)
       },
 
       sendTransaction() {
         if (this.validation()) return
+
+        let key = ec.keyPair({
+          priv: this.owner.private,
+          privEnc: "hex",
+          pub: bs.decode(this.owner.public)
+        })
+
         this.timestamp = new Date().valueOf()
 
-        const key = ec.genKeyPair()
-        const sign = key.getPublic().encode("hex")
-        this.sign.sign_r = window.btoa(sign.substr(0,12))
-        this.sign.sign_s = window.btoa(sign.substr(-12,12))
+        let msg = {
+          tx: {
+            owner: this.owner.public,
+            receiver: this.receiver,
+            amount: this.amount,
+            currency: this.currency,
+            uuid: this.uuid,
+            timestamp: this.timestamp
+          }
+        }
+
+        let message = Buffer.from(JSON.stringify(msg))
+        let signature = key.sign(message)
+
+        console.log(signature)
+
+
+        return
+
 
         let params = {
           tx: {
-            owner: this.owner,
+            owner: this.owner.public,
             receiver: this.receiver,
             amount: this.amount,
             currency: this.currency,
@@ -272,7 +311,7 @@
       }
     },
     mounted() {
-     if (!window.localStorage.owner) this.$refs.wallet.show()
+     if (!window.localStorage.public) this.$refs.wallet.show()
     }
   }
 </script>
