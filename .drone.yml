@@ -60,5 +60,6 @@ pipeline:
     secrets: [telegram_token, telegram_id]
     message: \u2757 PR ${DRONE_REPO_LINK}/pull/${DRONE_PULL_REQUEST}
     when:
-      branch: master
+      branch: 
+        - master
       event: pull_request
