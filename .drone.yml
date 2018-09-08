@@ -43,7 +43,7 @@ pipeline:
       event:
         - push
         - tag
-  notify-deploy
+  notify-deploy:
     image: dev.enecuum.com:2087/library/drone-telegram:v1.0.0
     secrets: [telegram_token, telegram_id]
     message: \u2705 ${DRONE_REPO}:`${DRONE_COMMIT_BRANCH}` ${DRONE_BUILD_NUMBER} deployment successful
