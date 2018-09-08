@@ -25,7 +25,7 @@ pipeline:
         - tag
   deploy:
     image: peloton/drone-rancher
-    url: https://dev.enecuum.com:2096
+    url: https://testnet.enecuum.com:2096
     secrets:
       - source: rancher_access_key
         target: PLUGIN_ACCESS_KEY
@@ -55,3 +55,10 @@ pipeline:
       event:
         - push
         - tag
+  notify-pr:
+    image: dev.enecuum.com:2087/library/drone-telegram:v1.0.0
+    secrets: [telegram_token, telegram_id]
+    message: \u2757 PR ${DRONE_REPO_LINK}/pull/${DRONE_PULL_REQUEST}
+    when:
+      branch: master
+      event: pull_request
