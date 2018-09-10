@@ -26,53 +26,56 @@
         <b-form>
 
           <b-row>
-            <b-col cols="12" md="1" class="font-14 weight-600 d-flex align-items-center">
-              Owner:
+            <b-col cols="12" md="2" class="font-14 weight-600 d-flex align-items-center">
+              Public key:
             </b-col>
 
-            <b-col cols="12" md="11">
+            <b-col cols="12" md="10">
                 <b-input readonly v-model="owner.public"  class="transaction border-radius-right-0"></b-input>
             </b-col>
           </b-row>
 
           <b-row class="mt-10">
-            <b-col cols="12" md="1" class="font-14 weight-600 d-flex align-items-center">
-              Private:
+            <b-col cols="12" md="2" class="font-14 weight-600 d-flex align-items-center">
+              Private key:
             </b-col>
 
-            <b-col cols="12" md="11">
-              <b-input readonly v-model="owner.private"  class="transaction border-radius-right-0"></b-input>
+            <b-col cols="12" md="10">
+              <b-input readonly v-model="owner.private" :type="type" class="transaction border-radius-right-0"></b-input>
+              <b-btn class="transaction-button transaction-toggle" @click="type === 'password' ? type = 'text' : type = 'password'">
+                {{type === "password" ? "Show" : "Hide"}}
+              </b-btn>
             </b-col>
           </b-row>
 
           <b-row class="mt-10">
-            <b-col cols="12" md="1" class="font-14  weight-600 d-flex align-items-center">
+            <b-col cols="12" md="2" class="font-14  weight-600 d-flex align-items-center">
               Receiver:
             </b-col>
 
-            <b-col cols="12" md="11">
+            <b-col cols="12" md="10">
               <b-input v-model="receiver" placeholder="0xjNds..." class="transaction" :class="{'error': error.receiver}"></b-input>
             </b-col>
           </b-row>
 
           <b-row class="mt-1" v-if="error.receiver">
-            <b-col offset="1">
+            <b-col offset="2">
               <span class="text-danger">Receiver must be base58 and at least 41 characters long and no more than 45 </span>
             </b-col>
           </b-row>
 
           <b-row class="mt-10">
-            <b-col cols="12" md="1" class="font-14 weight-600 d-flex align-items-center">
+            <b-col cols="12" md="2" class="font-14 weight-600 d-flex align-items-center">
               Amount:
             </b-col>
 
-            <b-col cols="12" md="11">
+            <b-col cols="12" md="10">
               <b-form-input v-model="amount" placeholder="100" class="transaction" :class="{'error': error.amount}"></b-form-input>
             </b-col>
           </b-row>
 
           <b-row class="mt-1" v-if="error.amount ">
-            <b-col offset="1">
+            <b-col offset="2">
               <span class="text-danger">Amount must be an integer, greater than 0 and no more than 100</span>
             </b-col>
           </b-row>
@@ -88,37 +91,37 @@
             </b-col>
           </b-row>
 
-          <!--<b-row class="mt-20 font-14 weight-600" v-if="this.items.length">-->
-            <!--<b-col>-->
+          <b-row class="mt-20 font-14 weight-600" v-if="this.items.length">
+            <b-col>
 
-            <!--<b-table striped hover responsive :items="this.items" :fields="fields">-->
+            <b-table striped hover responsive :items="this.items" :fields="fields">
 
-              <!--<template slot="hash" slot-scope="data">-->
-                <!--<router-link class="href td-hash-wrapper" :to="{name: 'Transaction', params: { id: data.item.hash }}">-->
-                  <!--{{ data.item.hash }}-->
-                <!--</router-link>-->
-              <!--</template>-->
+              <template slot="hash" slot-scope="data">
+                <router-link class="href td-hash-wrapper" :to="{name: 'Transaction', params: { id: data.item.hash }}">
+                  {{ data.item.hash }}
+                </router-link>
+              </template>
 
-              <!--<template slot="owner" slot-scope="data">-->
-                <!--<router-link class="href td-hash-wrapper" :to="{name: 'Wallet', params: { id: data.item.owner }}">-->
-                  <!--{{ encodeURIComponent(data.item.owner) }}-->
-                <!--</router-link>-->
-              <!--</template>-->
+              <template slot="owner" slot-scope="data">
+                <router-link class="href td-hash-wrapper" :to="{name: 'Wallet', params: { id: data.item.owner }}">
+                  {{ encodeURIComponent(data.item.owner) }}
+                </router-link>
+              </template>
 
-              <!--<template slot="receiver" slot-scope="data">-->
-                <!--<router-link class="href td-hash-wrapper" :to="{name: 'Wallet', params: { id: data.item.receiver }}">-->
-                  <!--{{ encodeURIComponent(data.item.receiver) }}-->
-                <!--</router-link>-->
-              <!--</template>-->
+              <template slot="receiver" slot-scope="data">
+                <router-link class="href td-hash-wrapper" :to="{name: 'Wallet', params: { id: data.item.receiver }}">
+                  {{ encodeURIComponent(data.item.receiver) }}
+                </router-link>
+              </template>
 
-              <!--<template slot="amount" slot-scope="data">-->
-                <!--{{data.item.amount}} {{data.item.currency}}-->
-              <!--</template>-->
+              <template slot="amount" slot-scope="data">
+                {{data.item.amount}} {{data.item.currency}}
+              </template>
 
-            <!--</b-table>-->
+            </b-table>
 
-            <!--</b-col>-->
-          <!--</b-row>-->
+            </b-col>
+          </b-row>
 
           <b-modal ref="wallet"
                    @ok="handleOk"
@@ -142,8 +145,8 @@
               Back up your key if you want to reuse in the future. If you lose your key, it cannot be recovered.
             </p>
               <div class="d-flex mb-20">
-                <b-input v-model="owner.public" class="transaction border-radius-right-0"></b-input>
-                <b-btn @click="generateTx" class="transaction-button font-14 weight-600 border-radius-left-0">
+                <b-input v-model="owner.private" class="transaction border-radius-right-0"></b-input>
+                <b-btn @click="generateWallet" class="transaction-button font-14 weight-600 border-radius-left-0">
                   Generate
                 </b-btn>
               </div>
@@ -158,8 +161,9 @@
 </template>
 
 <script>
-  const bs = require("bs58")
-  const EC = require("elliptic").ec
+  const bs58 = require("bs58")
+    const EC = require("elliptic").ec
+
   const ec = new EC("secp256k1")
 
   export default {
@@ -167,7 +171,7 @@
     data() {
       return {
         owner: {
-          public: window.localStorage.public || "",
+          public: "",
           private: window.localStorage.private || ""
         },
         receiver: "",
@@ -179,17 +183,18 @@
           sign_r:""
         },
         timestamp: "",
-        // items:[],
-        // fields: [
-        //   {key: 'hash', label: 'Hash', tdClass: 'weight-600'},
-        //   {key: 'owner', label: 'From', tdClass: 'weight-600'},
-        //   {key: 'receiver', label: 'To', tdClass: 'weight-600'},
-        //   {key: 'amount', label: 'Amount', tdClass: 'weight-600'}
-        // ],
+        items:[],
+        fields: [
+          {key: 'hash', label: 'Hash', tdClass: 'weight-600'},
+          {key: 'owner', label: 'From', tdClass: 'weight-600'},
+          {key: 'receiver', label: 'To', tdClass: 'weight-600'},
+          {key: 'amount', label: 'Amount', tdClass: 'weight-600'}
+        ],
         error: {
           amount: false,
           receiver: false
-        }
+        },
+        type: "password"
       }
     },
     watch: {
@@ -203,35 +208,36 @@
     methods: {
       handleOk(e){
         e.preventDefault()
-        if (this.owner.public === ""){
-          alert("please enter your key")
-        } else if (this.owner.public.length < 41){
-          alert("Key must be base58 and at least 41 characters long")
-        } else {
-            this.$refs.wallet.hide()
+        if (this.owner.private === ""){
+          alert("please enter your private key")
+        }
+        else if (this.owner.private.length < 50) //todo: make correct validation to private key
+        {
+          alert("Private key must be hex and at least 50 characters long")
+        }
+        else                                    //todo: make correct validation to existing key fields
+        {
+          this.existingWallet(this.owner.private,"hex")
+          this.$refs.wallet.hide()
         }
       },
 
-      generateTx() {
+      generateWallet() {
+        this.items = []
         const key = ec.genKeyPair()
-        let publicKey = key.getPublic().encodeCompressed()
-        let privateKey = key.getPrivate().toString("hex")
-
-        this.owner.public = bs.encode(publicKey)
-        this.owner.private = privateKey
-
-        window.localStorage.setItem("public", this.owner.public)
+        this.owner.private = key.getPrivate().toString("hex")
         window.localStorage.setItem("private", this.owner.private)
+      },
+
+      existingWallet(priv, enc) {
+        let key = ec.keyFromPrivate(priv, enc)
+        this.owner.public = bs58.encode(key.getPublic().encodeCompressed())
       },
 
       sendTransaction() {
         if (this.validation()) return
 
-        let key = ec.keyPair({
-          priv: this.owner.private,
-          privEnc: "hex",
-          pub: bs.decode(this.owner.public)
-        })
+        let key = ec.keyFromPrivate(this.owner.private, "hex")
 
         this.timestamp = new Date().valueOf()
 
@@ -246,14 +252,14 @@
           }
         }
 
-        let message = Buffer.from(JSON.stringify(msg))
-        let signature = key.sign(message)
+        let tx = Buffer.from(JSON.stringify(msg))
+        let signature = key.sign(tx)
 
-        console.log(signature)
+        this.sign.sign_r = signature.r.toString("hex")
+        this.sign.sign_s = signature.s.toString("hex")
 
-
-        return
-
+        console.log("signature>>>>", signature)
+        console.log("signature_s>>>>", this.sign.sign_s)
 
         let params = {
           tx: {
@@ -273,16 +279,12 @@
         this.$root.ws.call("sendTransaction", params).then((response) =>
         {
           if (response) {
+            msg.tx.hash = response
+            this.items.push(msg.tx)
             this.receiver = ""
             this.amount = ""
-            alert("Transaction successfully sent")
           }
-        }).catch(error => alert("error"))
-        // then((response) =>
-        // {
-        //   params.tx.hash = response
-        //   this.items.push(params.tx)
-        // })
+        })
       },
 
       validation() {
@@ -311,7 +313,11 @@
       }
     },
     mounted() {
-     if (!window.localStorage.public) this.$refs.wallet.show()
+     if (!window.localStorage.private) {
+       this.$refs.wallet.show()
+     } else {
+       this.existingWallet(this.owner.private, "hex")
+     }
     }
   }
 </script>

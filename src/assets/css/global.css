@@ -699,6 +699,13 @@ a.copy:hover {
   box-shadow:unset;
 }
 
+.transaction-toggle {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  height: 100%;
+}
+
 .transaction-button:hover, .transaction-button:active, .transaction-button:focus {
   box-shadow: 0 0 0 1px var(--gray-border);
 }
