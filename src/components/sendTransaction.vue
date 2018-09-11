@@ -130,7 +130,7 @@
                   hide-header-close
                   size="lg">
             <template slot="modal-header">
-                <span class="font-18 weight-600">Wallet</span>
+                <span class="font-18 weight-600">Private key:</span>
             </template>
 
             <template slot="modal-footer">
@@ -255,11 +255,10 @@
         let tx = Buffer.from(JSON.stringify(msg))
         let signature = key.sign(tx)
 
-        this.sign.sign_r = signature.r.toString("hex")
-        this.sign.sign_s = signature.s.toString("hex")
+        this.sign.sign_r = window.btoa(signature.r.toString("hex"))
+        this.sign.sign_s = window.btoa(signature.s.toString("hex"))
 
-        console.log("signature>>>>", signature)
-        console.log("signature_s>>>>", this.sign.sign_s)
+        return
 
         let params = {
           tx: {
