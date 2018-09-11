@@ -3,7 +3,7 @@ FROM node:10-alpine as builder
 ADD . /usr/src/explorer
 WORKDIR /usr/src/explorer
 
-ENV API_URL="ws://127.0.0.1:1554"
+ENV API_URL="ws://genesis-bootstrap.enecuum.com:1554"
 
 RUN npm install && \
     npm run build
