@@ -179,7 +179,7 @@ html, body {
   color: rgba(35, 37, 49, 0.7);
 }
 
-.header-search input.form-control:focus {
+.header-search input.form-control:focus, input.transaction:focus {
   box-shadow: 0 0 0 0.1rem rgba(0, 173, 217, 0.7);
 }
 
@@ -187,9 +187,9 @@ html, body {
   color: var(--gray-icon);
 }
 
-.header-search input.form-control.is-invalid {
-  color: var(--rejected);
-  box-shadow: 0 0 0 0.1rem var(--rejected-border);
+.header-search input.form-control.is-invalid, .error {
+  color: var(--rejected) !important;
+  box-shadow: 0 0 0 0.1rem var(--rejected-border) !important;
 }
 
 .header-search label {
@@ -690,6 +690,35 @@ a.copy:hover {
   max-width: 150px;
   max-height: 150px;
 }
+
+/*sendTransaction*/
+.transaction-button {
+  min-width: 100px;
+  background: var(--blue-theme);
+  border: none;
+  box-shadow:unset;
+}
+
+.transaction-toggle {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  height: 100%;
+}
+
+.transaction-button:hover, .transaction-button:active, .transaction-button:focus {
+  box-shadow: 0 0 0 1px var(--gray-border);
+}
+
+.border-radius-right-0 {
+  border-radius: 3px 0 0 3px !important;
+}
+
+.border-radius-left-0 {
+  border-radius: 0 3px 3px 0 !important;
+}
+
+
 
 /*placeholder*/
 #loadingProgressG{
