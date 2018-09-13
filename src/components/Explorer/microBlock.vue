@@ -191,13 +191,13 @@
                           <b-button-group class="pagination-group border-right-0">
                             <b-btn @click="fetchData(--currentPage)" :disabled="currentPage == 1"
                                    class="pagination-button weight-600">
-                              &lsaquo; newest
+                              &lsaquo; next
                             </b-btn>
 
                             <b-btn class="weight-600 current-page" disabled>{{ currentPage }}</b-btn>
 
                             <b-btn @click="fetchData(++currentPage)"
-                                   :disabled="this.last" class="pagination-button border-left-0 weight-600">oldest
+                                   :disabled="this.last" class="pagination-button border-left-0 weight-600">prev
                               &rsaquo;
                             </b-btn>
                           </b-button-group>

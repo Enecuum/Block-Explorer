@@ -124,10 +124,12 @@
           </b-row>
 
           <b-modal ref="wallet"
-                   @ok="handleOk"
-                  no-close-on-esc
-                  no-close-on-backdrop
-                  hide-header-close
+                   :hide-footer="footer"
+                   no-close-on-esc
+                   no-close-on-backdrop
+                   hide-header-close
+                   @hide="footer = true"
+                   @hidden="footer = false"
                   size="lg">
             <template slot="modal-header">
                 <span class="font-18 weight-600">Wallet</span>
@@ -135,8 +137,11 @@
 
             <template slot="modal-footer">
               <b-btn @click="handleOk" class="transaction-button font-14 weight-600">
-                ОК
+                Оk
               </b-btn>
+                <b-btn v-if="this.owner.public" @click="$refs.wallet.hide()" class="transaction-button font-14 weight-600">
+                  Close
+                </b-btn>
             </template>
             <p class="mt-20">
               We do not store your key on the server. The key generation is handled on your browser only.
@@ -194,6 +199,7 @@
           amount: false,
           receiver: false
         },
+        footer: false,
         type: "password"
       }
     },
@@ -206,6 +212,7 @@
       }
     },
     methods: {
+
       handleOk(e){
         e.preventDefault()
         if (this.owner.private === ""){
@@ -217,7 +224,7 @@
         }
         else                                    //todo: make correct validation to existing key fields
         {
-          this.existingWallet(this.owner.private,"hex")
+          this.existingWallet(this.owner.private, "hex")
           this.$refs.wallet.hide()
         }
       },
@@ -257,9 +264,6 @@
 
         this.sign.sign_r = signature.r.toString("hex")
         this.sign.sign_s = signature.s.toString("hex")
-
-        console.log("signature>>>>", signature)
-        console.log("signature_s>>>>", this.sign.sign_s)
 
         let params = {
           tx: {
