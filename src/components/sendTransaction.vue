@@ -54,7 +54,7 @@
             </b-col>
 
             <b-col cols="12" md="10">
-              <b-input v-model="receiver" placeholder="0xjNds..." class="transaction" :class="{'error': error.receiver}"></b-input>
+              <b-input v-model="receiver" placeholder="Enter receiver public key - 0xjNdsSdfga..." class="transaction" :class="{'error': error.receiver}"></b-input>
             </b-col>
           </b-row>
 
@@ -70,7 +70,7 @@
             </b-col>
 
             <b-col cols="12" md="10">
-              <b-form-input v-model="amount" placeholder="100" class="transaction" :class="{'error': error.amount}"></b-form-input>
+              <b-form-input v-model="amount" placeholder="0" class="transaction" :class="{'error': error.amount}"></b-form-input>
             </b-col>
           </b-row>
 
