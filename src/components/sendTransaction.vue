@@ -54,7 +54,7 @@
             </b-col>
 
             <b-col cols="12" md="10">
-              <b-input v-model="receiver" placeholder="Enter receiver public key - 0xjNdsSdfga..." class="transaction" :class="{'error': error.receiver}"></b-input>
+              <b-input v-model="receiver" placeholder="0xjNds..." class="transaction" :class="{'error': error.receiver}"></b-input>
             </b-col>
           </b-row>
 
@@ -70,7 +70,7 @@
             </b-col>
 
             <b-col cols="12" md="10">
-              <b-form-input v-model="amount" placeholder="0" class="transaction" :class="{'error': error.amount}"></b-form-input>
+              <b-form-input v-model="amount" placeholder="100" class="transaction" :class="{'error': error.amount}"></b-form-input>
             </b-col>
           </b-row>
 
@@ -124,24 +124,19 @@
           </b-row>
 
           <b-modal ref="wallet"
-                   :hide-footer="footer"
-                   no-close-on-esc
-                   no-close-on-backdrop
-                   hide-header-close
-                   @hide="footer = true"
-                   @hidden="footer = false"
+                   @ok="handleOk"
+                  no-close-on-esc
+                  no-close-on-backdrop
+                  hide-header-close
                   size="lg">
             <template slot="modal-header">
-                <span class="font-18 weight-600">Wallet</span>
+                <span class="font-18 weight-600">Private key:</span>
             </template>
 
             <template slot="modal-footer">
               <b-btn @click="handleOk" class="transaction-button font-14 weight-600">
-                Оk
+                ОК
               </b-btn>
-                <b-btn v-if="this.owner.public" @click="$refs.wallet.hide()" class="transaction-button font-14 weight-600">
-                  Close
-                </b-btn>
             </template>
             <p class="mt-20">
               We do not store your key on the server. The key generation is handled on your browser only.
@@ -199,7 +194,6 @@
           amount: false,
           receiver: false
         },
-        footer: false,
         type: "password"
       }
     },
@@ -212,7 +206,6 @@
       }
     },
     methods: {
-
       handleOk(e){
         e.preventDefault()
         if (this.owner.private === ""){
@@ -224,7 +217,7 @@
         }
         else                                    //todo: make correct validation to existing key fields
         {
-          this.existingWallet(this.owner.private, "hex")
+          this.existingWallet(this.owner.private,"hex")
           this.$refs.wallet.hide()
         }
       },
