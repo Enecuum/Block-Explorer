@@ -3,9 +3,10 @@ FROM node:10-alpine as builder
 ADD . /usr/src/explorer
 WORKDIR /usr/src/explorer
 
-ENV API_URL="ws://genesis-bootstrap.enecuum.com:1554"
+ARG API_URL
 
 RUN npm install && \
+    API_URL=${API_URL} && \
     npm run build
 
 FROM nginx:alpine
