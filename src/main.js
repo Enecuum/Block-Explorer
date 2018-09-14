@@ -37,17 +37,19 @@ new Vue({
     this.bootnode.onmessage = (event) =>
     {
       let response = JSON.parse(event.data)
-      if (response === "there no available api servers")
+      if (response.length === 0)
       {
-        console.log(event.data)
-        setTimeout(() => {this.bootnode.send(JSON.stringify({type:"getApiServers"}))},5000)
+        console.log("there are not available API servers")
+        setTimeout(() =>
+        {
+          this.bootnode.send(JSON.stringify({type:"getApiServers"}))},5000)
       }
       else
       {
         response.forEach( ws =>
         {
           this.bootnode.close()
-          this.ws = new Client("ws://" + ws)
+          this.ws = new Client( (process.env.API_URL ? process.env.API_URL.substr(0, process.env.API_URL.indexOf(":")) : "ws") +"://" + ws)
           if (this.ws.ready) return
         })
 
