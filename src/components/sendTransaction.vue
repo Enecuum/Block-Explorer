@@ -54,7 +54,7 @@
             </b-col>
 
             <b-col cols="12" md="10">
-              <b-input v-model="receiver" placeholder="0xjNds..." class="transaction" :class="{'error': error.receiver}"></b-input>
+              <b-input v-model="receiver" placeholder="Enter receiver public key - 0xjNdsSdfga..." class="transaction" :class="{'error': error.receiver}"></b-input>
             </b-col>
           </b-row>
 
@@ -70,7 +70,7 @@
             </b-col>
 
             <b-col cols="12" md="10">
-              <b-form-input v-model="amount" placeholder="100" class="transaction" :class="{'error': error.amount}"></b-form-input>
+              <b-form-input v-model="amount" placeholder="0" class="transaction" :class="{'error': error.amount}"></b-form-input>
             </b-col>
           </b-row>
 
@@ -124,10 +124,12 @@
           </b-row>
 
           <b-modal ref="wallet"
-                   @ok="handleOk"
-                  no-close-on-esc
-                  no-close-on-backdrop
-                  hide-header-close
+                   :hide-footer="footer"
+                   no-close-on-esc
+                   no-close-on-backdrop
+                   hide-header-close
+                   @hide="footer = true"
+                   @hidden="footer = false"
                   size="lg">
             <template slot="modal-header">
                 <span class="font-18 weight-600">Private key:</span>
@@ -135,7 +137,10 @@
 
             <template slot="modal-footer">
               <b-btn @click="handleOk" class="transaction-button font-14 weight-600">
-                ОК
+                Оk
+              </b-btn>
+              <b-btn v-if="this.owner.public" @click="$refs.wallet.hide()" class="transaction-button font-14 weight-600">
+                Close
               </b-btn>
             </template>
             <p class="mt-20">
@@ -194,6 +199,7 @@
           amount: false,
           receiver: false
         },
+        footer: false,
         type: "password"
       }
     },
