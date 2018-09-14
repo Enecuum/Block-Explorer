@@ -28,40 +28,62 @@ new Vue({
     ws: false,
     bootnode: new WebSocket(process.env.API_URL)
   },
-  mounted() {
-    this.bootnode.onopen = () =>
+  methods: {
+    apiListeners()
     {
-      this.bootnode.send(JSON.stringify({type:"getApiServers"}))
-    }
-
-    this.bootnode.onmessage = (event) =>
-    {
-      let response = JSON.parse(event.data)
-      if (response.length === 0)
+      this.bootnode.onopen = () =>
       {
-        console.log("there are not available API servers")
-        setTimeout(() =>
-        {
-          this.bootnode.send(JSON.stringify({type:"getApiServers"}))},5000)
+        this.bootnode.send(JSON.stringify({type:"getApiServers"}))
       }
-      else
+
+      this.bootnode.onmessage = (event) =>
       {
-        response.forEach( ws =>
+        let response = JSON.parse(event.data)
+        if (response.length === 0)
+        {
+          console.log("there are not available API servers")
+          setTimeout(() =>
+          {
+            this.bootnode = new WebSocket(process.env.API_URL)
+            this.apiListeners()
+          },5000)
+        }
+        else
         {
           this.bootnode.close()
-          this.ws = new Client( (process.env.API_URL ? process.env.API_URL.substr(0, process.env.API_URL.indexOf(":")) : "ws") +"://" + ws)
-          if (this.ws.ready) return
-        })
+          response.forEach( ws =>
+          {
+            if (this.ws && this.ws.ready) return
+            this.ws = new Client( (process.env.API_URL ? process.env.API_URL.substr(0, process.env.API_URL.indexOf(":")) : "ws") +"://" + ws, {reconnect: false} )
+          })
 
-        this.ws.on('open', function()
-        {
+          this.ws.on('open', function()
+          {
             this.subscribe('dashboard.stats')
             this.subscribe('dashboard.addNode')
             this.subscribe('dashboard.removeNode')
             this.subscribe('dashboard.disconnect')
-        })
+          })
+
+          this.ws.on("error", (error) => {
+            setTimeout(() =>
+            {
+              this.bootnode = new WebSocket(process.env.API_URL)
+              this.apiListeners()
+            },5000)
+          })
+
+          this.ws.on('close', () =>
+          {
+            this.bootnode = new WebSocket(process.env.API_URL)
+            this.apiListeners()
+          })
+        }
       }
     }
+  },
+  mounted() {
+    this.apiListeners()
   },
   router,
   components: { App },
