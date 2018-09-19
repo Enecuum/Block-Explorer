@@ -5,6 +5,7 @@ const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
 process.env.API_URL = process.env.API_URL || "ws://127.0.0.1:1554"
+process.env.APP = process.env.APP || "https://github.com/Enecuum/AndroidApp/raw/ui_fixes/ENQtestnetalpha.apk"
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
