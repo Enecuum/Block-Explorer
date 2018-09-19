@@ -39,7 +39,7 @@ new Vue({
       this.bootnode.onmessage = (event) =>
       {
         let response = JSON.parse(event.data)
-        if (response.length === 0)
+        if (response.msg.length === 0)
         {
           console.log("there are not available API servers")
           setTimeout(() =>
@@ -51,7 +51,7 @@ new Vue({
         else
         {
           this.bootnode.close()
-          response.forEach( ws =>
+          response.msg.forEach( ws =>
           {
             if (this.ws && this.ws.ready) return
             this.ws = new Client( (process.env.API_URL ? process.env.API_URL.substr(0, process.env.API_URL.indexOf(":")) : "ws") +"://" + ws, {reconnect: false} )
