@@ -54,7 +54,7 @@ new Vue({
           response.msg.forEach( ws =>
           {
             if (this.ws && this.ws.ready) return
-            this.ws = new Client( (process.env.API_URL ? process.env.API_URL.substr(0, process.env.API_URL.indexOf(":")) : "ws") +"://" + ws, {reconnect: false} )
+            this.ws = new Client( (process.env.API_URL ? process.env.API_URL.substr(0, process.env.API_URL.indexOf(":")) : "ws") +"://" + ws.ip + ":" + ws.port, {reconnect: false} )
           })
 
           this.ws.on('open', function()
