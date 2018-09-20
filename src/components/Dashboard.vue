@@ -548,6 +548,12 @@
           powNodes: val.filter(n => n.group === 'PoW').length,
           poaNodes: val.filter(n => n.group === 'PoA').length,
         })
+      },
+      "$root.ws"(val) {
+        if (val) {
+          this.addListeners(val)
+          this.reload()
+        }
       }
     },
     methods: {
@@ -603,9 +609,6 @@
           }, 2000)
         }
       }
-    },
-    created() {
-      this.addListeners(this.$root.ws.ready)
     },
     mounted() {
       this.reload();

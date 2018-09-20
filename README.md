@@ -18,6 +18,11 @@ npm run dev
 API_URL=ws://host:port npm run dev 
 ```
 
+##### set URL for "download APP"
+```bash
+APP=https://example.com npm run dev 
+```
+
 #### build for production with minification and BootNode address API_URL - ws://127.0.0.1:1554
 ```bash
 npm run build
