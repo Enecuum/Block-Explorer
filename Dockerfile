@@ -4,10 +4,11 @@ ADD . /usr/src/explorer
 WORKDIR /usr/src/explorer
 
 ARG API_URL
+ARG APP
 
 RUN npm install && \
     API_URL=${API_URL} && \
-    APP="https://github.com/Enecuum/AndroidApp/blob/Demo-Protocol/ENQtestnetalpha.apk" && \
+    APP=${APP} && \
     npm run build
 
 FROM nginx:alpine
