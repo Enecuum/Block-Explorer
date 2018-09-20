@@ -33,7 +33,7 @@ pipeline:
     tags: latest
     build_args:
      - API_URL=ws://genesis-bootstrap.enecuum.com:1554
-     - APP=https://github.com/Enecuum/AndroidApp/blob/Demo-Protocol/ENQtestnetalpha.apk
+     - APP=https://github.com/Enecuum/AndroidApp/raw/Demo-Protocol/ENQtestnetalpha.apk
     when:
       branch:
         - master
