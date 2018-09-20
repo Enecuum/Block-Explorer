@@ -7,6 +7,7 @@ ARG API_URL
 
 RUN npm install && \
     API_URL=${API_URL} && \
+    APP="https://github.com/Enecuum/AndroidApp/raw/ui_fixes/ENQtestnetalpha.apk"
     npm run build
 
 FROM nginx:alpine
