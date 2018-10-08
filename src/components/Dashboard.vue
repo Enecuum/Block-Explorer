@@ -527,7 +527,7 @@
         },
         TPS: 0,
         emission: 0,
-        difficulty: 25,
+        difficulty: 28,
         hashRate: 0,
         blockSize: 0,
         lastKBlockAgo: 0,
