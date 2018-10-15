@@ -494,8 +494,38 @@ a.header-button:hover, a.header-button:active {
 
 /*dashboard*/
 .network {
+  position: relative;
   background: var(--gray-background);
 }
+
+.network .mute {
+  position: absolute;
+  background: url("../../../static/icons/dashboard/network/network_mute.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  filter:blur(2px);
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.mute-text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #000;
+  letter-spacing: 20px;
+  z-index: 5;
+}
+
 
 .dash-panel {
   display: flex;
