@@ -51,6 +51,8 @@
             </div>
 
             <network
+              v-show="poaNodes <= 200"
+              :key="1"
               class="network"
               ref="network"
               :nodes="network.nodes"
@@ -58,6 +60,17 @@
               :options="network.options"
               :events="[]">
             </network>
+
+            <div v-show="poaNodes > 200"
+                 :key="2"
+                 class="network">
+              <div class="mute"></div>
+              <div class="mute-text">
+                <span>COMING</span>
+                <span>SOON</span>
+              </div>
+
+            </div>
 
           </b-col>
         </b-row>
@@ -527,7 +540,7 @@
         },
         TPS: 0,
         emission: 0,
-        difficulty: 28,
+        difficulty: 0,
         hashRate: 0,
         blockSize: 0,
         lastKBlockAgo: 0,

@@ -115,7 +115,7 @@
       <!--</router-link>-->
 
       <li v-touch:tap="closeSidebar">
-        <a class="href" href="/static/testnet.pdf" target="_blank">
+        <a class="href" href="/static/testnet.pdf?v=1.0.0" target="_blank">
           <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="22px" height="20px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"viewBox="0 0 2200000 2025406">
            <g id="Слой_x0020_1">
             <metadata id="CorelCorpID_0Corel-Layer"/>
