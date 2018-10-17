@@ -7,7 +7,7 @@ pipeline:
     tags: latest
     build_args:
      - API_URL=ws://genesis-bootstrap.enecuum.com:1554
-     - APP=https://app.enecuum.com/ENQtestnetalpha.apk
+     - APP=https://app.enecuum.com/
     when:
       branch:
         - master
