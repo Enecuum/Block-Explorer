@@ -18,7 +18,7 @@ npm run dev
 API_URL=ws://host:port npm run dev 
 ```
 
-##### set URL for "download APP"
+##### set URL for "download APP" (disabled)
 ```bash
 APP=https://example.com npm run dev 
 ```
