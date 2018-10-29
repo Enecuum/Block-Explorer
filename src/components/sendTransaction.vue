@@ -305,7 +305,7 @@
         }
 
         reg = /\D+/
-        if (reg.test(this.amount) || this.amount > 100 || this.amount < 1) {
+        if (reg.test(this.amount) || this.amount < 1) {
           this.error.amount = true
           return true
         } else {
