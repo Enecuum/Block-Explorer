@@ -13,7 +13,6 @@
               <b-col class="d-flex pr-0 pl-0 align-items-center justify-content-center">
                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30px" height="33px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 426564 444266">
                  <g id="Слой_x0020_1">
-                  <metadata id="CorelCorpID_0Corel-Layer"/>
                   <g id="_811910480">
                    <g>
                     <path fill="#00ADD9" fill-rule="nonzero" d="M247098 41005l-38800 -22398 9968 -17278 38800 22398 0 7 -9968 17271zm9968 -17278c4768,2750 6405,8854 3655,13622 -2750,4769 -8854,6406 -13623,3656l9968 -17278zm28825 39676l-38793 -22405 9968 -17264 38793 22405 4983 8632 -14951 8632zm9968 -17264c4761,2751 6398,8855 3648,13616 -2751,4761 -8855,6398 -13616,3648l9968 -17264zm-14952 53428l0 -44796 19935 0 0 44796 0 0 -19935 0zm19935 0c0,5501 -4466,9968 -9967,9968 -5501,0 -9968,-4467 -9968,-9968l19935 0zm-19935 44797l0 -44797 19935 0 0 44797 -4983 8632 -14952 -8632zm19935 0c0,5501 -4466,9967 -9967,9967 -5501,0 -9968,-4466 -9968,-9967l19935 0zm-53744 13766l38793 -22398 9968 17264 -38793 22398 -9968 -17264zm9968 17264c-4761,2750 -10865,1113 -13616,-3648 -2750,-4761 -1113,-10865 3648,-13616l9968 17264zm-48768 5142l38800 -22406 9968 17264 -38800 22405 -9968 0 0 -17263zm9968 17263c-4761,2751 -10865,1113 -13616,-3648 -2750,-4761 -1113,-10865 3648,-13615l9968 17263zm-38793 -39669l38793 22406 -9968 17263 -38793 -22405 9968 -17271 0 7zm-9968 17264c-4761,-2751 -6398,-8855 -3648,-13616 2751,-4761 8855,-6398 13616,-3648l-9968 17264zm-28832 -39669l38800 22398 -9968 17278 -38800 -22398 -4984 -8639 14952 -8639zm-9968 17278c-4768,-2751 -6405,-8855 -3655,-13623 2750,-4768 8854,-6406 13623,-3655l-9968 17278zm14951 -53436l0 44797 -19935 0 0 -44797 0 0 19935 0zm-19935 0c0,-5500 4467,-9967 9968,-9967 5501,0 9967,4467 9967,9967l-19935 0zm19935 -44796l0 44796 -19935 0 0 -44796 4984 -8632 14951 8632zm-19935 0c0,-5501 4467,-9967 9968,-9967 5501,0 9967,4466 9967,9967l-19935 0zm53752 -13773l-38800 22405 -9968 -17264 38800 -22405 0 0 9968 17264zm-9968 -17264c4761,-2751 10865,-1113 13616,3648 2750,4761 1113,10865 -3648,13616l-9968 -17264zm48761 -5135l-38793 22399 -9968 -17264 38793 -22398 9968 -7 0 17270zm-9968 -17263c4761,-2751 10865,-1113 13616,3648 2750,4761 1113,10865 -3648,13615l-9968 -17263z"/>
@@ -49,7 +48,7 @@
                  </g>
                 </svg>
                 <h1 class="weight-600 m-0">
-                  List of blocks
+                  {{ $t('explorer.blocks.title') }}
                 </h1>
               </b-col>
 
@@ -66,15 +65,15 @@
                   </template>
 
                   <template slot="prev_hash" slot-scope="data">
-                      <router-link class="href td-hash-wrapper" :to="{name: 'Block', params: {id: data.item.prev_hash}}">
-                        {{ data.item.prev_hash }}
-                      </router-link>
+                    <router-link class="href td-hash-wrapper" :to="{name: 'Block', params: {id: data.item.prev_hash}}">
+                      {{ data.item.prev_hash }}
+                    </router-link>
                   </template>
 
                   <template slot="solver" slot-scope="data">
-                      <router-link class="href td-hash-wrapper" :to="{name: 'Wallet', params: {id: data.item.solver}}">
-                        {{ data.item.solver }}
-                      </router-link>
+                    <router-link class="href td-hash-wrapper" :to="{name: 'Wallet', params: {id: data.item.solver}}">
+                      {{ data.item.solver }}
+                    </router-link>
                   </template>
 
                 </b-table>
@@ -98,7 +97,6 @@
 </template>
 
 <script>
-
   import _ from "lodash"
 
   export default {
@@ -111,12 +109,12 @@
         total: 0,
         items: [],
         fields: [
-          {key: 'number', label: 'Height', tdClass: 'weight-600'},
-          {key: 'hash', label: 'Hash', tdClass: 'weight-600'},
-          {key: 'microblocks', label: 'Microblocks', tdClass: 'weight-600 '},
-          {key: 'prev_hash', label: 'Prev hash', tdClass: 'weight-600'},
-          {key: 'nonce', label: 'Nonce', tdClass: 'weight-600'},
-          {key: 'solver', label: 'Miner', tdClass: 'weight-600'},
+          {key: 'number', label: this.$i18n.t('explorer.blocks.height'), tdClass: 'weight-600'},
+          {key: 'hash', label: this.$i18n.t('explorer.blocks.hash'), tdClass: 'weight-600'},
+          {key: 'microblocks', label: this.$i18n.t('explorer.blocks.microblocks'), tdClass: 'weight-600 '},
+          {key: 'prev_hash', label: this.$i18n.t('explorer.blocks.prev'), tdClass: 'weight-600'},
+          {key: 'nonce', label: this.$i18n.t('explorer.blocks.prev'), tdClass: 'weight-600'},
+          {key: 'solver', label: this.$i18n.t('explorer.blocks.miner'), tdClass: 'weight-600'},
         ],
       }
     },

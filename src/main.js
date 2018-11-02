@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueI18n from 'vue-i18n'
 
 import { Client } from 'rpc-websockets/'
 
@@ -15,11 +16,20 @@ import '@/assets/css/global.css'
 import Vue2TouchEvents from 'vue2-touch-events'
 import VueClipboard from 'vue-clipboard2'
 
+import messages from '../static/locale/index'
+
 Vue.use(BootstrapVue)
 Vue.use(Vue2TouchEvents)
 Vue.use(VueClipboard)
 Vue.use(require('vue-moment'))
+Vue.use(VueI18n)
 Vue.config.productionTip = false
+
+const i18n = new VueI18n({
+  locale: 'en',
+  fallbackLocale: 'en',
+  messages
+})
 
 /* eslint-disable no-new */
 new Vue({
@@ -85,7 +95,9 @@ new Vue({
   mounted() {
     this.apiListeners()
   },
+
   router,
+  i18n,
   components: { App },
   template: '<App/>'
 })
