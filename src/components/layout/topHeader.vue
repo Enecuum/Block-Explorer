@@ -35,9 +35,9 @@
        </g>
       </svg>
 
-    <div class="position-absolute alpha">
-      &alpha;lpha
-    </div>
+      <div class="position-absolute alpha">
+        &alpha;lpha
+      </div>
     </b-navbar-brand>
 
 
@@ -56,7 +56,7 @@
         <b-form-input id="search" type="text" autocomplete="off"
                       :class="{'is-invalid': error}" :value="$route.params.search"
                       v-model="searchText" @keydown.enter.native.prevent="toSearch"
-                      placeholder="Search for address, transaction or block"></b-form-input>
+                      :placeholder="$t('header.search')"></b-form-input>
       </b-nav-form>
 
       <b-navbar-nav class="social d-flex d-lg-none">
@@ -64,10 +64,14 @@
           <template slot="button-content">
             <div class="social d-flex align-items-center">
 
-              <svg v-if="language === 'Eng'" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30px" height="30px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-viewBox="0 0 130616 130620"
- >
- <g>
+              <svg v-if="language === 'Eng'"
+                   width="30px"
+                   height="30px"
+                   version="1.1"
+                   shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
+                   image-rendering="optimizeQuality" fill-rule="evenodd"
+                   clip-rule="evenodd" viewBox="0 0 130616 130620">
+                   <g>
   <g>
    <path fill="#F00002" d="M1092 77234l53538 55 4 52461c3474,568 7041,870 10678,870 3633,0 7197,-305 10667,-870l3 -52461 53546 -55c714,-3865 1088,-7852 1088,-11922 0,-4074 -374,-8057 -1088,-11930l-53546 -55 -3 -52453c-3470,-569 -7034,-874 -10667,-874 -3637,0 -7204,302 -10678,874l-7 52550 -53542 0c-707,3855 -1085,7828 -1085,11888 0,4070 378,8057 1092,11922z"/>
    <path fill="white" d="M1952 81197l25419 31 -19845 14536c1886,3575 4095,6951 6587,10096l36652 -24636 10 5911c-2621,1498 -9887,6799 -13084,8858l-20218 13770c1203,1293 2454,2545 3758,3738 5002,-3412 10102,-6899 14592,-10148l14949 -10248 3 35889c1273,288 2562,541 3859,756l-4 -52461 -53538 -55c250,1335 534,2656 860,3963z"/>
@@ -88,31 +92,83 @@ viewBox="0 0 130616 130620"
    <path fill="#F00002" d="M17473 109763l20218 -13770c3197,-2059 10463,-7360 13084,-8858l-10 -5911 -36652 24636c1068,1348 2191,2645 3360,3903z"/>
   </g>
  </g>
+              </svg>
+
+              <svg v-if="language === 'Chi'" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30px"
+                 height="30px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
+                 image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 140981 140978">
+            <g>
+              <path id="Oval-Copy-2" fill="#FD0002" fill-rule="nonzero" d="M135947 70489c0,-36150 -29308,-65454 -65458,-65454 -36146,0 -65454,29304 -65454,65454 0,36150 29308,65454 65454,65454 36150,0 65458,-29304 65458,-65454z"/>
+              <path fill="#FCE500" d="M41487 57254l-19993 25c980,809 14704,11191 15983,11862l-6018 19047c2710,-1417 12908,-9475 16198,-11532 1467,709 14152,10431 16268,11560 -795,-3877 -5792,-16883 -5886,-18978 1269,-1133 2572,-1960 3899,-2932l12022 -8989 -19986 -45c-643,-2902 -2102,-6619 -3054,-9538l-2349 -7109c-306,-935 -444,-1741 -959,-2422l-6125 19051z"/>
+              <path fill="#FCE500" d="M108633 54582l-5479 2672c1080,587 5548,796 5990,1328 552,1699 215,4510 1101,5955l2811 -5288 6004 886c-354,-810 -3631,-3996 -4062,-4344l2784 -5635 -5591 2613 -4371 -4239 813 6052z"/>
+              <path fill="#FCE500" d="M91347 99186l-5685 -2096 3253 5223c-487,750 -1175,1563 -1734,2237 -556,667 -1525,1758 -1918,2582l5834 -1428c1125,1536 2289,3537 3478,5076l365 -6108 5917 -1657c-1004,-814 -4274,-1818 -5692,-2325l240 -6119c-1470,1387 -2644,3478 -4058,4615z"/>
+              <path fill="#FCE500" d="M92056 34756l-5845 -1939c862,1665 2575,3638 3253,5219l-3687 4858 6088 -1623 3366 5132 369 -6230c1730,-361 4301,-1133 5868,-1709l-5726 -2221 184 -6042c-73,38 -146,38 -170,122l-1775 2074c-633,806 -1265,1511 -1925,2359z"/>
+              <path fill="#FCE500" d="M109397 81493l-6098 -7c39,59 108,66 129,156l2172 1713c896,657 1574,1126 2470,1786l-1765 5990c646,-264 1807,-1181 2443,-1653 858,-640 1702,-1335 2692,-1811l4913 3447 -1723 -5789c1324,-1389 3523,-2414 4851,-3797l-6102 -49 -1939 -5848 -2043 5862z"/>
+            </g>
+            </svg>
+
+              <svg v-if="language === 'Kor'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<circle style="fill:#F0F0F0;" cx="256" cy="256" r="256"/>
+<path style="fill:#D80027;" d="M345.043,256c0,22.261-39.866,77.913-89.043,77.913S166.957,278.261,166.957,256
+	c0-49.178,39.866-89.043,89.043-89.043S345.043,206.822,345.043,256z"/>
+<path style="fill:#0052B4;" d="M345.043,256c0,49.178-39.866,89.043-89.043,89.043S166.957,305.178,166.957,256"/>
+<rect x="353.427" y="319.639" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -125.4831 358.5964)" width="33.391" height="22.261"/>
+<rect x="314.07" y="358.994" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -164.8388 342.2935)" width="33.391" height="22.261"/>
+<rect x="400.656" y="366.851" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -145.034 405.8207)" width="33.391" height="22.261"/>
+<rect x="361.299" y="406.213" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -184.3942 389.5197)" width="33.391" height="22.261"/>
+<rect x="377.04" y="343.247" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -135.2602 382.2079)" width="33.391" height="22.261"/>
+<rect x="337.694" y="382.602" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -174.6126 365.9128)" width="33.391" height="22.261"/>
+<rect x="329.544" y="126.805" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 541.0344 499.9738)" width="89.043" height="22.261"/>
+<rect x="314.081" y="130.749" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 464.3475 476.0975)" width="33.391" height="22.26"/>
+<rect x="353.427" y="170.098" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 503.692 571.0911)" width="33.391" height="22.26"/>
+<rect x="361.282" y="83.526" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 578.3161 428.8593)" width="33.391" height="22.261"/>
+<rect x="400.651" y="122.879" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 617.6954 523.8765)" width="33.391" height="22.261"/>
+<rect x="69.81" y="386.542" transform="matrix(0.7071 0.7071 -0.7071 0.7071 314.6838 35.6313)" width="89.043" height="22.261"/>
+<rect x="140.919" y="382.6" transform="matrix(0.7071 0.7071 -0.7071 0.7071 324.573 3.8704)" width="33.391" height="22.26"/>
+<rect x="101.569" y="343.252" transform="matrix(0.7071 0.7071 -0.7071 0.7071 285.2246 20.1705)" width="33.391" height="22.261"/>
+<rect x="117.031" y="339.316" transform="matrix(0.7071 0.7071 -0.7071 0.7071 295.1205 -11.5916)" width="89.043" height="22.261"/>
+<rect x="69.81" y="103.201" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 276.0196 114.331)" width="89.043" height="22.261"/>
+<rect x="93.412" y="126.806" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 333.0029 137.9383)" width="89.043" height="22.261"/>
+<rect x="117.038" y="150.428" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 390.0373 161.557)" width="89.043" height="22.26"/>
 </svg>
 
-            <svg v-if="language === '한국'" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30px" height="30px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-viewBox="0 0 140981 140978"
- >
- <g>
-   <path id="Oval-Copy-2" fill="#FD0002" fill-rule="nonzero" d="M135947 70489c0,-36150 -29308,-65454 -65458,-65454 -36146,0 -65454,29304 -65454,65454 0,36150 29308,65454 65454,65454 36150,0 65458,-29304 65458,-65454z"/>
-   <path fill="#FCE500" d="M41487 57254l-19993 25c980,809 14704,11191 15983,11862l-6018 19047c2710,-1417 12908,-9475 16198,-11532 1467,709 14152,10431 16268,11560 -795,-3877 -5792,-16883 -5886,-18978 1269,-1133 2572,-1960 3899,-2932l12022 -8989 -19986 -45c-643,-2902 -2102,-6619 -3054,-9538l-2349 -7109c-306,-935 -444,-1741 -959,-2422l-6125 19051z"/>
-   <path fill="#FCE500" d="M108633 54582l-5479 2672c1080,587 5548,796 5990,1328 552,1699 215,4510 1101,5955l2811 -5288 6004 886c-354,-810 -3631,-3996 -4062,-4344l2784 -5635 -5591 2613 -4371 -4239 813 6052z"/>
-   <path fill="#FCE500" d="M91347 99186l-5685 -2096 3253 5223c-487,750 -1175,1563 -1734,2237 -556,667 -1525,1758 -1918,2582l5834 -1428c1125,1536 2289,3537 3478,5076l365 -6108 5917 -1657c-1004,-814 -4274,-1818 -5692,-2325l240 -6119c-1470,1387 -2644,3478 -4058,4615z"/>
-   <path fill="#FCE500" d="M92056 34756l-5845 -1939c862,1665 2575,3638 3253,5219l-3687 4858 6088 -1623 3366 5132 369 -6230c1730,-361 4301,-1133 5868,-1709l-5726 -2221 184 -6042c-73,38 -146,38 -170,122l-1775 2074c-633,806 -1265,1511 -1925,2359z"/>
-   <path fill="#FCE500" d="M109397 81493l-6098 -7c39,59 108,66 129,156l2172 1713c896,657 1574,1126 2470,1786l-1765 5990c646,-264 1807,-1181 2443,-1653 858,-640 1702,-1335 2692,-1811l4913 3447 -1723 -5789c1324,-1389 3523,-2414 4851,-3797l-6102 -49 -1939 -5848 -2043 5862z"/>
- </g>
+              <svg v-if="language === 'Esp'" version="1.1"
+                   xmlns="http://www.w3.org/2000/svg"
+                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                   width="30px" height="30px" x="0px" y="0px"
+                   viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<path style="fill:#FFDA44;" d="M0,256c0,31.314,5.633,61.31,15.923,89.043L256,367.304l240.077-22.261
+	C506.367,317.31,512,287.314,512,256s-5.633-61.31-15.923-89.043L256,144.696L15.923,166.957C5.633,194.69,0,224.686,0,256z"/>
+<g>
+	<path style="fill:#D80027;" d="M496.077,166.957C459.906,69.473,366.071,0,256,0S52.094,69.473,15.923,166.957H496.077z"/>
+	<path style="fill:#D80027;" d="M15.923,345.043C52.094,442.527,145.929,512,256,512s203.906-69.473,240.077-166.957H15.923z"/>
+</g>
 </svg>
+
+              <svg v-if="language === 'Jap'" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="30px" height="30px" x="0px" y="0px" viewBox="0 0 512 512"
+                  style="enable-background:new 0 0 512 512;" xml:space="preserve">
+               <circle style="fill:#F0F0F0;" cx="256" cy="256" r="256"/>
+               <circle style="fill:#D80027;" cx="256" cy="256" r="111.304"/>
+             </svg>
+
               <span class="d-none d-sm-block text-center font-16 lang">{{language}}</span>
-
               <svg class="ml-1" xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 9 5">
                 <path fill="#595C69" fill-rule="nonzero"
                       d="M4.716 4.864L8.61 1.077a.456.456 0 0 0 0-.659L8.324.14a.489.489 0 0 0-.677 0l-3.27 3.18L1.103.137A.482.482 0 0 0 .765 0a.483.483 0 0 0-.339.136L.14.415a.456.456 0 0 0 0 .658l3.897 3.791c.09.088.211.136.34.136.128 0 .25-.048.34-.136z"/>
               </svg>
+
             </div>
           </template>
 
-          <b-dropdown-item @click="changeLang('Eng')" class="font-16">English</b-dropdown-item>
-          <b-dropdown-item @click="changeLang('한국')" class="font-16">한국</b-dropdown-item>
+          <b-dropdown-item @click="changeLang('en')" class="font-16">English</b-dropdown-item>
+          <b-dropdown-item @click="changeLang('es')" class="font-16">español</b-dropdown-item>
+          <b-dropdown-item @click="changeLang('ko')" class="font-16">한국어</b-dropdown-item>
+          <b-dropdown-item @click="changeLang('zh')" class="font-16">中文</b-dropdown-item>
+          <b-dropdown-item @click="changeLang('ja')" class="font-16">日本人</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
 
@@ -134,7 +190,8 @@ viewBox="0 0 140981 140978"
               </svg>
 
             </a>
-            <a href="https://enecuum.com/docs/Enecuum_WP.pdf" target="_blank" class="header-button">White Paper</a>
+            <a href="https://new.enecuum.com/files/pp_en.pdf" target="_blank" class="header-button">{{
+              $t('header.whitePaper') }}</a>
           </div>
         </b-nav-text>
       </b-navbar-nav>
@@ -246,7 +303,7 @@ viewBox="0 0 152051 152051"
         <b-nav-item-dropdown class="pl-3 pr-1" no-caret>
           <template slot="button-content">
             <div class="social d-flex align-items-center">
-              <svg v-if="language === 'Eng'" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30px" height="30px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 130616 130620">
+             <svg v-if="language === 'Eng'" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30px" height="30px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 130616 130620">
                <g>
                 <g>
                  <path fill="#F00002" d="M1092 77234l53538 55 4 52461c3474,568 7041,870 10678,870 3633,0 7197,-305 10667,-870l3 -52461 53546 -55c714,-3865 1088,-7852 1088,-11922 0,-4074 -374,-8057 -1088,-11930l-53546 -55 -3 -52453c-3470,-569 -7034,-874 -10667,-874 -3637,0 -7204,302 -10678,874l-7 52550 -53542 0c-707,3855 -1085,7828 -1085,11888 0,4070 378,8057 1092,11922z"/>
@@ -270,7 +327,7 @@ viewBox="0 0 152051 152051"
                </g>
               </svg>
 
-              <svg v-if="language === '한국'" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30px" height="30px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
+             <svg v-if="language === 'Chi'" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30px" height="30px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
 viewBox="0 0 140981 140978"
  >
  <g>
@@ -282,6 +339,55 @@ viewBox="0 0 140981 140978"
    <path fill="#FCE500" d="M109397 81493l-6098 -7c39,59 108,66 129,156l2172 1713c896,657 1574,1126 2470,1786l-1765 5990c646,-264 1807,-1181 2443,-1653 858,-640 1702,-1335 2692,-1811l4913 3447 -1723 -5789c1324,-1389 3523,-2414 4851,-3797l-6102 -49 -1939 -5848 -2043 5862z"/>
  </g>
 </svg>
+
+             <svg v-if="language === 'Kor'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<circle style="fill:#F0F0F0;" cx="256" cy="256" r="256"/>
+<path style="fill:#D80027;" d="M345.043,256c0,22.261-39.866,77.913-89.043,77.913S166.957,278.261,166.957,256
+	c0-49.178,39.866-89.043,89.043-89.043S345.043,206.822,345.043,256z"/>
+<path style="fill:#0052B4;" d="M345.043,256c0,49.178-39.866,89.043-89.043,89.043S166.957,305.178,166.957,256"/>
+<rect x="353.427" y="319.639" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -125.4831 358.5964)" width="33.391" height="22.261"/>
+<rect x="314.07" y="358.994" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -164.8388 342.2935)" width="33.391" height="22.261"/>
+<rect x="400.656" y="366.851" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -145.034 405.8207)" width="33.391" height="22.261"/>
+<rect x="361.299" y="406.213" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -184.3942 389.5197)" width="33.391" height="22.261"/>
+<rect x="377.04" y="343.247" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -135.2602 382.2079)" width="33.391" height="22.261"/>
+<rect x="337.694" y="382.602" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -174.6126 365.9128)" width="33.391" height="22.261"/>
+<rect x="329.544" y="126.805" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 541.0344 499.9738)" width="89.043" height="22.261"/>
+<rect x="314.081" y="130.749" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 464.3475 476.0975)" width="33.391" height="22.26"/>
+<rect x="353.427" y="170.098" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 503.692 571.0911)" width="33.391" height="22.26"/>
+<rect x="361.282" y="83.526" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 578.3161 428.8593)" width="33.391" height="22.261"/>
+<rect x="400.651" y="122.879" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 617.6954 523.8765)" width="33.391" height="22.261"/>
+<rect x="69.81" y="386.542" transform="matrix(0.7071 0.7071 -0.7071 0.7071 314.6838 35.6313)" width="89.043" height="22.261"/>
+<rect x="140.919" y="382.6" transform="matrix(0.7071 0.7071 -0.7071 0.7071 324.573 3.8704)" width="33.391" height="22.26"/>
+<rect x="101.569" y="343.252" transform="matrix(0.7071 0.7071 -0.7071 0.7071 285.2246 20.1705)" width="33.391" height="22.261"/>
+<rect x="117.031" y="339.316" transform="matrix(0.7071 0.7071 -0.7071 0.7071 295.1205 -11.5916)" width="89.043" height="22.261"/>
+<rect x="69.81" y="103.201" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 276.0196 114.331)" width="89.043" height="22.261"/>
+<rect x="93.412" y="126.806" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 333.0029 137.9383)" width="89.043" height="22.261"/>
+<rect x="117.038" y="150.428" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 390.0373 161.557)" width="89.043" height="22.26"/>
+</svg>
+
+             <svg v-if="language === 'Esp'" version="1.1"
+                   xmlns="http://www.w3.org/2000/svg"
+                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                   width="30px" height="30px" x="0px" y="0px"
+                   viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<path style="fill:#FFDA44;" d="M0,256c0,31.314,5.633,61.31,15.923,89.043L256,367.304l240.077-22.261
+	C506.367,317.31,512,287.314,512,256s-5.633-61.31-15.923-89.043L256,144.696L15.923,166.957C5.633,194.69,0,224.686,0,256z"/>
+<g>
+	<path style="fill:#D80027;" d="M496.077,166.957C459.906,69.473,366.071,0,256,0S52.094,69.473,15.923,166.957H496.077z"/>
+	<path style="fill:#D80027;" d="M15.923,345.043C52.094,442.527,145.929,512,256,512s203.906-69.473,240.077-166.957H15.923z"/>
+</g>
+</svg>
+
+             <svg v-if="language === 'Jap'" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="30px" height="30px" x="0px" y="0px" viewBox="0 0 512 512"
+                  style="enable-background:new 0 0 512 512;" xml:space="preserve">
+               <circle style="fill:#F0F0F0;" cx="256" cy="256" r="256"/>
+               <circle style="fill:#D80027;" cx="256" cy="256" r="111.304"/>
+             </svg>
+
               <span class="font-16 px-3 lang">{{language}}</span>
 
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 9 5">
@@ -291,8 +397,11 @@ viewBox="0 0 140981 140978"
             </div>
           </template>
 
-          <b-dropdown-item @click="changeLang('Eng')" class="font-16">English</b-dropdown-item>
-          <b-dropdown-item @click="changeLang('한국')" class="font-16">한국</b-dropdown-item>
+          <b-dropdown-item @click="changeLang('en')" class="font-16">English</b-dropdown-item>
+          <b-dropdown-item @click="changeLang('es')" class="font-16">Español</b-dropdown-item>
+          <b-dropdown-item @click="changeLang('ko')" class="font-16">한국어</b-dropdown-item>
+          <b-dropdown-item @click="changeLang('zh')" class="font-16">中文</b-dropdown-item>
+          <b-dropdown-item @click="changeLang('ja')" class="font-16">日本人</b-dropdown-item>
         </b-nav-item-dropdown>
 
       </b-navbar-nav>
@@ -324,15 +433,27 @@ viewBox="0 0 140981 140978"
         }
       },
       changeLang(lang) {
-        return this.language = lang
+        this.$i18n.locale = lang
+        switch(lang) {
+          case 'en':
+            return this.language = 'Eng'
+          case 'es':
+            return this.language = 'Esp'
+          case 'ko':
+            return this.language = 'Kor'
+          case 'zh':
+            return this.language = 'Chi'
+          case 'ja':
+            return this.language = 'Jap'
+        }
       },
       toSearch() {
         this.$root.ws.call('search', {
-          hash: this.searchText.replace(/ /g,"")
+          hash: this.searchText.replace(/ /g, "")
         }).then(r => {
           if (this.types.indexOf(r) !== -1) {
             this.error = false;
-            this.$router.push({name: r, params: {id: this.searchText.replace(/ /g,"") }})
+            this.$router.push({name: r, params: {id: this.searchText.replace(/ /g, "")}})
           } else {
             this.error = true
           }
@@ -341,7 +462,3 @@ viewBox="0 0 140981 140978"
     },
   }
 </script>
-
-<style scoped>
-
-</style>

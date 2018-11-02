@@ -14,7 +14,7 @@
                    </g>
                   </svg>
         <h1 class="weight-600 m-0">
-          Send Transaction
+          {{ $t('sendTransaction.title') }}
         </h1>
       </b-col>
 
@@ -27,7 +27,7 @@
 
           <b-row>
             <b-col cols="12" md="2" class="font-14 weight-600 d-flex align-items-center">
-              Public key:
+              {{ $t('sendTransaction.public') }}:
             </b-col>
 
             <b-col cols="12" md="10">
@@ -37,20 +37,20 @@
 
           <b-row class="mt-10">
             <b-col cols="12" md="2" class="font-14 weight-600 d-flex align-items-center">
-              Private key:
+              {{ $t('sendTransaction.private') }}:
             </b-col>
 
             <b-col cols="12" md="10">
               <b-input readonly v-model="owner.private" :type="type" class="transaction border-radius-right-0"></b-input>
               <b-btn class="transaction-button transaction-toggle" @click="type === 'password' ? type = 'text' : type = 'password'">
-                {{type === "password" ? "Show" : "Hide"}}
+                {{type === "password" ? this.$i18n.t('sendTransaction.show') : "Hide"}}
               </b-btn>
             </b-col>
           </b-row>
 
           <b-row class="mt-10">
             <b-col cols="12" md="2" class="font-14  weight-600 d-flex align-items-center">
-              Receiver:
+              {{ $t('sendTransaction.receiver') }}:
             </b-col>
 
             <b-col cols="12" md="10">
@@ -60,13 +60,13 @@
 
           <b-row class="mt-1" v-if="error.receiver">
             <b-col offset="2">
-              <span class="text-danger">Receiver must be base58 and at least 41 characters long and no more than 45 </span>
+              <span class="text-danger">{{ $t('sendTransaction.errors.receiverFormat') }}</span>
             </b-col>
           </b-row>
 
           <b-row class="mt-10">
             <b-col cols="12" md="2" class="font-14 weight-600 d-flex align-items-center">
-              Amount:
+              {{ $t('sendTransaction.amount') }}:
             </b-col>
 
             <b-col cols="12" md="10">
@@ -76,17 +76,17 @@
 
           <b-row class="mt-1" v-if="error.amount ">
             <b-col offset="2">
-              <span class="text-danger">Amount must be an integer, greater than 0 and no more than 100</span>
+              <span class="text-danger">{{ $t('sendTransaction.errors.amountFormat') }}</span>
             </b-col>
           </b-row>
 
           <b-row class="mt-20">
             <b-col class="d-flex justify-content-center">
               <b-btn @click="sendTransaction" class="transaction-button font-14 weight-600">
-                Send transaction
+                {{ $t('sendTransaction.send') }}
               </b-btn>
               <b-btn @click="$refs.wallet.show()" class="transaction-button font-14 weight-600 ml-3">
-                Change wallet
+                {{ $t('sendTransaction.change') }}
               </b-btn>
             </b-col>
           </b-row>
@@ -132,27 +132,22 @@
                    @hidden="footer = false"
                   size="lg">
             <template slot="modal-header">
-                <span class="font-18 weight-600">Private key:</span>
+                <span class="font-18 weight-600">{{ $t(`sendTransaction.private`) }}:</span>
             </template>
 
             <template slot="modal-footer">
               <b-btn @click="handleOk" class="transaction-button font-14 weight-600">
-                Оk
+                {{ $t('sendTransaction.ok') }}
               </b-btn>
               <b-btn v-if="this.owner.public" @click="$refs.wallet.hide()" class="transaction-button font-14 weight-600">
-                Close
+                {{ $t('sendTransaction.close') }}
               </b-btn>
             </template>
-            <p class="mt-20">
-              We do not store your key on the server. The key generation is handled on your browser only.
-              <br>
-              <br>
-              Back up your key if you want to reuse in the future. If you lose your key, it cannot be recovered.
-            </p>
+            <p class="mt-20" v-html="$t('sendTransaction.modal')"></p>
               <div class="d-flex mb-20">
                 <b-input v-model="owner.private" class="transaction border-radius-right-0"></b-input>
                 <b-btn @click="generateWallet" class="transaction-button font-14 weight-600 border-radius-left-0">
-                  Generate
+                  {{ $t('sendTransaction.generate') }}
                 </b-btn>
               </div>
           </b-modal>
@@ -215,11 +210,11 @@
       handleOk(e){
         e.preventDefault()
         if (this.owner.private === ""){
-          alert("please enter your private key")
+          alert(this.$i18n.t('sendTransaction.errors.empty'))
         }
         else if (this.owner.private.length < 50) //todo: make correct validation to private key
         {
-          alert("Private key must be hex and at least 50 characters long")
+          alert(this.$i18n.t('sendTransaction.errors.long'))
         }
         else                                    //todo: make correct validation to existing key fields
         {
@@ -292,7 +287,7 @@
 
       validation() {
         if (!this.receiver || !this.amount) {
-          alert("you did not fill out the required fields")
+          alert(this.$i18n.t('sendTransaction.errors.require'))
           return true
         }
 

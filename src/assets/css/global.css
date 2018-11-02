@@ -848,15 +848,15 @@ a.copy:hover {
   }
 }
 
-@media screen and (min-width: 1600px) {
-  .dash-description .full {
-    display: block !important;
-  }
+/*@media screen and (min-width: 1600px) {*/
+  /*.dash-description .full {*/
+    /*display: block !important;*/
+  /*}*/
 
-  .dash-description .reduction {
-    display: none !important;
-  }
-}
+  /*.dash-description .reduction {*/
+    /*display: none !important;*/
+  /*}*/
+/*}*/
 
 @media screen and (max-width: 1470px) {
   .td-hash-wrapper {

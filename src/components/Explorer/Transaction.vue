@@ -24,7 +24,7 @@
                    </g>
                   </svg>
                   <h1 class="weight-600 m-0">
-                    Transaction details
+                    {{ $t('explorer.transaction.title') }}
                   </h1>
                 </b-col>
               </b-row>
@@ -33,7 +33,7 @@
 
                 <b-col class="text-center">
                   <p class="m-0 font-14 weight-600">
-                    Hash:
+                    {{ $t('explorer.transaction.hash') }}:
                   </p>
                   <div class="d-flex align-items-center">
                     <div class="hash-wrapper weight-600">
@@ -49,7 +49,7 @@
                 <b-col cols="12" sm="5" class="text-left border-bottom-gray-xs">
 
                   <b-row class="py-1  no-gutters">
-                    <b-col class="weight-600 gray-text">From:</b-col>
+                    <b-col class="weight-600 gray-text">{{ $t('explorer.transaction.from') }}:</b-col>
                     <b-col class="weight-600 hash-wrapper">
                       <router-link class="href weight-600" :to="{name: 'Wallet', params: { id: owner}}">{{ owner }}
                       </router-link>
@@ -61,7 +61,7 @@
                 <b-col cols="12" sm="5" offset-sm="2" class="text-left">
 
                   <b-row class="py-1 no-gutters">
-                    <b-col class="weight-600 gray-text">To:</b-col>
+                    <b-col class="weight-600 gray-text">{{ $t('explorer.transaction.to') }}:</b-col>
                     <b-col class="weight-600 hash-wrapper">
                       <router-link class="href weight-600" :to="{name: 'Wallet', params: {id: receiver}}">
                         {{ receiver }}
@@ -76,7 +76,7 @@
                 <b-col cols="12" sm="5" class="text-left border-bottom-gray-xs">
 
                   <b-row class="py-1  no-gutters">
-                    <b-col class="weight-600 gray-text">Time:</b-col>
+                    <b-col class="weight-600 gray-text">{{ $t('explorer.transaction.time') }}:</b-col>
                     <b-col class="weight-600">
                       {{ timestamp | moment('YYYY-MM-DD HH:MM:ss') }}
                     </b-col>
@@ -87,7 +87,7 @@
                 <b-col cols="12" sm="5" offset-sm="2" class="text-left">
 
                   <b-row class="py-1 no-gutters">
-                    <b-col class="weight-600 gray-text">Value:</b-col>
+                    <b-col class="weight-600 gray-text">{{ $t('explorer.transaction.value') }}:</b-col>
                     <b-col class="weight-600">
                       {{amount}} {{currency}}
                     </b-col>
