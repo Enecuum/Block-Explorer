@@ -76,7 +76,7 @@
 
           <b-row class="mt-1" v-if="error.amount ">
             <b-col offset="2">
-              <span class="text-danger">{{ $t('sendTransaction.errors.amountFormat') }}</span>
+              <span class="text-danger">{{ $t('sendTransaction.errors.amount  Format') }}</span>
             </b-col>
           </b-row>
 
@@ -218,7 +218,7 @@
         }
         else                                    //todo: make correct validation to existing key fields
         {
-          this.existingWallet(this.owner.private,"hex")
+          this.existingWallet(this.owner.private, "hex")
           this.$refs.wallet.hide()
         }
       },

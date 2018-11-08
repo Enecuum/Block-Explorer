@@ -169,7 +169,7 @@
           {key: 'hash', label: this.$i18n.t('explorer.transaction.hash'), tdClass: 'weight-600 align-middle'},
           {key: 'owner', label: this.$i18n.t('explorer.transaction.from'), tdClass: 'weight-600 align-middle'},
           {key: 'receiver', label: this.$i18n.t('explorer.transaction.to'), tdClass: 'weight-600 align-middle'},
-          {key: 'amount', label: this.$i18n.t('explorer.transaction.amount'), tdClass: 'weight-600 align-middle'},
+          {key: 'amount', label: this.$i18n.t('explorer.microblock.amount'), tdClass: 'weight-600 align-middle'},
           // {key: 'timestamp', label: 'Time', tdClass: 'weight-600 align-middle'},
         ],
         preload: true
