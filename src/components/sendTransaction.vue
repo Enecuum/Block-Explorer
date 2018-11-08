@@ -232,7 +232,8 @@
 
       existingWallet(priv, enc) {
         let key = ec.keyFromPrivate(priv, enc)
-        this.owner.public = bs58.encode(key.getPublic().encodeCompressed())
+        const buf = key.getPublic().encodeCompressed()
+        this.owner.public = bs58.encode(buf)
       },
 
       sendTransaction() {
