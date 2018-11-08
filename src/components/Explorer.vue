@@ -113,7 +113,7 @@
           {key: 'hash', label: this.$i18n.t('explorer.blocks.hash'), tdClass: 'weight-600'},
           {key: 'microblocks', label: this.$i18n.t('explorer.blocks.microblocks'), tdClass: 'weight-600 '},
           {key: 'prev_hash', label: this.$i18n.t('explorer.blocks.prev'), tdClass: 'weight-600'},
-          {key: 'nonce', label: this.$i18n.t('explorer.blocks.prev'), tdClass: 'weight-600'},
+          {key: 'nonce', label: this.$i18n.t('explorer.blocks.nonce'), tdClass: 'weight-600'},
           {key: 'solver', label: this.$i18n.t('explorer.blocks.miner'), tdClass: 'weight-600'},
         ],
       }
